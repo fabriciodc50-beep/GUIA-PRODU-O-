@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Sora:wght@200;300;400;500;600&display=swap" />
+<style>
+  html, body { margin:0; padding:0; background:#0C0B0A; }
+  * { box-sizing:border-box; }
+  a { color:#E9A13C; text-decoration:none; }
+  a:hover { color:#F5CE93; }
+  ::-webkit-scrollbar { width:8px; height:8px; }
+  ::-webkit-scrollbar-thumb { background:#2A2521; }
+  ::-webkit-scrollbar-track { background:#0C0B0A; }
+</style>
+</helmet>
+
+<div style="font-family:Sora, sans-serif; background:#0C0B0A; min-height:100vh; display:flex; align-items:stretch">
+
+  <sc-if value="{{ toast }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed; left:50%; bottom:28px; transform:translateX(-50%); z-index:90; background:#E9A13C; color:#161310; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; font-weight:500; padding:13px 22px">{{ toast }}</div>
+  </sc-if>
+
+  <div style="position:fixed; left:18px; top:50%; transform:translateY(-50%); z-index:60; display:flex; flex-direction:column; gap:8px">
+    <sc-for list="{{ menu }}" as="m" hint-placeholder-count="5">
+      <div onClick="{{ m.go }}" title="{{ m.nome }}" style="width:52px; height:52px; overflow:hidden; display:flex; align-items:center; gap:14px; padding:0 17px; border:1px solid {{ m.borda }}; border-radius:26px; background:{{ m.fundo }}; color:{{ m.cor }}; cursor:pointer; white-space:nowrap; transition:width .24s cubic-bezier(.4,0,.2,1), background .18s, border-color .18s; backdrop-filter:blur(8px)" style-hover="width:196px; border-color:#E9A13C">
+        <span style="font-size:17px; line-height:1; flex:0 0 18px; text-align:center">{{ m.glifo }}</span>
+        <span style="font-size:10.5px; letter-spacing:0.18em; text-transform:uppercase; font-weight:400">{{ m.nome }}</span>
+        <sc-if value="{{ m.badge }}" hint-placeholder-val="{{ false }}">
+          <span style="font-size:10px; letter-spacing:0.06em; color:#E9A13C">{{ m.badgeTexto }}</span>
+        </sc-if>
+      </div>
+    </sc-for>
+  </div>
+
+  <div style="flex:1; min-width:0; padding:0 26px 72px 96px">
+
+    <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:20px; flex-wrap:wrap; padding:30px 0 22px; border-bottom:1px solid #1E1A17">
+      <div style="min-width:0">
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px">
+          <sc-if value="{{ canBack }}" hint-placeholder-val="{{ false }}">
+            <div onClick="{{ goBack }}" style="width:30px; height:30px; flex:0 0 auto; border:1px solid #2E2823; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#B4A594; font-size:13px; cursor:pointer" style-hover="border-color:#E9A13C; color:#E9A13C">←</div>
+          </sc-if>
+          <p style="margin:0; font-size:9.5px; letter-spacing:0.26em; text-transform:uppercase; color:#8B7B6C">{{ eyebrow }}</p>
+        </div>
+        <h1 style="margin:0; font-family:'Instrument Serif', serif; font-weight:400; font-size:44px; line-height:1.02; color:#F4EEE6; text-wrap:pretty">{{ title }}</h1>
+      </div>
+      <div style="display:flex; gap:10px; flex:0 0 auto">
+        <div style="border:1px solid #1E1A17; padding:11px 15px; min-width:86px">
+          <p style="margin:0; font-family:'Instrument Serif', serif; font-size:25px; line-height:1; color:#E9A13C">{{ selCount }}</p>
+          <p style="margin:4px 0 0; font-size:8.5px; letter-spacing:0.18em; text-transform:uppercase; color:#8B7B6C">na seleção</p>
+        </div>
+        <div style="border:1px solid #1E1A17; padding:11px 15px; min-width:86px">
+          <p style="margin:0; font-family:'Instrument Serif', serif; font-size:25px; line-height:1; color:#F4EEE6">{{ totalEstilos }}</p>
+          <p style="margin:4px 0 0; font-size:8.5px; letter-spacing:0.18em; text-transform:uppercase; color:#8B7B6C">estilos</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="padding-top:26px; max-width:1180px">
+
+      <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex; flex-direction:column; gap:26px">
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(290px,1fr)); gap:14px">
+            <div style="grid-column:span 2; min-width:0; border:1px solid #1E1A17; background:#141211; padding:26px; display:flex; flex-direction:column; justify-content:space-between; gap:20px">
+              <div>
+                <p style="margin:0 0 9px; font-size:9px; letter-spacing:0.24em; text-transform:uppercase; color:#E9A13C">Fluxo do app</p>
+                <p style="margin:0; font-family:'Instrument Serif', serif; font-size:32px; line-height:1.12; color:#F4EEE6">Escolha o nicho, abra um estilo, selecione as cores e gere a saída.</p>
+              </div>
+              <div style="display:flex; gap:10px; flex-wrap:wrap">
+                <div onClick="{{ irSelecao }}" style="border:1px solid #E9A13C; background:#E9A13C; color:#161310; padding:14px 22px; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; font-weight:500; cursor:pointer" style-hover="background:#F5CE93">ver seleção</div>
+                <div onClick="{{ irSaida }}" style="border:1px solid #2E2823; color:#D6CCC0; padding:14px 22px; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; cursor:pointer" style-hover="border-color:#E9A13C; color:#E9A13C">saída</div>
+              </div>
+            </div>
+            <div style="border:1px solid #1E1A17; padding:22px; min-width:0">
+              <p style="margin:0 0 14px; font-size:9px; letter-spacing:0.24em; text-transform:uppercase; color:#8B7B6C">Última seleção</p>
+              <sc-if value="{{ vazio }}" hint-placeholder-val="{{ true }}">
+                <p style="margin:0; font-size:12px; line-height:1.8; color:#8B7B6C; font-weight:300">Nenhuma cor escolhida ainda. Abra um estilo e toque nas amostras.</p>
+              </sc-if>
+              <div style="display:flex; flex-direction:column; gap:8px">
+                <sc-for list="{{ ultimas }}" as="s" hint-placeholder-count="0">
+                  <div style="display:flex; align-items:center; gap:11px">
+                    <div style="width:34px; height:34px; flex:0 0 auto; background:{{ s.hex }}"></div>
+                    <div style="min-width:0">
+                      <p style="margin:0; font-size:10.5px; letter-spacing:0.1em; text-transform:uppercase; color:#F4EEE6">{{ s.nome }}</p>
+                      <p style="margin:2px 0 0; font-size:10px; color:#8B7B6C">{{ s.hex }}</p>
+                    </div>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <p style="margin:0 0 12px; font-size:9px; letter-spacing:0.24em; text-transform:uppercase; color:#8B7B6C">Nichos</p>
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:12px">
+              <sc-for list="{{ nichos }}" as="n" hint-placeholder-count="8">
+                <div onClick="{{ n.open }}" style="border:1px solid #1E1A17; background:#141211; padding:18px; cursor:pointer; display:flex; flex-direction:column; gap:14px" style-hover="border-color:#E9A13C; background:#1A1715">
+                  <div style="display:flex; gap:3px">
+                    <sc-for list="{{ n.chips }}" as="c" hint-placeholder-count="5">
+                      <div style="flex:1; height:38px; background:{{ c }}"></div>
+                    </sc-for>
+                  </div>
+                  <div>
+                    <div style="display:flex; align-items:baseline; justify-content:space-between; gap:10px">
+                      <p style="margin:0; font-family:'Instrument Serif', serif; font-size:24px; line-height:1.1; color:#F4EEE6">{{ n.nome }}</p>
+                      <span style="font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:#E9A13C; flex:0 0 auto">{{ n.contagem }}</span>
+                    </div>
+                    <p style="margin:6px 0 0; font-size:11.5px; line-height:1.7; color:#8B7B6C; font-weight:300">{{ n.resumo }}</p>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isNicho }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex; flex-direction:column; gap:20px">
+          <p style="margin:0; max-width:620px; font-size:13px; line-height:1.85; color:#A49585; font-weight:300">{{ nichoDesc }}</p>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(290px,1fr)); gap:12px">
+            <sc-for list="{{ estilos }}" as="e" hint-placeholder-count="4">
+              <div onClick="{{ e.open }}" style="border:1px solid #1E1A17; background:#141211; padding:20px; cursor:pointer; display:flex; flex-direction:column; gap:15px" style-hover="border-color:#E9A13C; background:#1A1715">
+                <div style="display:flex; gap:3px">
+                  <sc-for list="{{ e.chips }}" as="c" hint-placeholder-count="5">
+                    <div style="flex:1; height:46px; background:{{ c }}"></div>
+                  </sc-for>
+                </div>
+                <div>
+                  <p style="margin:0; font-family:'Instrument Serif', serif; font-size:25px; line-height:1.1; color:#F4EEE6">{{ e.nome }}</p>
+                  <p style="margin:7px 0 0; font-size:11.5px; line-height:1.75; color:#8B7B6C; font-weight:300">{{ e.resumo }}</p>
+                </div>
+                <div style="display:flex; align-items:center; justify-content:space-between; border-top:1px solid #1E1A17; padding-top:12px">
+                  <span style="font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:#8B7B6C">{{ e.contagem }}</span>
+                  <span style="font-size:9.5px; letter-spacing:0.16em; text-transform:uppercase; color:#E9A13C">abrir →</span>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isEstilo }}" hint-placeholder-val="{{ false }}">
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:14px; align-items:start">
+          <div style="grid-column:span 2; min-width:0; display:flex; flex-direction:column; gap:14px">
+            <p style="margin:0; max-width:620px; font-size:13px; line-height:1.85; color:#A49585; font-weight:300">{{ estiloDesc }}</p>
+            <div style="border:1px solid #1E1A17; background:#141211; padding:20px">
+              <div style="display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin-bottom:14px">
+                <p style="margin:0; font-size:9px; letter-spacing:0.24em; text-transform:uppercase; color:#8B7B6C">Paleta · clique para selecionar</p>
+                <span onClick="{{ selectAll }}" style="font-size:9.5px; letter-spacing:0.16em; text-transform:uppercase; color:#E9A13C; cursor:pointer">selecionar tudo</span>
+              </div>
+              <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(128px,1fr)); gap:9px">
+                <sc-for list="{{ paleta }}" as="c" hint-placeholder-count="5">
+                  <div onClick="{{ c.toggle }}" style="cursor:pointer; border:1px solid {{ c.borda }}; background:#0F0E0D; padding:7px" style-hover="border-color:#E9A13C">
+                    <div style="height:84px; background:{{ c.hex }}; display:flex; align-items:flex-start; justify-content:flex-end; padding:7px">
+                      <span style="font-size:14px; line-height:1; color:{{ c.marcaCor }}">{{ c.marca }}</span>
+                    </div>
+                    <p style="margin:9px 0 0; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:#E4DACE">{{ c.nome }}</p>
+                    <p style="margin:3px 0 0; font-size:10px; letter-spacing:0.06em; color:#8B7B6C">{{ c.hex }}</p>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:flex; flex-direction:column; gap:12px; min-width:0">
+            <div style="border:1px solid #1E1A17; padding:20px">
+              <p style="margin:0 0 13px; font-size:9px; letter-spacing:0.24em; text-transform:uppercase; color:#8B7B6C">Figurino</p>
+              <div style="display:flex; flex-direction:column; gap:9px">
+                <sc-for list="{{ pecas }}" as="p" hint-placeholder-count="4">
+                  <div style="display:flex; gap:11px; align-items:baseline">
+                    <div style="width:7px; height:7px; flex:0 0 auto; background:#E9A13C; margin-top:6px"></div>
+                    <p style="margin:0; font-size:12px; line-height:1.75; color:#D6CCC0; font-weight:300">{{ p }}</p>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+            <div style="border:1px solid #1E1A17; padding:20px">
+              <p style="margin:0 0 12px; font-size:9px; letter-spacing:0.24em; text-transform:uppercase; color:#8B7B6C">Fundo fotográfico</p>
+              <div style="display:flex; align-items:center; gap:13px">
+                <div style="width:62px; height:40px; flex:0 0 auto; background:{{ fundoHex }}"></div>
+                <p style="margin:0; font-size:11.5px; line-height:1.7; color:#A49585; font-weight:300">{{ fundoTexto }}</p>
+              </div>
+            </div>
+            <div style="border:1px solid #33291E; background:#1A1611; padding:18px">
+              <p style="margin:0; font-size:11.5px; line-height:1.8; color:#C9BEB0; font-weight:300"><strong style="font-weight:500; color:#E9A13C">Evitar · </strong>{{ evitar }}</p>
+            </div>
+            <div onClick="{{ irSelecao }}" style="border:1px solid #E9A13C; background:#E9A13C; color:#161310; padding:15px; text-align:center; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; font-weight:500; cursor:pointer" style-hover="background:#F5CE93">ver seleção · {{ selCount }}</div>
+          </div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isSelecao }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex; flex-direction:column; gap:14px; max-width:760px">
+          <sc-if value="{{ vazio }}" hint-placeholder-val="{{ false }}">
+            <div style="border:1px dashed #2A2521; padding:44px 26px; text-align:center">
+              <p style="margin:0 0 7px; font-family:'Instrument Serif', serif; font-size:27px; color:#F4EEE6">Nada selecionado</p>
+              <p style="margin:0; font-size:12px; line-height:1.8; color:#8B7B6C; font-weight:300">Abra um estilo e clique nas amostras de cor para montar a lista.</p>
+            </div>
+          </sc-if>
+          <sc-for list="{{ selecao }}" as="s" hint-placeholder-count="0">
+            <div style="border:1px solid #1E1A17; background:#141211; padding:15px; display:flex; align-items:center; gap:15px">
+              <div style="width:58px; height:58px; flex:0 0 auto; background:{{ s.hex }}"></div>
+              <div style="flex:1; min-width:0">
+                <p style="margin:0; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:#F4EEE6">{{ s.nome }}</p>
+                <p style="margin:4px 0 0; font-size:11px; color:#8B7B6C; font-weight:300">{{ s.hex }} · {{ s.origem }}</p>
+              </div>
+              <div onClick="{{ s.copy }}" style="width:32px; height:32px; flex:0 0 auto; border:1px solid #2E2823; display:flex; align-items:center; justify-content:center; color:#B4A594; font-size:11px; cursor:pointer" style-hover="border-color:#E9A13C; color:#E9A13C">⧉</div>
+              <div onClick="{{ s.remove }}" style="width:32px; height:32px; flex:0 0 auto; border:1px solid #2E2823; display:flex; align-items:center; justify-content:center; color:#B4A594; font-size:14px; cursor:pointer" style-hover="border-color:#E9A13C; color:#E9A13C">×</div>
+            </div>
+          </sc-for>
+          <sc-if value="{{ temSelecao }}" hint-placeholder-val="{{ false }}">
+            <div onClick="{{ irSaida }}" style="border:1px solid #E9A13C; background:#E9A13C; color:#161310; padding:16px; text-align:center; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; font-weight:500; cursor:pointer" style-hover="background:#F5CE93">gerar saída</div>
+          </sc-if>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isSaida }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex; flex-direction:column; gap:16px; max-width:860px">
+          <sc-if value="{{ vazio }}" hint-placeholder-val="{{ false }}">
+            <div style="border:1px dashed #2A2521; padding:44px 26px; text-align:center">
+              <p style="margin:0 0 7px; font-family:'Instrument Serif', serif; font-size:27px; color:#F4EEE6">Sem cores para exportar</p>
+              <p style="margin:0; font-size:12px; line-height:1.8; color:#8B7B6C; font-weight:300">Selecione cores em algum estilo primeiro.</p>
+            </div>
+          </sc-if>
+          <sc-if value="{{ temSelecao }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex; flex-direction:column; gap:16px">
+              <div style="display:flex; gap:3px">
+                <sc-for list="{{ selecao }}" as="s" hint-placeholder-count="0">
+                  <div style="flex:1; height:130px; background:{{ s.hex }}"></div>
+                </sc-for>
+              </div>
+              <div style="border:1px solid #1E1A17; background:#141211; padding:22px">
+                <p style="margin:0 0 14px; font-size:9px; letter-spacing:0.24em; text-transform:uppercase; color:#8B7B6C">{{ resumoLinha }}</p>
+                <div style="display:flex; flex-direction:column; gap:7px">
+                  <sc-for list="{{ selecao }}" as="s" hint-placeholder-count="0">
+                    <p style="margin:0; font-family:Sora, monospace; font-size:12px; letter-spacing:0.06em; color:#D6CCC0; font-weight:300">{{ s.linha }}</p>
+                  </sc-for>
+                </div>
+              </div>
+              <div style="display:flex; gap:10px; flex-wrap:wrap">
+                <div onClick="{{ copiarTudo }}" style="flex:1; min-width:170px; border:1px solid #E9A13C; background:#E9A13C; color:#161310; padding:16px; text-align:center; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; font-weight:500; cursor:pointer" style-hover="background:#F5CE93">copiar lista</div>
+                <div onClick="{{ baixar }}" style="flex:1; min-width:170px; border:1px solid #2E2823; color:#D6CCC0; padding:16px; text-align:center; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; cursor:pointer" style-hover="border-color:#E9A13C; color:#E9A13C">baixar .txt</div>
+                <div onClick="{{ limpar }}" style="flex:1; min-width:170px; border:1px solid #2E2823; color:#8B7B6C; padding:16px; text-align:center; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; cursor:pointer" style-hover="border-color:#9A4E30; color:#C97C5A">limpar seleção</div>
+              </div>
+            </div>
+          </sc-if>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:900}}">
+const DADOS = {
+  gestante: {
+    nome: "Gestante", resumo: "Oito estilos, do minimalista ao ousado.",
+    desc: "O nicho de maior ticket do estúdio. O figurino marca a cintura alta e alonga: tecido fluido, nunca justo na barriga.",
+    estilos: [
+      { nome: "Minimalista", resumo: "Malha canelada cru, segunda pele, sem acessório.",
+        paleta: [["Leite","#F7F2EC"],["Cru","#EDE4D6"],["Areia","#C4B9AB"],["Taupe","#9A8A7B"],["Café","#4A342A"]],
+        pecas: ["Vestido de malha canelada cru, segunda pele","Corte de tecido cru de 4 m para drapeado","Pés descalços, sem acessório","Acento: uma aliança e nada mais"],
+        fundo: ["#F4F1EC","Off-white liso, dois níveis mais claro que a roupa. Luz lateral única."],
+        evitar: "estampa, brilho, renda, salto alto, acessório de metal misturado" },
+      { nome: "Elegante", resumo: "Vestido longo marinho drapeado, cós elástico.",
+        paleta: [["Leite","#F7F2EC"],["Taupe","#9A8A7B"],["Marinho","#1B2540"],["Chumbo","#6E6F71"],["Café","#4A342A"]],
+        pecas: ["Vestido longo marinho drapeado de cós elástico","Sandália de tira fina nude","Ouro fosco: argola média e um anel","Cabelo alinhado, pele acetinada"],
+        fundo: ["#6E6F71","Cinza chumbo. Marinho pede fundo mais claro que a roupa."],
+        evitar: "prata junto com ouro, decote profundo, estampa perto do colo" },
+      { nome: "Romântico", resumo: "Robe de renda leite sobre top de segunda pele.",
+        paleta: [["Leite","#F7F2EC"],["Rosa antigo","#E4BFB6"],["Nude","#D8B8A8"],["Areia","#C4B9AB"],["Cru","#EDE4D6"]],
+        pecas: ["Robe de renda branco-leite","Top e short de segunda pele nude","Flores naturais da própria paleta","Ondas de escova, boca nude-rosada"],
+        fundo: ["#F4F1EC","Off-white com contraluz. Renda precisa de luz atrás para aparecer."],
+        evitar: "renda colorida, flor artificial, tiara, brilho de dia" },
+      { nome: "Luxo", resumo: "Cetim champanhe transpassado e cauda de tule.",
+        paleta: [["Champanhe","#E4CFA8"],["Dourado velho","#B18F4E"],["Ameixa","#4E2A3C"],["Vinho","#6B2230"],["Leite","#F7F2EC"]],
+        pecas: ["Vestido de cetim champanhe transpassado","Cauda ampla de tule off-white, 4 m","Sandália dourada de tira fina","Um só metal no quadro: ouro fosco"],
+        fundo: ["#6B2230","Vinho ou chumbo. Cetim claro precisa de fundo escuro para não estourar."],
+        evitar: "paetê, lurex, cetim leve, dourado e prata juntos" },
+      { nome: "Boho", resumo: "Vestido de algodão cru, trança e externa de fim de tarde.",
+        paleta: [["Cru","#EDE4D6"],["Aveia","#D9CDBC"],["Ocre","#C08B3E"],["Camel","#A9855F"],["Oliva","#6E7256"]],
+        pecas: ["Vestido de algodão cru de manga ampla","Cinto de couro trançado marrom","Flores secas na mão ou no cabelo","Descalça, cabelo com trança solta"],
+        fundo: ["#C4B9AB","Areia, ou externa de campo no fim de tarde."],
+        evitar: "franja sintética, penas, estampa étnica grande, brilho" },
+      { nome: "Ousado", resumo: "Crepe vinho de manga longa, recorte de luz.",
+        paleta: [["Vinho","#6B2230"],["Ameixa","#4E2A3C"],["Preto","#1C1A19"],["Chumbo","#6E6F71"],["Leite","#F7F2EC"]],
+        pecas: ["Vestido longo de crepe vinho, manga longa","Corte de tecido café de 4 m para volume","Boca vinho ou olho esfumado, nunca os dois","Salto fino preto"],
+        fundo: ["#1C1A19","Preto com recorte de luz lateral. Nunca preto sobre preto sem luz."],
+        evitar: "estampa, brilho, acessório grande, maquiagem dupla no rosto" },
+      { nome: "Casal", resumo: "Ela em marinho, ele em popeline lisa da mesma família.",
+        paleta: [["Leite","#F7F2EC"],["Azul claro","#A8BDD1"],["Taupe","#9A8A7B"],["Marinho","#1B2540"],["Café","#4A342A"]],
+        pecas: ["Vestido longo marinho drapeado","Camisa de popeline lisa azul claro ou off-white","Calça de alfaiataria marinho ou taupe","Cinto e relógio de couro marrom"],
+        fundo: ["#F4F1EC","Off-white, ou urbano de dia. Dois tons acima da roupa dele."],
+        evitar: "roupa igual nos dois, xadrez miúdo, logo, tênis esportivo" },
+      { nome: "Com filhos", resumo: "Paleta da mãe repetida em tom vizinho nas crianças.",
+        paleta: [["Leite","#F7F2EC"],["Cru","#EDE4D6"],["Aveia","#D9CDBC"],["Areia","#C4B9AB"],["Taupe","#9A8A7B"]],
+        pecas: ["Vestido cru de cós elástico na mãe","Camisas e vestidos de algodão liso nas crianças","Todos descalços","Nenhuma peça idêntica entre eles"],
+        fundo: ["#C4B9AB","Areia, ou cama branca em casa."],
+        evitar: "roupa combinando igual, personagem, estampa grande, tênis colorido" }
+    ]
+  },
+  feminino: {
+    nome: "Feminino", resumo: "Individual, aniversário e 15 anos.",
+    desc: "Aqui o corpo não é o assunto: o rosto é. Decote e gola limpos, e a cor mais forte do look longe da linha do queixo.",
+    estilos: [
+      { nome: "Individual atemporal", resumo: "Alfaiataria e neutro que não data.",
+        paleta: [["Off-white","#F4F1EC"],["Aveia","#D9CDBC"],["Taupe","#9A8A7B"],["Café","#4A342A"],["Preto","#1C1A19"]],
+        pecas: ["Conjunto de alfaiataria preto, blazer e calça","Trench aveia apoiado no ombro","Tricô off-white e calça taupe","Ouro fosco, argola média, um anel"],
+        fundo: ["#F4F1EC","Off-white ou cinza chumbo. Preto pede fundo claro."],
+        evitar: "estampa no colo, gola de babado, brilho de dia, logo" },
+      { nome: "Aniversário", resumo: "Vinho e dourado, ou rosa antigo romântico.",
+        paleta: [["Champanhe","#E4CFA8"],["Rosa antigo","#E4BFB6"],["Vinho","#6B2230"],["Ameixa","#4E2A3C"],["Marinho","#1B2540"]],
+        pecas: ["Vestido longo de crepe vinho com amarração","Slip de cetim ameixa cortado no viés","Saia de tule rosa e top de renda leite","Dourado só como acento: sandália e brinco"],
+        fundo: ["#6B2230","Vinho ou fundo escuro com luz quente pontual."],
+        evitar: "paetê integral, lurex, balão metalizado, dois metais no quadro" },
+      { nome: "15 anos", resumo: "Vestido de festa mais o look de rua dela.",
+        paleta: [["Leite","#F7F2EC"],["Lilás","#B9A8BE"],["Azul claro","#A8BDD1"],["Nude","#D8B8A8"],["Marinho","#1B2540"]],
+        pecas: ["Corpete de amarração leite e saia de tule lilás","Saia midi plissada lilás com top leite","Segunda troca: roupa do guarda-roupa dela, lisa","Tênis branco liso é permitido aqui"],
+        fundo: ["#F4F1EC","Off-white claro, ou urbano no fim de tarde."],
+        evitar: "branco total, tiara, luva, maquiagem de festa adulta" }
+    ]
+  },
+  newborn: {
+    nome: "Newborn", resumo: "Três paletas em camadas, 5 a 12 dias.",
+    desc: "O figurino é tecido enrolado, não roupa. Nada no quadro mais claro que a pele do bebê, e cada camada um nível diferente do mesmo neutro.",
+    estilos: [
+      { nome: "Branco-leite e cru", resumo: "A paleta padrão do nicho e a que mais vende.",
+        paleta: [["Leite","#F7F2EC"],["Cru","#EDE4D6"],["Aveia","#D9CDBC"],["Areia","#C4B9AB"],["Taupe","#9A8A7B"]],
+        pecas: ["Wrap de malha com elastano leite, 50 cm × 1,80 m","Manta de tricô de ponto fechado cru","Camada de gaze de algodão aveia","Touca de tricô leite em duas ou três fotos"],
+        fundo: ["#C4B9AB","Areia. Do mais escuro no fundo ao mais claro no bebê."],
+        evitar: "branco ótico, lã que solta fibra, botão nas costas, zíper" },
+      { nome: "Terroso quente", resumo: "Para pele morena e quarto amadeirado.",
+        paleta: [["Cru","#EDE4D6"],["Nude","#D8B8A8"],["Ocre","#C08B3E"],["Camel","#A9855F"],["Noz","#7A5A44"]],
+        pecas: ["Wrap de malha nude no tom da pele","Manta de tricô camel","Cesto de vime ou banheira de madeira","Touca cru, ursinho de tricô em uma foto"],
+        fundo: ["#7A5A44","Marrom-noz. Luz quente reforça esta paleta."],
+        evitar: "luz fria, pelúcia sintética, cor extra na cena" },
+      { nome: "Empoado", resumo: "Quando a família pede rosa ou azul.",
+        paleta: [["Leite","#F7F2EC"],["Rosa antigo","#E4BFB6"],["Lilás","#B9A8BE"],["Azul cinza","#A8BDD1"],["Areia","#C4B9AB"]],
+        pecas: ["Wrap rosa antigo ou azul acinzentado","Manta leite ou cru embaixo","Tiara fina de tecido leite","Uma cor empoada por sessão, nunca duas"],
+        fundo: ["#C4B9AB","Areia com luz suave frontal."],
+        evitar: "rosa-bebê, azul-bebê saturado, laço grande, gravata borboleta" }
+    ]
+  },
+  familia: {
+    nome: "Família", resumo: "Paleta de três tons, ninguém igual.",
+    desc: "A regra é uma paleta de três tons vizinhos distribuída entre todos: ninguém com a mesma peça, ninguém fora da família de cor.",
+    estilos: [
+      { nome: "Neutro de estúdio", resumo: "Cru, aveia e taupe distribuídos.",
+        paleta: [["Leite","#F7F2EC"],["Cru","#EDE4D6"],["Aveia","#D9CDBC"],["Areia","#C4B9AB"],["Taupe","#9A8A7B"]],
+        pecas: ["Camisa de popeline off-white nele","Vestido ou tricô cru nela","Camisas e vestidos de algodão liso nas crianças","Todos descalços, nenhum logo"],
+        fundo: ["#F4F1EC","Off-white. O fundo que aceita qualquer roupa clara."],
+        evitar: "roupa idêntica, xadrez miúdo, personagem, tênis colorido" },
+      { nome: "Terroso de externa", resumo: "Camel, oliva e cru em campo ou parque.",
+        paleta: [["Cru","#EDE4D6"],["Aveia","#D9CDBC"],["Camel","#A9855F"],["Oliva","#6E7256"],["Noz","#7A5A44"]],
+        pecas: ["Camisa de linho cru e calça camel","Vestido longo de algodão oliva","Suspensório e boina de tweed nas crianças","Cinto e bota de couro marrom"],
+        fundo: ["#6E7256","Verde natural do local. Fim de tarde, luz baixa."],
+        evitar: "preto no meio do verde, branco ótico, estampa grande" },
+      { nome: "Inverno escuro", resumo: "Marinho, chumbo e café com tricô.",
+        paleta: [["Leite","#F7F2EC"],["Chumbo","#6E6F71"],["Café","#4A342A"],["Marinho","#1B2540"],["Preto","#1C1A19"]],
+        pecas: ["Tricôs marinho, chumbo e café distribuídos","Calça de alfaiataria escura em todos","Bota de couro marrom","Nada de cachecol estampado"],
+        fundo: ["#6E6F71","Cinza chumbo com luz suave, ou urbano de inverno."],
+        evitar: "todos de preto, xadrez, gola rolê em todo mundo" }
+    ]
+  },
+  infantil: {
+    nome: "Infantil", resumo: "Algodão liso, 2 a 8 anos.",
+    desc: "Criança em roupa lisa e confortável fotografa melhor do que criança arrumada. Nada de personagem, nada de sapato novo.",
+    estilos: [
+      { nome: "Natural de estúdio", resumo: "Algodão cru e cesto de vime.",
+        paleta: [["Leite","#F7F2EC"],["Cru","#EDE4D6"],["Aveia","#D9CDBC"],["Areia","#C4B9AB"],["Camel","#A9855F"]],
+        pecas: ["Camiseta ou camisa de algodão liso cru","Vestido de algodão cru de cós elástico","Cesto de vime, banqueta e tapete cru","Descalço sempre"],
+        fundo: ["#C4B9AB","Areia ou off-white. Fundo liso, brinquedo de madeira."],
+        evitar: "personagem, estampa grande, sapato novo, laço de plástico" },
+      { nome: "Clássico", resumo: "Suspensório, boina de tweed e vestido liso.",
+        paleta: [["Leite","#F7F2EC"],["Aveia","#D9CDBC"],["Camel","#A9855F"],["Café","#4A342A"],["Marinho","#1B2540"]],
+        pecas: ["Camisa branca, suspensório e boina de tweed","Vestido liso de algodão com meia-calça","Sapato de couro marrom","Acento: um só detalhe de tweed por look"],
+        fundo: ["#7A5A44","Marrom-noz ou biblioteca de madeira."],
+        evitar: "gravata borboleta de elástico brilhante, sapato de verniz colorido" },
+      { nome: "Smash the cake", resumo: "Um aninho, bolo dentro da paleta.",
+        paleta: [["Leite","#F7F2EC"],["Rosa antigo","#E4BFB6"],["Nude","#D8B8A8"],["Aveia","#D9CDBC"],["Camel","#A9855F"]],
+        pecas: ["Body ou vestido de algodão liso","Bolo com glacê na mesma paleta da roupa","Mesa baixa de madeira crua","Toalha e muda de roupa seca à mão"],
+        fundo: ["#EDE4D6","Cru. Fundo claro para o bolo não sumir."],
+        evitar: "bolo colorido fora da paleta, balão metalizado, faixa de aniversário" }
+    ]
+  },
+  temas: {
+    nome: "Temas e minissessões", resumo: "Natal, Páscoa, verão e datas.",
+    desc: "Minissessão é volume: uma montagem, várias famílias no mesmo dia. A paleta fecha antes de comprar o cenário.",
+    estilos: [
+      { nome: "Natal terroso", resumo: "Madeira, vime e tricô cru — sem vermelho-vivo.",
+        paleta: [["Leite","#F7F2EC"],["Cru","#EDE4D6"],["Camel","#A9855F"],["Vinho","#6B2230"],["Oliva","#6E7256"]],
+        pecas: ["Tricô cru ou camel em todos","Vestido de algodão cru nas crianças","Guirlanda natural, meia de tricô cru","Madeira e vime no lugar do plástico"],
+        fundo: ["#7A5A44","Marrom-noz com luz quente pontual."],
+        evitar: "vermelho-vivo, verde-bandeira, enfeite metalizado, Papai Noel de plástico" },
+      { nome: "Páscoa", resumo: "Nude, lilás e cru com palha natural.",
+        paleta: [["Leite","#F7F2EC"],["Cru","#EDE4D6"],["Nude","#D8B8A8"],["Lilás","#B9A8BE"],["Aveia","#D9CDBC"]],
+        pecas: ["Vestido ou camisa de algodão liso claro","Cesto de palha com ovos em tom empoado","Orelhas de tecido cru, se houver","Flores naturais lilás e brancas"],
+        fundo: ["#EDE4D6","Cru claro, luz frontal suave."],
+        evitar: "ovo colorido saturado, coelho de pelúcia grande, glitter" },
+      { nome: "Verão", resumo: "Linho cru e azul acinzentado, externa de fim de tarde.",
+        paleta: [["Leite","#F7F2EC"],["Cru","#EDE4D6"],["Areia","#C4B9AB"],["Azul cinza","#A8BDD1"],["Oliva","#6E7256"]],
+        pecas: ["Linho cru e camisa azul acinzentada","Vestido leve de algodão claro","Chapéu de palha natural","Descalço na areia ou na grama"],
+        fundo: ["#C4B9AB","Areia natural do local, sol baixo."],
+        evitar: "estampa tropical, neon, boia colorida, óculos espelhado" }
+    ]
+  },
+  casal: {
+    nome: "Casal", resumo: "Urbano, editorial e pré-wedding.",
+    desc: "Os dois nunca com a mesma peça. Ela define a paleta, ele entra em um tom vizinho mais escuro.",
+    estilos: [
+      { nome: "Urbano de dia", resumo: "Alfaiataria neutra em arquitetura.",
+        paleta: [["Off-white","#F4F1EC"],["Aveia","#D9CDBC"],["Taupe","#9A8A7B"],["Chumbo","#6E6F71"],["Preto","#1C1A19"]],
+        pecas: ["Conjunto de alfaiataria preto nela","Camisa de popeline off-white e calça taupe nele","Trench aveia como terceira peça","Tênis liso branco ou bota de couro"],
+        fundo: ["#6E6F71","Concreto e arquitetura, luz de dia difusa."],
+        evitar: "logo, xadrez miúdo, roupa combinando igual, óculos escuro" },
+      { nome: "Editorial noturno", resumo: "Vinho e preto com recorte de luz.",
+        paleta: [["Leite","#F7F2EC"],["Vinho","#6B2230"],["Ameixa","#4E2A3C"],["Marinho","#1B2540"],["Preto","#1C1A19"]],
+        pecas: ["Slip de cetim ameixa ou crepe vinho nela","Camisa preta ou blazer chumbo nele","Um só metal no quadro","Salto fino e sapato de couro preto"],
+        fundo: ["#1C1A19","Preto com luz lateral dura, ou cinza chumbo."],
+        evitar: "brilho sintético, dois metais, maquiagem dupla no rosto" },
+      { nome: "Pré-wedding", resumo: "Cauda de tule off-white e terno marinho.",
+        paleta: [["Leite","#F7F2EC"],["Champanhe","#E4CFA8"],["Nude","#D8B8A8"],["Taupe","#9A8A7B"],["Marinho","#1B2540"]],
+        pecas: ["Vestido de cetim champanhe ou tule off-white","Cauda ampla de 4 m para foto de vento","Terno marinho com gravata de seda lisa","Ouro fosco nos dois, um só metal"],
+        fundo: ["#F4F1EC","Off-white com contraluz, ou campo no fim de tarde."],
+        evitar: "véu curto de renda rígida, paetê, colete estampado" }
+    ]
+  },
+  corporativo: {
+    nome: "Corporativo", resumo: "Retrato, equipe e ambiente.",
+    desc: "Retrato de trabalho: enquadramento até o busto, gola limpa e fundo que não disputa. O figurino é o mesmo que a pessoa usa no dia a dia, sem amassado.",
+    estilos: [
+      { nome: "Retrato executivo", resumo: "Blazer escuro e camisa lisa, fundo chumbo.",
+        paleta: [["Off-white","#F4F1EC"],["Azul claro","#A8BDD1"],["Chumbo","#6E6F71"],["Marinho","#1B2540"],["Preto","#1C1A19"]],
+        pecas: ["Blazer marinho ou chumbo","Camisa de popeline lisa off-white ou azul claro","Gravata de seda lisa, se o setor pedir","Sem caneta, crachá ou celular no bolso"],
+        fundo: ["#6E6F71","Cinza chumbo liso. O fundo padrão de retrato corporativo."],
+        evitar: "camisa xadrez, listra estreita, logo, brilho de poliéster" },
+      { nome: "Equipe", resumo: "Mesma família de cor, peças diferentes.",
+        paleta: [["Off-white","#F4F1EC"],["Cru","#EDE4D6"],["Taupe","#9A8A7B"],["Chumbo","#6E6F71"],["Marinho","#1B2540"]],
+        pecas: ["Camisa ou tricô liso na mesma família de cor","Blazer opcional, não obrigatório para todos","Calça escura em todos","Nenhuma camiseta de evento"],
+        fundo: ["#F4F1EC","Off-white, ou a parede real da empresa se for lisa."],
+        evitar: "uniforme improvisado, cores do logo no figurino, fila reta" },
+      { nome: "Ambiente de trabalho", resumo: "Look real no espaço real.",
+        paleta: [["Off-white","#F4F1EC"],["Aveia","#D9CDBC"],["Taupe","#9A8A7B"],["Café","#4A342A"],["Marinho","#1B2540"]],
+        pecas: ["Roupa que a pessoa realmente usa, vaporizada","Tricô ou camisa lisa, manga longa","Relógio e cinto de couro marrom","Mãos limpas: aparecem em close"],
+        fundo: ["#D9CDBC","O próprio ambiente desfocado, em tom neutro."],
+        evitar: "mesa poluída, monitor ligado com marca, cadeira colorida" }
+    ]
+  }
+};
+
+class Component extends DCLogic {
+  state = { tela: "home", nicho: null, estilo: null, sel: [], toast: "" };
+
+  ir(tela, extra) { this.setState(Object.assign({ tela }, extra || {})); window.scrollTo(0, 0); }
+
+  flash(msg) {
+    this.setState({ toast: msg });
+    clearTimeout(this._t);
+    this._t = setTimeout(() => this.setState({ toast: "" }), 1500);
+  }
+
+  copiar(txt, msg) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(txt).then(() => this.flash(msg), () => this.flash("não foi possível copiar"));
+    } else this.flash("não foi possível copiar");
+  }
+
+  toggleCor(nome, hex, origem) {
+    this.setState(s => {
+      const i = s.sel.findIndex(c => c.hex === hex && c.origem === origem);
+      if (i >= 0) { const n = s.sel.slice(); n.splice(i, 1); return { sel: n }; }
+      return { sel: s.sel.concat([{ nome, hex, origem }]) };
+    });
+  }
+
+  renderVals() {
+    const st = this.state;
+    const chaves = Object.keys(DADOS);
+    const nichoAtual = st.nicho ? DADOS[st.nicho] : null;
+    const estiloAtual = nichoAtual && st.estilo != null ? nichoAtual.estilos[st.estilo] : null;
+    const totalEstilos = chaves.reduce((a, k) => a + DADOS[k].estilos.length, 0);
+
+    const menuItens = [
+      { id: "home", nome: "Nichos", glifo: "◈" },
+      { id: "selecao", nome: "Seleção", glifo: "◉" },
+      { id: "saida", nome: "Saída", glifo: "↑" }
+    ];
+    const telaBase = st.tela === "nicho" || st.tela === "estilo" ? "home" : st.tela;
+
+    const menu = menuItens.map(m => {
+      const ativo = telaBase === m.id;
+      return {
+        nome: m.nome, glifo: m.glifo,
+        borda: ativo ? "#E9A13C" : "#26211D",
+        fundo: ativo ? "#1E1913" : "rgba(18,17,16,0.92)",
+        cor: ativo ? "#E9A13C" : "#B4A594",
+        badge: m.id === "selecao" && st.sel.length > 0,
+        badgeTexto: String(st.sel.length),
+        go: () => this.ir(m.id)
+      };
+    });
+
+    const selecao = st.sel.map((c, i) => ({
+      nome: c.nome, hex: c.hex, origem: c.origem,
+      linha: c.hex + "   " + c.nome + "   ·   " + c.origem,
+      copy: () => this.copiar(c.hex, c.hex + " copiado"),
+      remove: () => this.setState(s => { const n = s.sel.slice(); n.splice(i, 1); return { sel: n }; })
+    }));
+
+    const vals = {
+      menu, selCount: st.sel.length, totalEstilos,
+      totalNichos: chaves.length,
+      isHome: st.tela === "home", isNicho: st.tela === "nicho", isEstilo: st.tela === "estilo",
+      isSelecao: st.tela === "selecao", isSaida: st.tela === "saida",
+      vazio: st.sel.length === 0, temSelecao: st.sel.length > 0,
+      selecao, ultimas: selecao.slice(-4).reverse(),
+      canBack: st.tela !== "home",
+      goBack: () => this.ir(st.tela === "estilo" ? "nicho" : "home"),
+      irSelecao: () => this.ir("selecao"),
+      irSaida: () => this.ir("saida"),
+      limpar: () => { this.setState({ sel: [] }); this.flash("seleção limpa"); },
+      toast: st.toast,
+      nichos: chaves.map(k => ({
+        nome: DADOS[k].nome, resumo: DADOS[k].resumo,
+        contagem: DADOS[k].estilos.length + (DADOS[k].estilos.length > 1 ? " estilos" : " estilo"),
+        chips: DADOS[k].estilos[0].paleta.map(p => p[1]),
+        open: () => this.ir("nicho", { nicho: k, estilo: null })
+      }))
+    };
+
+    if (st.tela === "home") { vals.eyebrow = "Acervo por nicho"; vals.title = "Guia de figurinos"; }
+
+    if (nichoAtual) {
+      vals.nichoDesc = nichoAtual.desc;
+      vals.estilos = nichoAtual.estilos.map((e, i) => ({
+        nome: e.nome, resumo: e.resumo,
+        contagem: e.paleta.length + " cores · " + e.pecas.length + " peças",
+        chips: e.paleta.map(p => p[1]),
+        open: () => this.ir("estilo", { estilo: i })
+      }));
+      if (st.tela === "nicho") { vals.eyebrow = "Nicho"; vals.title = nichoAtual.nome; }
+    }
+
+    if (estiloAtual) {
+      const origem = nichoAtual.nome + " · " + estiloAtual.nome;
+      vals.estiloDesc = estiloAtual.resumo + " " + nichoAtual.desc;
+      vals.paleta = estiloAtual.paleta.map(p => {
+        const ativo = st.sel.some(c => c.hex === p[1] && c.origem === origem);
+        const claro = parseInt(p[1].slice(1, 3), 16) + parseInt(p[1].slice(3, 5), 16) + parseInt(p[1].slice(5, 7), 16) > 400;
+        return {
+          nome: p[0], hex: p[1],
+          borda: ativo ? "#E9A13C" : "#26211D",
+          marca: ativo ? "✓" : "",
+          marcaCor: claro ? "#3A322B" : "#F4EEE6",
+          toggle: () => this.toggleCor(p[0], p[1], origem)
+        };
+      });
+      vals.pecas = estiloAtual.pecas;
+      vals.fundoHex = estiloAtual.fundo[0];
+      vals.fundoTexto = estiloAtual.fundo[1];
+      vals.evitar = estiloAtual.evitar;
+      vals.selectAll = () => {
+        this.setState(s => {
+          const n = s.sel.slice();
+          estiloAtual.paleta.forEach(p => {
+            if (!n.some(c => c.hex === p[1] && c.origem === origem)) n.push({ nome: p[0], hex: p[1], origem });
+          });
+          return { sel: n };
+        });
+        this.flash("paleta adicionada");
+      };
+      if (st.tela === "estilo") { vals.eyebrow = nichoAtual.nome; vals.title = estiloAtual.nome; }
+    }
+
+    if (st.tela === "selecao") { vals.eyebrow = "Lista de trabalho"; vals.title = "Seleção de cores"; }
+
+    if (st.tela === "saida") {
+      vals.eyebrow = "Exportar";
+      vals.title = "Saída da seleção";
+      const linhas = st.sel.map(c => c.hex + "   " + c.nome + "   ·   " + c.origem);
+      const texto = "PALETA SELECIONADA\n\n" + linhas.join("\n") + "\n\n" + st.sel.length + " cores";
+      vals.resumoLinha = st.sel.length + " cores · " + new Set(st.sel.map(c => c.origem)).size + " estilos";
+      vals.copiarTudo = () => this.copiar(texto, "lista copiada");
+      vals.baixar = () => {
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(new Blob([texto], { type: "text/plain" }));
+        a.download = "paleta-selecionada.txt";
+        a.click();
+        URL.revokeObjectURL(a.href);
+        this.flash("arquivo gerado");
+      };
+    }
+
+    ["nichoDesc", "estiloDesc", "evitar", "fundoTexto", "resumoLinha", "eyebrow", "title"].forEach(k => {
+      if (vals[k] == null) vals[k] = "";
+    });
+    if (!vals.estilos) vals.estilos = [];
+    if (!vals.paleta) vals.paleta = [];
+    if (!vals.pecas) vals.pecas = [];
+    if (!vals.fundoHex) vals.fundoHex = "#1C1A19";
+    if (!vals.selectAll) vals.selectAll = () => {};
+    if (!vals.copiarTudo) vals.copiarTudo = () => {};
+    if (!vals.baixar) vals.baixar = () => {};
+
+    return vals;
+  }
+}
+
+</script>
+</body>
+</html>

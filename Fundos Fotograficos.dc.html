@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=Montserrat:wght@300;400;500;600&display=swap" />
+<style>
+  html, body { margin:0; padding:0; background:#F7F5F1; }
+  * { box-sizing:border-box; }
+  a { color:#715549; text-decoration:none; }
+  a:hover { color:#352D27; }
+</style>
+</helmet>
+
+<div style="font-family:Montserrat, sans-serif; color:#352D27; background:#F7F5F1; overflow-x:hidden">
+
+  <header style="padding:52px 22px 40px; background:#352D27; color:#EDE4D6; display:flex; flex-direction:column; align-items:center; gap:18px; text-align:center">
+    <img src="assets/lumiar-logo.png" alt="Lumiar Retratos &amp; Estúdio" style="width:146px; height:auto; filter:invert(1) brightness(1.6)" />
+    <p style="font-size:10px; letter-spacing:0.24em; text-transform:uppercase; color:#C8BCAE; margin:0">Mapa visual · complemento</p>
+    <h1 style="font-family:'Cormorant Garamond', serif; font-weight:300; font-size:36px; line-height:1.1; margin:0">Fundos <em style="font-style:italic; color:#DBD3C9">fotográficos</em></h1>
+    <p style="margin:0; max-width:440px; font-size:13px; line-height:1.75; color:#C8BCAE; font-weight:300">Qual fundo usar em cada estilo e com quais cores de roupa. O fundo é a quarta cor do figurino — escolhido junto com a paleta, nunca depois.</p>
+  </header>
+
+  <nav style="position:sticky; top:0; z-index:20; background:#F7F5F1; border-bottom:1px solid #DBD3C9; padding:11px 14px; display:flex; gap:7px; overflow-x:auto">
+    <a href="#regra" style="flex:0 0 auto; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; padding:8px 11px; border:1px solid #DBD3C9; background:#FFFFFF">Regra de contraste</a>
+    <a href="#claros" style="flex:0 0 auto; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; padding:8px 11px; border:1px solid #DBD3C9; background:#FFFFFF">Fundos claros</a>
+    <a href="#medios" style="flex:0 0 auto; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; padding:8px 11px; border:1px solid #DBD3C9; background:#FFFFFF">Fundos médios</a>
+    <a href="#escuros" style="flex:0 0 auto; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; padding:8px 11px; border:1px solid #DBD3C9; background:#FFFFFF">Fundos escuros</a>
+    <a href="#cor" style="flex:0 0 auto; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; padding:8px 11px; border:1px solid #DBD3C9; background:#FFFFFF">Fundo colorido</a>
+    <a href="#nichos" style="flex:0 0 auto; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; padding:8px 11px; border:1px solid #9A8A7B; background:#EDE4D6">Fundo por nicho</a>
+    <a href="#acervo" style="flex:0 0 auto; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; padding:8px 11px; border:1px solid #352D27; background:#352D27; color:#EDE4D6">Acervo</a>
+  </nav>
+
+  <section id="regra" style="padding:34px 22px; background:#FFFFFF; border-bottom:1px solid #EDE4D6">
+    <p style="font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:#715549; margin:0 0 6px">O critério</p>
+    <h2 style="font-family:'Cormorant Garamond', serif; font-weight:300; font-size:27px; margin:0 0 16px">Dois níveis de diferença</h2>
+    <p style="margin:0 0 18px; font-size:12.5px; line-height:1.8; font-weight:300; max-width:540px">Fundo e roupa precisam estar a <strong style="font-weight:600">dois níveis de claridade de distância</strong> — nem iguais, nem em contraste máximo. Igual faz o corpo grudar no fundo; contraste máximo recorta a pessoa como adesivo.</p>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:1px; background:#DBD3C9; margin-bottom:18px">
+      <div style="background:#F7F5F1; padding:16px">
+        <div style="height:40px; background:#F4F1EC; border:1px solid #DBD3C9; display:flex; align-items:center; justify-content:center; margin-bottom:10px"><div style="width:34%; height:26px; background:#9A8A7B"></div></div>
+        <p style="font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:#715549; margin:0 0 6px">Certo</p>
+        <p style="margin:0; font-size:12px; line-height:1.8; font-weight:300">Fundo claro + roupa neutra média. A figura se separa com borda suave.</p>
+      </div>
+      <div style="background:#F7F5F1; padding:16px">
+        <div style="height:40px; background:#EDE4D6; display:flex; align-items:center; justify-content:center; margin-bottom:10px"><div style="width:34%; height:26px; background:#EDE4D6; border:1px dashed #B0603E"></div></div>
+        <p style="font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:#B0603E; margin:0 0 6px">Errado · gruda</p>
+        <p style="margin:0; font-size:12px; line-height:1.8; font-weight:300">Fundo e roupa no mesmo tom: o corpo desaparece e sobra só o rosto flutuando.</p>
+      </div>
+      <div style="background:#F7F5F1; padding:16px">
+        <div style="height:40px; background:#FFFFFF; border:1px solid #DBD3C9; display:flex; align-items:center; justify-content:center; margin-bottom:10px"><div style="width:34%; height:26px; background:#1C1A19"></div></div>
+        <p style="font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:#B0603E; margin:0 0 6px">Errado · recorta</p>
+        <p style="margin:0; font-size:12px; line-height:1.8; font-weight:300">Preto em fundo branco puro: vira foto de documento, sem profundidade.</p>
+      </div>
+    </div>
+
+    <div style="background:#EDE4D6; padding:18px; border-left:2px solid #9A8A7B">
+      <p style="font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:#715549; margin:0 0 10px">Quatro regras fixas</p>
+      <ul style="margin:0; padding-left:16px; font-size:12.5px; line-height:1.95; font-weight:300">
+        <li><strong style="font-weight:600">Fundo na mesma temperatura da roupa.</strong> Paleta quente (cru, camel, terracota) pede fundo bege ou noz; paleta fria (marinho, chumbo, lilás) pede fundo cinza.</li>
+        <li><strong style="font-weight:600">Fundo sempre mais silencioso que a roupa</strong> — liso, fosco e sem trama aparente. Textura no fundo só quando a roupa é lisa.</li>
+        <li><strong style="font-weight:600">Fundo claro com roupa clara só com luz lateral</strong>, que cria a borda. Sem isso, escolher fundo médio.</li>
+        <li><strong style="font-weight:600">Nunca fundo colorido com roupa colorida.</strong> Uma cor por foto: ou está na roupa, ou está no fundo.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="claros" style="padding:40px 22px; background:#F7F5F1; border-bottom:1px solid #EDE4D6">
+    <p style="font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:#715549; margin:0">Família 01</p>
+    <h2 style="font-family:'Cormorant Garamond', serif; font-weight:300; font-size:31px; margin:5px 0 8px">Fundos claros</h2>
+    <p style="margin:0 0 20px; font-size:12.5px; line-height:1.75; font-weight:300; max-width:520px">Leves, arejados e os mais versáteis do estúdio. Atenção ao ponto crítico: <strong style="font-weight:600">branco puro é o fundo mais difícil</strong>, não o mais fácil.</p>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:14px">
+
+      <article style="background:#FFFFFF; border:1px solid #E4DDD3; padding:0; overflow:hidden">
+        <div style="height:92px; background:#FFFFFF; border-bottom:1px solid #E4DDD3; display:flex; align-items:flex-end; padding:10px"><span style="font-size:9px; letter-spacing:0.14em; color:#715549">BRANCO ÓTICO · FFFFFF</span></div>
+        <div style="padding:16px">
+          <h3 style="font-family:'Cormorant Garamond', serif; font-weight:400; font-size:19px; margin:0 0 10px">Branco puro</h3>
+          <p style="margin:0 0 12px; font-size:12px; line-height:1.8; font-weight:300">Fundo de recorte, para imagem que vai ser usada em site e catálogo. Exige três pontos de luz para ficar realmente branco — mal iluminado, vira cinza sujo.</p>
+          <p style="font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:#715549; margin:0 0 6px">Combina com</p>
+          <div style="display:flex; gap:4px; margin-bottom:10px">
+            <div style="flex:1; height:22px; background:#1B2540"></div>
+            <div style="flex:1; height:22px; background:#6E6F71"></div>
+            <div style="flex:1; height:22px; background:#9A8A7B"></div>
+            <div style="flex:1; height:22px; background:#4A342A"></div>
+          </div>
+          <p style="font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:#B0603E; margin:0 0 6px">Não combina</p>
+          <p style="margin:0; font-size:11.5px; line-height:1.7; color:#715549">Off-white e cru (grudam), preto puro (recorta demais), pastel claro.</p>
+          <p style="margin:10px 0 0; font-size:11px; line-height:1.7; color:#715549">Nichos: corporativo, infantil de estúdio, produto.</p>
+        </div>
+      </article>
+
+      <article style="background:#FFFFFF; border:1px solid #E4DDD3; padding:0; overflow:hidden">
+        <div style="height:92px; background:#F4F1EC; border-bottom:1px solid #E4DDD3; display:flex; align-items:flex-end; padding:10px"><span style="font-size:9px; letter-spacing:0.14em; color:#715549">OFF-WHITE · F4F1EC</span></div>
+        <div style="padding:16px">
+          <h3 style="font-family:'Cormorant Garamond', serif; font-weight:400; font-size:19px; margin:0 0 10px">Off-white</h3>
+          <p style="margin:0 0 12px; font-size:12px; line-height:1.8; font-weight:300">O fundo mais usado do estúdio. Perdoa erro de luz, favorece pele e aceita quase toda paleta — primeira compra do acervo.</p>
+          <p style="font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:#715549; margin:0 0 6px">Combina com</p>
+          <div style="display:flex; gap:4px; margin-bottom:10px">
+            <div style="flex:1; height:22px; background:#9A8A7B"></div>
+            <div style="flex:1; height:22px; background:#A9855F"></div>
+            <div style="flex:1; height:22px; background:#5F6644"></div>
+            <div style="flex:1; height:22px; background:#1B2540"></div>
+            <div style="flex:1; height:22px; background:#E4BFB6"></div>
+          </div>
+          <p style="font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:#B0603E; margin:0 0 6px">Não combina</p>
+          <p style="margin:0; font-size:11.5px; line-height:1.7; color:#715549">Off-white e branco-leite sem luz lateral — a roupa se dissolve no fundo.</p>
+          <p style="margin:10px 0 0; font-size:11px; line-height:1.7; color:#715549">Nichos: gestante, feminino, newborn, família, corporativo.</p>
+        </div>
+      </article>
+
+      <article style="background:#FFFFFF; border:1px solid #E4DDD3; padding:0; overflow:hidden">
+        <div style="height:92px; background:#EDE4D6; border-bottom:1px solid #E4DDD3; display:flex; align-items:flex-end; padding:10px"><span style="font-size:9px; letter-spacing:0.14em; color:#715549">CRU · EDE4D6</span></div>
+        <div style="padding:16px">
+          <h3 style="font-family:'Cormorant Garamond', serif; font-weight:400; font-size:19px; margin:0 0 10px">Cru</h3>
+          <p style="margin:0 0 12px; font-size:12px; line-height:1.8; font-weight:300">Quente e orgânico. É o fundo das paletas terrosas e o que melhor imita luz de fim de tarde dentro do estúdio.</p>
+          <p style="font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:#715549; margin:0 0 6px">Combina com</p>
+          <div style="display:flex; gap:4px; margin-bottom:10px">
+            <div style="flex:1; height:22px; background:#B0603E"></div>
+            <div style="flex:1; height:22px; background:#6B6F4A"></div>
+            <div style="flex:1; height:22px; background:#7A5A44"></div>
+            <div style="flex:1; height:22px; background:#C08B3E"></div>
+            <div style="flex:1; height:22px; background:#4A342A"></div>
+          </div>
+          <p style="font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:#B0603E; margin:0 0 6px">Não combina</p>
+          <p style="margin:0; font-size:11.5px; line-height:1.7; color:#715549">Cru e camel (grudam), cinza e lilás (briga de temperatura).</p>
+          <p style="margin:10px 0 0; font-size:11px; line-height:1.7; color:#715549">Nichos: boho gestante, infantil, minissessões, newborn.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+
+  <section id="medios" style="padding:40px 22px; background:#FFFFFF; border-bottom:1px solid #EDE4D6">
+    <p style="font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:#715549; margin:0">Família 02</p>
+    <h2 style="font-family:'Cormorant Garamond', serif; font-weight:300; font-size:31px; margin:5px 0 8px">Fundos médios</h2>
+    <p style="margin:0 0 20px; font-size:12.5px; line-height:1.75; font-weight:300; max-width:520px">Os mais seguros de todos e os menos comprados. Aceitam roupa clara <strong style="font-weight:600">e</strong> roupa escura, e é neles que a pele aparece melhor — o fundo médio é o que resolve o dia em que a cliente chega fora da paleta.</p>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:14px">
+
+      <article style="background:#F7F5F1; border:1px solid #E4DDD3; padding:0; overflow:hidden">
+        <div style="height:92px; background:#D2D1D1; border-bottom:1px solid #E4DDD3; display:flex; align-items:flex-end; padding:10px"><span style="font-size:9px; letter-spacing:0.14em; color:#4A4A48">CINZA-PÉROLA · D2D1D1</span></div>
+        <div style="padding:16px">
+          <h3 style="font-family:'Cormorant Garamond', serif; font-weight:400; font-size:19px; margin:0 0 10px">Cinza-pérola</h3>
+          <p style="margin:0 0 12px; font-size:12px; line-height:1.8; font-weight:300">O fundo neutro de referência: não interfere na cor da pele nem da roupa. Padrão do retrato corporativo e a escolha certa quando há dúvida.</p>
+          <p style="font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:#715549; margin:0 0 6px">Combina com</p>
+          <div style="display:flex; gap:4px; margin-bottom:10px">
+            <div style="flex:1; height:22px; background:#1B2540"></div>
+            <div style="flex:1; height:22px; background:#4E2A3C"></div>
+            <div style="flex:1; height:22px; background:#F4F1EC; border:1px solid #DBD3C9"></div>
+            <div style="flex:1; height:22px; background:#1C1A19"></div>
+            <div style="flex:1; height:22px; background:#B9A8BE"></div>
+          </div>
+          <p style="font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:#B0603E; margin:0 0 6px">Não combina</p>
+          <p style="margin:0; font-size:11.5px; line-height:1.7; color:#715549">Cinza chumbo (gruda), terracota e ocre (esfriam e ficam sujos).</p>
+          <p style="margin:10px 0 0; font-size:11px; line-height:1.7; color:#715549">Nichos: corporativo, feminino, minimalista gestante.</p>
+        </div>
+      </article>
+
+      <article style="background:#F7F5F1; border:1px solid #E4DDD3; padding:0; overflow:hidden">
+        <div style="height:92px; background:#C4B9AB; border-bottom:1px solid #E4DDD3; display:flex; align-items:flex-end; padding:10px"><span style="font-size:9px; letter-spacing:0.14em; color:#4A3F35">AREIA · C4B9AB</span></div>
+        <div style="padding:16px">
+          <h3 style="font-family:'Cormorant Garamond', serif; font-weight:400; font-size:19px; margin:0 0 10px">Areia</h3>
+          <p style="margin:0 0 12px; font-size:12px; line-height:1.8; font-weight:300">O médio quente. Base das montagens de newborn e o melhor fundo para roupa branca ou off-white — dá a borda que o fundo claro não dá.</p>
+          <p style="font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:#715549; margin:0 0 6px">Combina com</p>
+          <div style="display:flex; gap:4px; margin-bottom:10px">
+            <div style="flex:1; height:22px; background:#F7F2EC; border:1px solid #DBD3C9"></div>
+            <div style="flex:1; height:22px; background:#EDE4D6"></div>
+            <div style="flex:1; height:22px; background:#4A342A"></div>
+            <div style="flex:1; height:22px; background:#E4BFB6"></div>
+            <div style="flex:1; height:22px; background:#6B6F4A"></div>
+          </div>
+          <p style="font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:#B0603E; margin:0 0 6px">Não combina</p>
+          <p style="margin:0; font-size:11.5px; line-height:1.7; color:#715549">Areia e taupe (grudam), marinho e cinza (temperatura oposta).</p>
+          <p style="margin:10px 0 0; font-size:11px; line-height:1.7; color:#715549">Nichos: newborn, infantil, gestante minimalista, minissessões.</p>
+        </div>
+      </article>
+
+      <article style="background:#F7F5F1; border:1px solid #E4DDD3; padding:0; overflow:hidden">
+        <div style="height:92px; background:#9A8A7B; border-bottom:1px solid #E4DDD3; display:flex; align-items:flex-end; padding:10px"><span style="font-size:9px; letter-spacing:0.14em; color:#FFFFFF">TAUPE · 9A8A7B</span></div>
+        <div style="padding:16px">
+          <h3 style="font-family:'Cormorant Garamond', serif; font-weight:400; font-size:19px; margin:0 0 10px">Taupe</h3>
+          <p style="margin:0 0 12px; font-size:12px; line-height:1.8; font-weight:300">Mais fechado que o areia, com leitura de sofisticação. Excelente para roupa clara e para o editorial de gestante com pouca roupa.</p>
+          <p style="font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:#715549; margin:0 0 6px">Combina com</p>
+          <div style="display:flex; gap:4px; margin-bottom:10px">
+            <div style="flex:1; height:22px; background:#F4F1EC; border:1px solid #DBD3C9"></div>
+            <div style="flex:1; height:22px; background:#EDE4D6"></div>
+            <div style="flex:1; height:22px; background:#E4CFA8"></div>
+            <div style="flex:1; height:22px; background:#D8B8A8"></div>
+            <div style="flex:1; height:22px; background:#1C1A19"></div>
+          </div>
+          <p style="font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:#B0603E; margin:0 0 6px">Não combina</p>
+          <p style="margin:0; font-size:11.5px; line-height:1.7; color:#715549">Taupe e areia (grudam), verde e azul saturados.</p>
+          <p style="margin:10px 0 0; font-size:11px; line-height:1.7; color:#715549">Nichos: gestante, feminino, newborn, casal editorial.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="escuros" style="padding:40px 22px; background:#352D27; color:#EDE4D6; border-bottom:1px solid #EDE4D6">
+    <p style="font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:#C8BCAE; margin:0">Família 03</p>
+    <h2 style="font-family:'Cormorant Garamond', serif; font-weight:300; font-size:31px; margin:5px 0 8px; color:#F7F2EC">Fundos escuros</h2>
+    <p style="margin:0 0 20px; font-size:12.5px; line-height:1.75; font-weight:300; max-width:520px; color:#C8BCAE">Dramáticos e de alto valor percebido. <strong style="font-weight:600; color:#F7F2EC">Exigem luz de contorno</strong> — sem uma luz separando o corpo do fundo, tudo escuro vira uma massa só.</p>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:14px">
+
+      <article style="background:#443A32; border:1px solid #715549; padding:0; overflow:hidden">
+        <div style="height:92px; background:#6E6F71; border-bottom:1px solid #715549; display:flex; align-items:flex-end; padding:10px"><span style="font-size:9px; letter-spacing:0.14em; color:#FFFFFF">CINZA CHUMBO · 6E6F71</span></div>
+        <div style="padding:16px">
+          <h3 style="font-family:'Cormorant Garamond', serif; font-weight:400; font-size:19px; margin:0 0 10px; color:#F7F2EC">Cinza chumbo</h3>
+          <p style="margin:0 0 12px; font-size:12px; line-height:1.8; font-weight:300; color:#EDE4D6">Escuro sem ser preto. O mais fácil de iluminar da família, e o que melhor sustenta roupa clara com peso.</p>
+          <p style="font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:#C8BCAE; margin:0 0 6px">Combina com</p>
+          <div style="display:flex; gap:4px; margin-bottom:10px">
+            <div style="flex:1; height:22px; background:#F4F1EC"></div>
+            <div style="flex:1; height:22px; background:#E4CFA8"></div>
+            <div style="flex:1; height:22px; background:#4E2A3C"></div>
+            <div style="flex:1; height:22px; background:#A75B2B"></div>
+            <div style="flex:1; height:22px; background:#D8B8A8"></div>
+          </div>
+          <p style="font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:#E0A88C; margin:0 0 6px">Não combina</p>
+          <p style="margin:0; font-size:11.5px; line-height:1.7; color:#C8BCAE">Chumbo e cinza-pérola (grudam), marinho (vira borrão azulado).</p>
+          <p style="margin:10px 0 0; font-size:11px; line-height:1.7; color:#715549">Nichos: luxo gestante, feminino, corporativo, casal editorial.</p>
+        </div>
+      </article>
+
+      <article style="background:#443A32; border:1px solid #715549; padding:0; overflow:hidden">
+        <div style="height:92px; background:#4A342A; border-bottom:1px solid #715549; display:flex; align-items:flex-end; padding:10px"><span style="font-size:9px; letter-spacing:0.14em; color:#FFFFFF">MARROM CAFÉ · 4A342A</span></div>
+        <div style="padding:16px">
+          <h3 style="font-family:'Cormorant Garamond', serif; font-weight:400; font-size:19px; margin:0 0 10px; color:#F7F2EC">Marrom café</h3>
+          <p style="margin:0 0 12px; font-size:12px; line-height:1.8; font-weight:300; color:#EDE4D6">O escuro quente. Favorece toda pele e é o fundo que dá a leitura de luxo com luz âmbar — a alternativa ao preto em ensaio de gestante e newborn.</p>
+          <p style="font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:#C8BCAE; margin:0 0 6px">Combina com</p>
+          <div style="display:flex; gap:4px; margin-bottom:10px">
+            <div style="flex:1; height:22px; background:#E4CFA8"></div>
+            <div style="flex:1; height:22px; background:#EDE4D6"></div>
+            <div style="flex:1; height:22px; background:#D8B8A8"></div>
+            <div style="flex:1; height:22px; background:#B0603E"></div>
+            <div style="flex:1; height:22px; background:#1B2540"></div>
+          </div>
+          <p style="font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:#E0A88C; margin:0 0 6px">Não combina</p>
+          <p style="margin:0; font-size:11.5px; line-height:1.7; color:#C8BCAE">Marrom-noz e camel (grudam), cinza frio, lilás.</p>
+          <p style="margin:10px 0 0; font-size:11px; line-height:1.7; color:#715549">Nichos: luxo e elegante gestante, newborn terroso, casal pré-wedding.</p>
+        </div>
+      </article>
+
+      <article style="background:#443A32; border:1px solid #715549; padding:0; overflow:hidden">
+        <div style="height:92px; background:#1C1A19; border-bottom:1px solid #715549; display:flex; align-items:flex-end; padding:10px"><span style="font-size:9px; letter-spacing:0.14em; color:#FFFFFF">PRETO · 1C1A19</span></div>
+        <div style="padding:16px">
+          <h3 style="font-family:'Cormorant Garamond', serif; font-weight:400; font-size:19px; margin:0 0 10px; color:#F7F2EC">Preto</h3>
+          <p style="margin:0 0 12px; font-size:12px; line-height:1.8; font-weight:300; color:#EDE4D6">Só para editorial e silhueta. Some com todo o cenário e deixa apenas a figura — potente, mas não serve para ensaio de família nem infantil.</p>
+          <p style="font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:#C8BCAE; margin:0 0 6px">Combina com</p>
+          <div style="display:flex; gap:4px; margin-bottom:10px">
+            <div style="flex:1; height:22px; background:#6B2230"></div>
+            <div style="flex:1; height:22px; background:#FFFFFF"></div>
+            <div style="flex:1; height:22px; background:#A75B2B"></div>
+            <div style="flex:1; height:22px; background:#D8B8A8"></div>
+            <div style="flex:1; height:22px; background:#E4CFA8"></div>
+          </div>
+          <p style="font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:#E0A88C; margin:0 0 6px">Não combina</p>
+          <p style="margin:0; font-size:11.5px; line-height:1.7; color:#C8BCAE">Preto com preto sem luz de contorno, marinho, chumbo, pastel.</p>
+          <p style="margin:10px 0 0; font-size:11px; line-height:1.7; color:#715549">Nichos: ousado gestante, casal editorial, feminino glam.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="cor" style="padding:40px 22px; background:#F7F5F1; border-bottom:1px solid #EDE4D6">
+    <p style="font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:#715549; margin:0">Família 04</p>
+    <h2 style="font-family:'Cormorant Garamond', serif; font-weight:300; font-size:31px; margin:5px 0 8px">Fundo colorido</h2>
+    <p style="margin:0 0 20px; font-size:12.5px; line-height:1.75; font-weight:300; max-width:520px">Regra única: <strong style="font-weight:600">se o fundo tem cor, a roupa é neutra</strong>. O fundo colorido é a cor-âncora da foto, ocupando o lugar que numa foto normal seria da roupa.</p>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(230px,1fr)); gap:14px; margin-bottom:16px">
+      <article style="background:#FFFFFF; border:1px solid #E4DDD3; padding:0; overflow:hidden">
+        <div style="height:80px; background:#7A5A44; display:flex; align-items:flex-end; padding:10px"><span style="font-size:9px; letter-spacing:0.14em; color:#FFFFFF">MARROM-NOZ · 7A5A44</span></div>
+        <div style="padding:16px">
+          <h3 style="font-family:'Cormorant Garamond', serif; font-weight:400; font-size:18px; margin:0 0 8px">Noz</h3>
+          <p style="margin:0 0 10px; font-size:11.5px; line-height:1.75; font-weight:300">Roupa em cru, leite ou nude. O fundo faz o trabalho da cor.</p>
+          <p style="margin:0; font-size:11px; line-height:1.7; color:#C8BCAE">Newborn terroso, boho, minissessão de Natal.</p>
+        </div>
+      </article>
+      <article style="background:#FFFFFF; border:1px solid #E4DDD3; padding:0; overflow:hidden">
+        <div style="height:80px; background:#5F6644; display:flex; align-items:flex-end; padding:10px"><span style="font-size:9px; letter-spacing:0.14em; color:#FFFFFF">VERDE-OLIVA · 5F6644</span></div>
+        <div style="padding:16px">
+          <h3 style="font-family:'Cormorant Garamond', serif; font-weight:400; font-size:18px; margin:0 0 8px">Oliva</h3>
+          <p style="margin:0 0 10px; font-size:11.5px; line-height:1.75; font-weight:300">Roupa em cru ou off-white. Substitui a externa de campo dentro do estúdio.</p>
+          <p style="margin:0; font-size:11px; line-height:1.7; color:#C8BCAE">Boho, infantil, Natal rota marinho.</p>
+        </div>
+      </article>
+      <article style="background:#FFFFFF; border:1px solid #E4DDD3; padding:0; overflow:hidden">
+        <div style="height:80px; background:#6B2230; display:flex; align-items:flex-end; padding:10px"><span style="font-size:9px; letter-spacing:0.14em; color:#FFFFFF">VINHO · 6B2230</span></div>
+        <div style="padding:16px">
+          <h3 style="font-family:'Cormorant Garamond', serif; font-weight:400; font-size:18px; margin:0 0 8px">Vinho</h3>
+          <p style="margin:0 0 10px; font-size:11.5px; line-height:1.75; font-weight:300">Roupa em preto, cru ou champanhe. Nunca roupa vinho — a figura desaparece.</p>
+          <p style="margin:0; font-size:11px; line-height:1.7; color:#C8BCAE">Natal rota vinho, feminino glam, editorial.</p>
+        </div>
+      </article>
+      <article style="background:#FFFFFF; border:1px solid #E4DDD3; padding:0; overflow:hidden">
+        <div style="height:80px; background:#1B2540; display:flex; align-items:flex-end; padding:10px"><span style="font-size:9px; letter-spacing:0.14em; color:#FFFFFF">MARINHO · 1B2540</span></div>
+        <div style="padding:16px">
+          <h3 style="font-family:'Cormorant Garamond', serif; font-weight:400; font-size:18px; margin:0 0 8px">Marinho</h3>
+          <p style="margin:0 0 10px; font-size:11.5px; line-height:1.75; font-weight:300">Roupa em cru, champanhe ou camel. Roupa marinho está fora.</p>
+          <p style="margin:0; font-size:11px; line-height:1.7; color:#C8BCAE">Luxo gestante, corporativo de marca, Natal rota marinho.</p>
+        </div>
+      </article>
+    </div>
+
+    <div style="background:#EDE4D6; padding:18px; border-left:2px solid #9A8A7B">
+      <p style="font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:#715549; margin:0 0 8px">Cores de fundo que ficam fora do estúdio</p>
+      <p style="margin:0; font-size:12.5px; line-height:1.85; font-weight:300">Azul-royal, vermelho, verde-bandeira, amarelo, rosa-chiclete e qualquer fundo degradê ou com estampa. Fundo saturado <strong style="font-weight:600">reflete cor na pele</strong> — o rosto fica esverdeado ou avermelhado e não há correção que resolva depois.</p>
+    </div>
+  </section>
+
+  <section id="nichos" style="padding:40px 22px; background:#FFFFFF; border-bottom:1px solid #EDE4D6">
+    <p style="font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:#715549; margin:0">Consulta rápida</p>
+    <h2 style="font-family:'Cormorant Garamond', serif; font-weight:300; font-size:31px; margin:5px 0 8px">Fundo por nicho e estilo</h2>
+    <p style="margin:0 0 22px; font-size:12.5px; line-height:1.75; font-weight:300; max-width:520px">Primeira coluna: o fundo padrão. Segunda: a alternativa. Se estiver em dúvida no dia, use o padrão.</p>
+
+    <div style="display:grid; gap:10px">
+
+      <div style="border:1px solid #E4DDD3; padding:14px 16px; display:grid; gap:10px">
+        <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0">Gestante</p>
+        <div style="display:grid; gap:8px">
+          <div style="display:flex; align-items:center; gap:10px"><div style="width:40px; height:20px; background:#F4F1EC; border:1px solid #DBD3C9; flex:0 0 auto"></div><div style="width:40px; height:20px; background:#9A8A7B; flex:0 0 auto"></div><p style="margin:0; font-size:11.5px; line-height:1.6; font-weight:300"><strong style="font-weight:600">Elegante e minimalista</strong> — off-white, alternativa taupe.</p></div>
+          <div style="display:flex; align-items:center; gap:10px"><div style="width:40px; height:20px; background:#F4F1EC; border:1px solid #DBD3C9; flex:0 0 auto"></div><div style="width:40px; height:20px; background:#C4B9AB; flex:0 0 auto"></div><p style="margin:0; font-size:11.5px; line-height:1.6; font-weight:300"><strong style="font-weight:600">Romântico</strong> — off-white com contraluz, alternativa areia.</p></div>
+          <div style="display:flex; align-items:center; gap:10px"><div style="width:40px; height:20px; background:#EDE4D6; flex:0 0 auto"></div><div style="width:40px; height:20px; background:#5F6644; flex:0 0 auto"></div><p style="margin:0; font-size:11.5px; line-height:1.6; font-weight:300"><strong style="font-weight:600">Boho</strong> — cru, alternativa oliva colorido.</p></div>
+          <div style="display:flex; align-items:center; gap:10px"><div style="width:40px; height:20px; background:#1C1A19; flex:0 0 auto"></div><div style="width:40px; height:20px; background:#6E6F71; flex:0 0 auto"></div><p style="margin:0; font-size:11.5px; line-height:1.6; font-weight:300"><strong style="font-weight:600">Ousado</strong> — preto, alternativa chumbo.</p></div>
+          <div style="display:flex; align-items:center; gap:10px"><div style="width:40px; height:20px; background:#4A342A; flex:0 0 auto"></div><div style="width:40px; height:20px; background:#1B2540; flex:0 0 auto"></div><p style="margin:0; font-size:11.5px; line-height:1.6; font-weight:300"><strong style="font-weight:600">Luxo</strong> — marrom café, alternativa marinho.</p></div>
+          <div style="display:flex; align-items:center; gap:10px"><div style="width:40px; height:20px; background:#6E6F71; flex:0 0 auto"></div><div style="width:40px; height:20px; background:#C4B9AB; flex:0 0 auto"></div><p style="margin:0; font-size:11.5px; line-height:1.6; font-weight:300"><strong style="font-weight:600">Ativo</strong> — chumbo, alternativa areia.</p></div>
+        </div>
+      </div>
+
+      <div style="border:1px solid #E4DDD3; padding:14px 16px; display:grid; gap:10px">
+        <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0">Newborn</p>
+        <div style="display:grid; gap:8px">
+          <div style="display:flex; align-items:center; gap:10px"><div style="width:40px; height:20px; background:#C4B9AB; flex:0 0 auto"></div><div style="width:40px; height:20px; background:#9A8A7B; flex:0 0 auto"></div><p style="margin:0; font-size:11.5px; line-height:1.6; font-weight:300"><strong style="font-weight:600">Branco-leite</strong> — areia, alternativa taupe. Nunca fundo branco: o bebê precisa ser o ponto mais claro.</p></div>
+          <div style="display:flex; align-items:center; gap:10px"><div style="width:40px; height:20px; background:#7A5A44; flex:0 0 auto"></div><div style="width:40px; height:20px; background:#4A342A; flex:0 0 auto"></div><p style="margin:0; font-size:11.5px; line-height:1.6; font-weight:300"><strong style="font-weight:600">Terroso</strong> — noz, alternativa marrom café.</p></div>
+          <div style="display:flex; align-items:center; gap:10px"><div style="width:40px; height:20px; background:#C4B9AB; flex:0 0 auto"></div><div style="width:40px; height:20px; background:#D2D1D1; flex:0 0 auto"></div><p style="margin:0; font-size:11.5px; line-height:1.6; font-weight:300"><strong style="font-weight:600">Empoado</strong> — areia, alternativa cinza-pérola.</p></div>
+        </div>
+      </div>
+
+      <div style="border:1px solid #E4DDD3; padding:14px 16px; display:grid; gap:10px">
+        <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0">Família e casal</p>
+        <div style="display:grid; gap:8px">
+          <div style="display:flex; align-items:center; gap:10px"><div style="width:40px; height:20px; background:#F4F1EC; border:1px solid #DBD3C9; flex:0 0 auto"></div><div style="width:40px; height:20px; background:#C4B9AB; flex:0 0 auto"></div><p style="margin:0; font-size:11.5px; line-height:1.6; font-weight:300"><strong style="font-weight:600">Neutro claro</strong> — off-white, alternativa areia.</p></div>
+          <div style="display:flex; align-items:center; gap:10px"><div style="width:40px; height:20px; background:#EDE4D6; flex:0 0 auto"></div><div style="width:40px; height:20px; background:#7A5A44; flex:0 0 auto"></div><p style="margin:0; font-size:11.5px; line-height:1.6; font-weight:300"><strong style="font-weight:600">Terroso</strong> — cru, alternativa noz.</p></div>
+          <div style="display:flex; align-items:center; gap:10px"><div style="width:40px; height:20px; background:#6E6F71; flex:0 0 auto"></div><div style="width:40px; height:20px; background:#4A342A; flex:0 0 auto"></div><p style="margin:0; font-size:11.5px; line-height:1.6; font-weight:300"><strong style="font-weight:600">Marinho e café</strong> — chumbo, alternativa marrom café. Grupo escuro exige luz de contorno.</p></div>
+          <div style="display:flex; align-items:center; gap:10px"><div style="width:40px; height:20px; background:#1C1A19; flex:0 0 auto"></div><div style="width:40px; height:20px; background:#6E6F71; flex:0 0 auto"></div><p style="margin:0; font-size:11.5px; line-height:1.6; font-weight:300"><strong style="font-weight:600">Casal editorial</strong> — preto, alternativa chumbo.</p></div>
+        </div>
+      </div>
+
+      <div style="border:1px solid #E4DDD3; padding:14px 16px; display:grid; gap:10px">
+        <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#C8BCAE; margin:0">Feminino, infantil e corporativo</p>
+        <div style="display:grid; gap:8px">
+          <div style="display:flex; align-items:center; gap:10px"><div style="width:40px; height:20px; background:#D2D1D1; flex:0 0 auto"></div><div style="width:40px; height:20px; background:#F4F1EC; border:1px solid #DBD3C9; flex:0 0 auto"></div><p style="margin:0; font-size:11.5px; line-height:1.6; font-weight:300"><strong style="font-weight:600">Feminino individual</strong> — cinza-pérola, alternativa off-white.</p></div>
+          <div style="display:flex; align-items:center; gap:10px"><div style="width:40px; height:20px; background:#4A342A; flex:0 0 auto"></div><div style="width:40px; height:20px; background:#6E6F71; flex:0 0 auto"></div><p style="margin:0; font-size:11.5px; line-height:1.6; font-weight:300"><strong style="font-weight:600">Feminino aniversário</strong> — marrom café, alternativa chumbo.</p></div>
+          <div style="display:flex; align-items:center; gap:10px"><div style="width:40px; height:20px; background:#F4F1EC; border:1px solid #DBD3C9; flex:0 0 auto"></div><div style="width:40px; height:20px; background:#EDE4D6; flex:0 0 auto"></div><p style="margin:0; font-size:11.5px; line-height:1.6; font-weight:300"><strong style="font-weight:600">15 anos e infantil</strong> — off-white, alternativa cru.</p></div>
+          <div style="display:flex; align-items:center; gap:10px"><div style="width:40px; height:20px; background:#D2D1D1; flex:0 0 auto"></div><div style="width:40px; height:20px; background:#6E6F71; flex:0 0 auto"></div><p style="margin:0; font-size:11.5px; line-height:1.6; font-weight:300"><strong style="font-weight:600">Corporativo</strong> — cinza-pérola, alternativa chumbo. Branco puro só com três luzes.</p></div>
+          <div style="display:flex; align-items:center; gap:10px"><div style="width:40px; height:20px; background:#EDE4D6; flex:0 0 auto"></div><div style="width:40px; height:20px; background:#6B2230; flex:0 0 auto"></div><p style="margin:0; font-size:11.5px; line-height:1.6; font-weight:300"><strong style="font-weight:600">Minissessões</strong> — cru, alternativa a cor da paleta do ano.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="acervo" style="padding:40px 22px; background:#EDE4D6; border-bottom:1px solid #DBD3C9">
+    <p style="font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:#715549; margin:0">Módulo de compra</p>
+    <h2 style="font-family:'Cormorant Garamond', serif; font-weight:300; font-size:31px; margin:5px 0 8px">Acervo de fundos</h2>
+    <p style="margin:0 0 22px; font-size:12.5px; line-height:1.75; font-weight:300; max-width:520px">Cinco fundos cobrem os oito nichos. Comprar nesta ordem — cada um resolve mais estilos que o anterior.</p>
+
+    <div style="display:grid; gap:12px">
+      <div style="background:#F7F5F1; border:1px solid #E4DDD3; padding:18px">
+        <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:12px">
+          <span style="font-family:'Cormorant Garamond', serif; font-size:30px; line-height:0.9; color:#DBD3C9">1</span>
+          <div>
+            <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0">Os três primeiros</p>
+            <p style="margin:2px 0 0; font-size:12px; line-height:1.6; color:#715549">Já atendem todos os nichos em nível básico.</p>
+          </div>
+        </div>
+        <div style="display:grid; gap:10px">
+          <div style="display:flex; align-items:center; gap:12px"><div style="width:52px; height:30px; background:#F4F1EC; border:1px solid #DBD3C9; flex:0 0 auto"></div><p style="margin:0; font-size:12px; line-height:1.7; font-weight:300"><strong style="font-weight:600">Off-white</strong> — o mais usado. Gestante, feminino, família, infantil, newborn.</p></div>
+          <div style="display:flex; align-items:center; gap:12px"><div style="width:52px; height:30px; background:#C4B9AB; flex:0 0 auto"></div><p style="margin:0; font-size:12px; line-height:1.7; font-weight:300"><strong style="font-weight:600">Areia</strong> — o médio quente. Newborn, infantil, roupa clara em geral.</p></div>
+          <div style="display:flex; align-items:center; gap:12px"><div style="width:52px; height:30px; background:#6E6F71; flex:0 0 auto"></div><p style="margin:0; font-size:12px; line-height:1.7; font-weight:300"><strong style="font-weight:600">Cinza chumbo</strong> — o escuro fácil. Luxo, ousado, corporativo, editorial.</p></div>
+        </div>
+      </div>
+
+      <div style="background:#F7F5F1; border:1px solid #E4DDD3; padding:18px">
+        <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:12px">
+          <span style="font-family:'Cormorant Garamond', serif; font-size:30px; line-height:0.9; color:#DBD3C9">2</span>
+          <div>
+            <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0">Ampliação</p>
+            <p style="margin:2px 0 0; font-size:12px; line-height:1.6; color:#715549">Abrem os estilos de maior valor percebido.</p>
+          </div>
+        </div>
+        <div style="display:grid; gap:10px">
+          <div style="display:flex; align-items:center; gap:12px"><div style="width:52px; height:30px; background:#4A342A; flex:0 0 auto"></div><p style="margin:0; font-size:12px; line-height:1.7; font-weight:300"><strong style="font-weight:600">Marrom café</strong> — luxo, elegante, newborn terroso, pré-wedding.</p></div>
+          <div style="display:flex; align-items:center; gap:12px"><div style="width:52px; height:30px; background:#D2D1D1; flex:0 0 auto"></div><p style="margin:0; font-size:12px; line-height:1.7; font-weight:300"><strong style="font-weight:600">Cinza-pérola</strong> — corporativo e série de equipe, com versão portátil.</p></div>
+          <div style="display:flex; align-items:center; gap:12px"><div style="width:52px; height:30px; background:#EDE4D6; flex:0 0 auto"></div><p style="margin:0; font-size:12px; line-height:1.7; font-weight:300"><strong style="font-weight:600">Cru</strong> — boho, minissessões, infantil. Pode ser tecido, não precisa ser papel.</p></div>
+        </div>
+      </div>
+
+      <div style="background:#F7F5F1; border:1px solid #E4DDD3; padding:18px">
+        <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:12px">
+          <span style="font-family:'Cormorant Garamond', serif; font-size:30px; line-height:0.9; color:#DBD3C9">3</span>
+          <div>
+            <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0">Especificação técnica</p>
+            <p style="margin:2px 0 0; font-size:12px; line-height:1.6; color:#715549">O que pedir ao fornecedor.</p>
+          </div>
+        </div>
+        <ul style="margin:0; padding-left:16px; font-size:12.5px; line-height:1.95; font-weight:300">
+          <li><strong style="font-weight:600">Largura mínima 2,70 m</strong> para família e grupo; 1,50 m atende retrato e newborn.</li>
+          <li>Tecido <strong style="font-weight:600">fosco, sem brilho e de trama fechada</strong> — brilho no fundo aparece como mancha de luz.</li>
+          <li>Preferir tecido lavável a papel: papel amassa, rasga e não volta.</li>
+          <li>Fundo cru e areia podem ser <strong style="font-weight:600">corte de tecido de 4 m</strong> — os mesmos do acervo de figurino.</li>
+          <li>Um sistema de suporte com tripé e travessa, mais um fundo portátil para atender na empresa.</li>
+          <li>Vaporizador: marca de dobra no fundo aparece mais que na roupa.</li>
+        </ul>
+      </div>
+
+      <div style="background:#352D27; color:#EDE4D6; padding:18px">
+        <p style="font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:#C8BCAE; margin:0 0 8px">O que não comprar</p>
+        <p style="margin:0; font-size:12.5px; line-height:1.85; font-weight:300">Fundo degradê, estampado, com textura marmorizada, azul-royal, vermelho, verde-bandeira ou amarelo. E branco puro só quando houver <strong style="font-weight:600">três pontos de luz</strong> disponíveis — sem isso ele vira cinza sujo e derruba a foto.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer style="padding:40px 22px 48px; background:#352D27; color:#C8BCAE; text-align:center; display:flex; flex-direction:column; align-items:center; gap:14px">
+    <a href="Guia Lumiar.dc.html" style="font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:#EDE4D6; border:1px solid #715549; padding:10px 16px">← Voltar ao mapa de nichos</a>
+    <p style="margin:0; max-width:420px; font-size:12.5px; line-height:1.8; font-weight:300">Caderno de Fundos fotográficos — famílias de fundo, combinação com a roupa, consulta por nicho e acervo.</p>
+    <p style="margin:0; font-family:'Cormorant Garamond', serif; font-size:19px; font-style:italic; color:#EDE4D6">Lumiar Retratos &amp; Estúdio</p>
+  </footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    const HEX = /(?:^|[\s·#(])([0-9A-Fa-f]{6})(?![0-9A-Za-z])/;
+    const root = document.querySelector('x-dc') || document.body;
+    root.querySelectorAll('span, p, div, li, strong').forEach(el => {
+      let own = '';
+      el.childNodes.forEach(n => { if (n.nodeType === 3) own += n.nodeValue; });
+      const m = own.match(HEX);
+      if (!m) return;
+      const hex = '#' + m[1].toUpperCase();
+      el.setAttribute('data-hex', hex);
+      el.style.cursor = 'pointer';
+      el.title = 'Clique para copiar ' + hex;
+    });
+    this._onClick = (e) => {
+      const el = e.target.closest('[data-hex]');
+      if (!el) return;
+      const hex = el.getAttribute('data-hex');
+      const done = () => this.toast(hex + ' copiado');
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(hex).then(done, () => this.fallback(hex, done));
+      } else this.fallback(hex, done);
+    };
+    root.addEventListener('click', this._onClick);
+  }
+  componentWillUnmount() {
+    const root = document.querySelector('x-dc') || document.body;
+    if (this._onClick) root.removeEventListener('click', this._onClick);
+    if (this._toastEl) this._toastEl.remove();
+  }
+  fallback(hex, done) {
+    const ta = document.createElement('textarea');
+    ta.value = hex; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); } catch (err) {}
+    ta.remove(); done();
+  }
+  toast(msg) {
+    if (!this._toastEl) {
+      const t = document.createElement('div');
+      t.style.cssText = 'position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#352D27;color:#F7F2EC;font:500 11px/1 Montserrat,sans-serif;letter-spacing:0.14em;text-transform:uppercase;padding:12px 18px;z-index:9999;opacity:0;transition:opacity .18s;pointer-events:none';
+      document.body.appendChild(t);
+      this._toastEl = t;
+    }
+    this._toastEl.textContent = msg;
+    this._toastEl.style.opacity = '1';
+    clearTimeout(this._toastTimer);
+    this._toastTimer = setTimeout(() => { this._toastEl.style.opacity = '0'; }, 1400);
+  }
+}
+</script>
+</body>
+</html>

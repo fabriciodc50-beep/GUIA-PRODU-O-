@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=Montserrat:wght@300;400;500;600&display=swap" />
+<script src="./image-slot.js"></script>
+<style>
+  html, body { margin:0; padding:0; background:#F7F5F1; }
+  * { box-sizing:border-box; }
+  a { color:#715549; text-decoration:none; }
+  a:hover { color:#352D27; }
+</style>
+</helmet>
+
+<div style="font-family:Montserrat, sans-serif; color:#352D27; background:#F7F5F1; overflow-x:hidden">
+
+  <header style="padding:52px 22px 40px; background:#352D27; color:#EDE4D6; display:flex; flex-direction:column; align-items:center; gap:20px; text-align:center">
+    <img src="assets/lumiar-logo.png" alt="Lumiar Retratos &amp; Estúdio" style="width:146px; height:auto; filter:invert(1) brightness(1.6)" />
+    <p style="font-size:10px; letter-spacing:0.24em; text-transform:uppercase; color:#C8BCAE; margin:0">Guia de estilos e figurinos</p>
+    <h1 style="font-family:'Cormorant Garamond', serif; font-weight:300; font-size:36px; line-height:1.1; margin:0">Nicho <em style="font-style:italic; color:#DBD3C9">Gestante</em></h1>
+    <p style="margin:0; max-width:430px; font-size:13px; line-height:1.75; color:#C8BCAE; font-weight:300">Oito estilos, cada um com paleta fechada e combinações montadas peça por peça — ela e o acompanhante no mesmo quadro. Para orientar a cliente antes do ensaio, sem adivinhação.</p>
+  </header>
+
+  <nav style="position:sticky; top:0; z-index:20; background:#F7F5F1; border-bottom:1px solid #DBD3C9; padding:11px 14px; display:flex; gap:7px; overflow-x:auto">
+    <a href="#e01" style="flex:0 0 auto; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; padding:8px 11px; border:1px solid #DBD3C9; background:#FFFFFF">01 Elegante</a>
+    <a href="#e02" style="flex:0 0 auto; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; padding:8px 11px; border:1px solid #DBD3C9; background:#FFFFFF">02 Minimalista</a>
+    <a href="#e03" style="flex:0 0 auto; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; padding:8px 11px; border:1px solid #DBD3C9; background:#FFFFFF">03 Romântico</a>
+    <a href="#e04" style="flex:0 0 auto; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; padding:8px 11px; border:1px solid #DBD3C9; background:#FFFFFF">04 Boho</a>
+    <a href="#e05" style="flex:0 0 auto; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; padding:8px 11px; border:1px solid #DBD3C9; background:#FFFFFF">05 Ousado</a>
+    <a href="#e06" style="flex:0 0 auto; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; padding:8px 11px; border:1px solid #DBD3C9; background:#FFFFFF">06 Casual</a>
+    <a href="#e07" style="flex:0 0 auto; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; padding:8px 11px; border:1px solid #DBD3C9; background:#FFFFFF">07 Luxo</a>
+    <a href="#e08" style="flex:0 0 auto; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; padding:8px 11px; border:1px solid #DBD3C9; background:#FFFFFF">08 Ativo</a>
+    <a href="#tecidos" style="flex:0 0 auto; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; padding:8px 11px; border:1px solid #9A8A7B; background:#EDE4D6">Tecidos</a>
+    <a href="#acervo" style="flex:0 0 auto; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; padding:8px 11px; border:1px solid #352D27; background:#352D27; color:#EDE4D6">Acervo</a>
+  </nav>
+
+  <section style="padding:32px 22px; background:#FFFFFF; border-bottom:1px solid #EDE4D6">
+    <p style="font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:#715549; margin:0 0 14px">Como ler as pranchas</p>
+    <div style="display:grid; gap:14px; max-width:560px">
+      <p style="margin:0; font-size:12.5px; line-height:1.8; font-weight:300">Cada estilo traz duas <strong style="font-weight:600">pranchas de figurino</strong>: a coluna da esquerda é a gestante, a da direita o acompanhante. Cada bloco é uma peça, na cor exata da combinação — de cima para baixo, na ordem em que se veste.</p>
+      <p style="margin:0; font-size:12.5px; line-height:1.8; font-weight:300">Combinação fechada quer dizer: <strong style="font-weight:600">duas cores dominantes e um acento</strong>. O acompanhante usa a cor invertida — o que nela é peça de baixo, nele é peça de cima. Nunca a mesma peça na mesma cor nos dois.</p>
+      <p style="margin:0; font-size:12.5px; line-height:1.8; font-weight:300">Regras do nicho: cintura sempre <strong style="font-weight:600">acima da barriga</strong> (linha império) ou muito abaixo dela; tecido que marca por caimento, não por aperto; janela ideal entre a <strong style="font-weight:600">28ª e a 34ª semana</strong>.</p>
+    </div>
+  </section>
+
+  <section id="e01" style="padding:40px 22px; background:#F7F5F1; border-bottom:1px solid #EDE4D6">
+    <p style="font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:#715549; margin:0">Estilo 01</p>
+    <h2 style="font-family:'Cormorant Garamond', serif; font-weight:300; font-size:31px; margin:5px 0 8px">Elegante <em style="font-style:italic">Clássico</em></h2>
+    <p style="margin:0 0 20px; font-size:12.5px; line-height:1.75; font-weight:300; max-width:520px">Alfaiataria, superfície lisa, silhueta controlada. Nenhuma moda passageira — é o estilo que continua atual dez anos depois.</p>
+
+    <div style="display:flex; gap:1px; background:#DBD3C9; margin-bottom:8px">
+      <div style="flex:1; height:56px; background:#EDE4D6; display:flex; align-items:flex-end; padding:6px"><span style="font-size:8px; letter-spacing:0.08em; color:#715549">CRU · EDE4D6</span></div>
+      <div style="flex:1; height:56px; background:#A9855F; display:flex; align-items:flex-end; padding:6px"><span style="font-size:8px; letter-spacing:0.08em; color:#FFFFFF">CAMEL · A9855F</span></div>
+      <div style="flex:1; height:56px; background:#22304A; display:flex; align-items:flex-end; padding:6px"><span style="font-size:8px; letter-spacing:0.08em; color:#FFFFFF">MARINHO · 22304A</span></div>
+      <div style="flex:1; height:56px; background:#4A342A; display:flex; align-items:flex-end; padding:6px"><span style="font-size:8px; letter-spacing:0.08em; color:#FFFFFF">CAFÉ · 4A342A</span></div>
+      <div style="flex:1; height:56px; background:#5F6644; display:flex; align-items:flex-end; padding:6px"><span style="font-size:8px; letter-spacing:0.08em; color:#FFFFFF">OLIVA · 5F6644</span></div>
+    </div>
+    <p style="margin:0 0 22px; font-size:11.5px; line-height:1.7; color:#715549">Combinações válidas: <strong style="font-weight:600">oliva + cru</strong> · <strong style="font-weight:600">marinho + marrom café</strong> · <strong style="font-weight:600">camel + cru</strong>.</p>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(270px,1fr)); gap:14px">
+
+      <article style="background:#FFFFFF; border:1px solid #E4DDD3; padding:18px">
+        <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 2px">Prancha 01.A</p>
+        <h3 style="font-family:'Cormorant Garamond', serif; font-weight:400; font-size:20px; margin:0 0 16px">Oliva + cru — alfaiataria de dia</h3>
+        <div style="display:flex; gap:16px; margin-bottom:16px">
+          <div style="flex:1">
+            <p style="font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:#715549; margin:0 0 8px">Gestante</p>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:3px">
+              <div style="width:96%; height:22px; background:#5F6644; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#FFFFFF">BLAZER OLIVA</span></div>
+              <div style="width:66%; height:36px; background:#EDE4D6; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#715549">TOP CRU</span></div>
+              <div style="width:88%; height:74px; background:#5F6644; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#FFFFFF">PANTALONA OLIVA</span></div>
+              <div style="width:52%; height:14px; background:#D8B8A8; display:flex; align-items:center; justify-content:center"><span style="font-size:7px; letter-spacing:0.06em; color:#5A4038">SANDÁLIA NUDE</span></div>
+            </div>
+          </div>
+          <div style="flex:1">
+            <p style="font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:#715549; margin:0 0 8px">Acompanhante</p>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:3px">
+              <div style="width:96%; height:58px; background:#5F6644; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#FFFFFF">POLO OLIVA</span></div>
+              <div style="width:88%; height:74px; background:#EDE4D6; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#715549">CALÇA CRU</span></div>
+              <div style="width:52%; height:14px; background:#4A342A; display:flex; align-items:center; justify-content:center"><span style="font-size:7px; letter-spacing:0.06em; color:#FFFFFF">SAPATO CAFÉ</span></div>
+            </div>
+          </div>
+        </div>
+        <ul style="margin:0; padding-left:15px; font-size:12px; line-height:1.85; font-weight:300">
+          <li>Blazer sempre <strong style="font-weight:600">aberto</strong>, nunca abotoado sobre a barriga.</li>
+          <li>Pantalona de cós elástico alto, acima do umbigo — alonga a silhueta.</li>
+          <li>Acento: bolsa estruturada off-white na mão, argola dourada pequena.</li>
+        </ul>
+        <p style="margin:12px 0 0; font-size:11px; line-height:1.7; color:#715549">Cenário: estúdio fundo neutro ou arquitetura urbana.</p>
+      </article>
+
+      <article style="background:#FFFFFF; border:1px solid #E4DDD3; padding:18px">
+        <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 2px">Prancha 01.B</p>
+        <h3 style="font-family:'Cormorant Garamond', serif; font-weight:400; font-size:20px; margin:0 0 16px">Marinho + café — vestido longo</h3>
+        <div style="display:flex; gap:16px; margin-bottom:16px">
+          <div style="flex:1">
+            <p style="font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:#715549; margin:0 0 8px">Gestante</p>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:3px">
+              <div style="width:70%; height:26px; background:#22304A; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#FFFFFF">GOLA ALTA</span></div>
+              <div style="width:94%; height:106px; background:#22304A; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#FFFFFF">VESTIDO MARINHO</span></div>
+              <div style="width:52%; height:14px; background:#4A342A; display:flex; align-items:center; justify-content:center"><span style="font-size:7px; letter-spacing:0.06em; color:#FFFFFF">SCARPIN CAFÉ</span></div>
+            </div>
+          </div>
+          <div style="flex:1">
+            <p style="font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:#C8BCAE; margin:0 0 8px">Acompanhante</p>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:3px">
+              <div style="width:96%; height:24px; background:#4A342A; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#FFFFFF">BLAZER CAFÉ</span></div>
+              <div style="width:66%; height:34px; background:#22304A; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#FFFFFF">CAMISETA MARINHO</span></div>
+              <div style="width:88%; height:74px; background:#22304A; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#FFFFFF">CALÇA MARINHO</span></div>
+              <div style="width:52%; height:14px; background:#4A342A; display:flex; align-items:center; justify-content:center"><span style="font-size:7px; letter-spacing:0.06em; color:#FFFFFF">SAPATO CAFÉ</span></div>
+            </div>
+          </div>
+        </div>
+        <ul style="margin:0; padding-left:15px; font-size:12px; line-height:1.85; font-weight:300">
+          <li>Drapeado lateral na altura do umbigo: sustenta o volume sem apertar.</li>
+          <li>Manga 3/4 ou longa — braço coberto pede colo limpo, sem colar.</li>
+          <li>Acento: brinco de pérola e clutch escura. Um só metal no quadro.</li>
+        </ul>
+        <p style="margin:12px 0 0; font-size:11px; line-height:1.7; color:#715549">Cenário: estúdio fundo escuro, luz quente pontual.</p>
+      </article>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(210px,1fr)); gap:1px; background:#DBD3C9; margin-top:16px">
+      <div style="background:#FFFFFF; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 7px">Tecidos</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300">Crepe, lã fria, cady, tweed, cetim pesado. Caimento com peso, superfície fosca.</p></div>
+      <div style="background:#FFFFFF; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#B0603E; margin:0 0 7px">Evitar</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300">Risca de giz, xadrez miúdo, listra fina, linho amassado, blazer fechado, logo aparente.</p></div>
+      <div style="background:#FFFFFF; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 7px">Acessórios e calçados</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300">Pérola, ouro fosco, couro liso. Salto bloco até 5 cm ou rasteira de tira fina.</p></div>
+      <div style="background:#FFFFFF; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 7px">Cabelo e maquiagem</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300">Coque baixo ou ondas alinhadas. Pele acetinada, boca nude-rosada, olho esfumado marrom.</p></div>
+      <div style="background:#FFFFFF; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 7px">Filhos</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300">Camisa cru e bermuda bege, ou vestido liso camel. Vizinhos da paleta, nunca o tom exato dela.</p></div>
+      <div style="background:#352D27; color:#EDE4D6; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#C8BCAE; margin:0 0 7px">Semana e conforto</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300">28ª–34ª. Cós elástico obrigatório; blazer só entra na hora do clique.</p></div>
+    </div>
+
+    <div style="margin-top:14px"><image-slot id="ref-e01" shape="rect" style="width:100%; height:180px" placeholder="Arraste aqui uma foto sua de referência deste estilo"></image-slot></div>
+  </section>
+
+  <section id="e02" style="padding:40px 22px; background:#FFFFFF; border-bottom:1px solid #EDE4D6">
+    <p style="font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:#715549; margin:0">Estilo 02</p>
+    <h2 style="font-family:'Cormorant Garamond', serif; font-weight:300; font-size:31px; margin:5px 0 8px">Minimalista</h2>
+    <p style="margin:0 0 20px; font-size:12.5px; line-height:1.75; font-weight:300; max-width:520px">Uma cor, uma forma, nada para olhar além do corpo. A barriga é o único assunto — o figurino sai de cena.</p>
+
+    <div style="display:flex; gap:1px; background:#DBD3C9; margin-bottom:8px">
+      <div style="flex:1; height:56px; background:#F4F1EC; display:flex; align-items:flex-end; padding:6px"><span style="font-size:8px; letter-spacing:0.08em; color:#715549">OFF-WHITE · F4F1EC</span></div>
+      <div style="flex:1; height:56px; background:#D2D1D1; display:flex; align-items:flex-end; padding:6px"><span style="font-size:8px; letter-spacing:0.08em; color:#4A4A48">PÉROLA · D2D1D1</span></div>
+      <div style="flex:1; height:56px; background:#9A8A7B; display:flex; align-items:flex-end; padding:6px"><span style="font-size:8px; letter-spacing:0.08em; color:#FFFFFF">TAUPE · 9A8A7B</span></div>
+      <div style="flex:1; height:56px; background:#6E6F71; display:flex; align-items:flex-end; padding:6px"><span style="font-size:8px; letter-spacing:0.08em; color:#FFFFFF">CHUMBO · 6E6F71</span></div>
+      <div style="flex:1; height:56px; background:#352D27; display:flex; align-items:flex-end; padding:6px"><span style="font-size:8px; letter-spacing:0.08em; color:#FFFFFF">GRAFITE · 352D27</span></div>
+    </div>
+    <p style="margin:0 0 22px; font-size:11.5px; line-height:1.7; color:#715549">Combinações válidas: <strong style="font-weight:600">off-white + taupe</strong> · <strong style="font-weight:600">pérola + chumbo</strong> · <strong style="font-weight:600">grafite sozinho</strong>. Sempre tom sobre tom; o contraste vem da luz.</p>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(270px,1fr)); gap:14px">
+
+      <article style="background:#F7F5F1; border:1px solid #E4DDD3; padding:18px">
+        <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 2px">Prancha 02.A</p>
+        <h3 style="font-family:'Cormorant Garamond', serif; font-weight:400; font-size:20px; margin:0 0 16px">Off-white — segunda pele</h3>
+        <div style="display:flex; gap:16px; margin-bottom:16px">
+          <div style="flex:1">
+            <p style="font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:#715549; margin:0 0 8px">Gestante</p>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:3px">
+              <div style="width:70%; height:24px; background:#F4F1EC; border:1px solid #DBD3C9; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#715549">GOLA ALTA</span></div>
+              <div style="width:94%; height:108px; background:#F4F1EC; border:1px solid #DBD3C9; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#715549">VESTIDO CANELADO</span></div>
+              <div style="width:52%; height:14px; background:#EDE4D6; display:flex; align-items:center; justify-content:center"><span style="font-size:7px; letter-spacing:0.06em; color:#715549">DESCALÇA</span></div>
+            </div>
+          </div>
+          <div style="flex:1">
+            <p style="font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:#715549; margin:0 0 8px">Acompanhante</p>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:3px">
+              <div style="width:96%; height:58px; background:#F4F1EC; border:1px solid #DBD3C9; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#715549">CAMISETA OFF-WHITE</span></div>
+              <div style="width:88%; height:74px; background:#9A8A7B; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#FFFFFF">CALÇA TAUPE</span></div>
+              <div style="width:52%; height:14px; background:#EDE4D6; display:flex; align-items:center; justify-content:center"><span style="font-size:7px; letter-spacing:0.06em; color:#715549">DESCALÇO</span></div>
+            </div>
+          </div>
+        </div>
+        <ul style="margin:0; padding-left:15px; font-size:12px; line-height:1.85; font-weight:300">
+          <li>Malha canelada colada do busto ao tornozelo — marca a barriga inteira.</li>
+          <li>Zero acessório: aliança e, no máximo, um brinco pontinho.</li>
+          <li>Roupa íntima na cor da pele, sem costura. Conferir de perfil antes.</li>
+        </ul>
+        <p style="margin:12px 0 0; font-size:11px; line-height:1.7; color:#715549">Cenário: estúdio fundo neutro, luz lateral única.</p>
+      </article>
+
+      <article style="background:#F7F5F1; border:1px solid #E4DDD3; padding:18px">
+        <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 2px">Prancha 02.B</p>
+        <h3 style="font-family:'Cormorant Garamond', serif; font-weight:400; font-size:20px; margin:0 0 16px">Grafite — silhueta gráfica</h3>
+        <div style="display:flex; gap:16px; margin-bottom:16px">
+          <div style="flex:1">
+            <p style="font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:#715549; margin:0 0 8px">Gestante</p>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:3px">
+              <div style="width:66%; height:40px; background:#352D27; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#FFFFFF">TOP GRAFITE</span></div>
+              <div style="width:88%; height:88px; background:#352D27; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#FFFFFF">SAIA DE JERSEY</span></div>
+              <div style="width:52%; height:14px; background:#6E6F71; display:flex; align-items:center; justify-content:center"><span style="font-size:7px; letter-spacing:0.06em; color:#FFFFFF">DESCALÇA</span></div>
+            </div>
+          </div>
+          <div style="flex:1">
+            <p style="font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:#C8BCAE; margin:0 0 8px">Acompanhante</p>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:3px">
+              <div style="width:96%; height:58px; background:#6E6F71; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#FFFFFF">CAMISETA CHUMBO</span></div>
+              <div style="width:88%; height:74px; background:#352D27; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#FFFFFF">CALÇA GRAFITE</span></div>
+              <div style="width:52%; height:14px; background:#6E6F71; display:flex; align-items:center; justify-content:center"><span style="font-size:7px; letter-spacing:0.06em; color:#FFFFFF">DESCALÇO</span></div>
+            </div>
+          </div>
+        </div>
+        <ul style="margin:0; padding-left:15px; font-size:12px; line-height:1.85; font-weight:300">
+          <li>Feito para fundo escuro: o corpo aparece por contorno de luz.</li>
+          <li>Nada de brilho, estampa, cinto largo ou bolso aplicado.</li>
+          <li>Acento opcional: camisa off-white grande aberta, como capa.</li>
+        </ul>
+        <p style="margin:12px 0 0; font-size:11px; line-height:1.7; color:#715549">Cenário: estúdio fundo escuro, recorte de luz.</p>
+      </article>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(210px,1fr)); gap:1px; background:#DBD3C9; margin-top:16px">
+      <div style="background:#F7F5F1; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 7px">Tecidos</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300">Malha canelada, jersey, modal, viscose pesada. Elástico no tecido, nunca no corpo.</p></div>
+      <div style="background:#F7F5F1; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#B0603E; margin:0 0 7px">Evitar</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300">Estampa, renda, franja, botão contrastante, acessório colorido, terceira cor.</p></div>
+      <div style="background:#F7F5F1; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 7px">Acessórios e calçados</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300">Descalça de preferência. Se calçar, sapatilha ou sandália no tom da pele.</p></div>
+      <div style="background:#F7F5F1; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 7px">Cabelo e maquiagem</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300">Liso solto ou preso rente. Pouca base, cílio natural, boca sem cor.</p></div>
+      <div style="background:#F7F5F1; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 7px">Filhos</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300">Body ou camiseta lisa off-white. Todos descalços, nenhuma estampa.</p></div>
+      <div style="background:#352D27; color:#EDE4D6; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#C8BCAE; margin:0 0 7px">Semana e conforto</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300">32ª–38ª. O estilo que melhor aceita barriga grande: a malha cede. Sala aquecida.</p></div>
+    </div>
+
+    <div style="margin-top:14px"><image-slot id="ref-e02" shape="rect" style="width:100%; height:180px" placeholder="Arraste aqui uma foto sua de referência deste estilo"></image-slot></div>
+  </section>
+
+
+  <section id="e03" style="padding:40px 22px; background:#F7F5F1; border-bottom:1px solid #EDE4D6">
+    <p style="font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:#715549; margin:0">Estilo 03</p>
+    <h2 style="font-family:'Cormorant Garamond', serif; font-weight:300; font-size:31px; margin:5px 0 8px">Romântico</h2>
+    <p style="margin:0 0 20px; font-size:12.5px; line-height:1.75; font-weight:300; max-width:520px">Tule, plissado e tons empoados. O mais pedido do nicho e o que erra mais fácil: a doçura só não vira infantil se a paleta ficar fechada e uma cor escura sustentar o look.</p>
+
+    <div style="display:flex; gap:1px; background:#DBD3C9; margin-bottom:8px">
+      <div style="flex:1; height:56px; background:#F7F2EC; display:flex; align-items:flex-end; padding:6px"><span style="font-size:8px; letter-spacing:0.08em; color:#715549">LEITE · F7F2EC</span></div>
+      <div style="flex:1; height:56px; background:#E4BFB6; display:flex; align-items:flex-end; padding:6px"><span style="font-size:8px; letter-spacing:0.08em; color:#6B453C">ROSA ANTIGO · E4BFB6</span></div>
+      <div style="flex:1; height:56px; background:#D8B8A8; display:flex; align-items:flex-end; padding:6px"><span style="font-size:8px; letter-spacing:0.08em; color:#6B453C">NUDE · D8B8A8</span></div>
+      <div style="flex:1; height:56px; background:#B9A8BE; display:flex; align-items:flex-end; padding:6px"><span style="font-size:8px; letter-spacing:0.08em; color:#FFFFFF">LILÁS · B9A8BE</span></div>
+      <div style="flex:1; height:56px; background:#22304A; display:flex; align-items:flex-end; padding:6px"><span style="font-size:8px; letter-spacing:0.08em; color:#FFFFFF">MARINHO · 22304A</span></div>
+    </div>
+    <p style="margin:0 0 22px; font-size:11.5px; line-height:1.7; color:#715549">Combinações válidas: <strong style="font-weight:600">rosa antigo + marinho</strong> · <strong style="font-weight:600">rosa antigo + branco-leite</strong> · <strong style="font-weight:600">lilás + nude</strong>.</p>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(270px,1fr)); gap:14px">
+
+      <article style="background:#FFFFFF; border:1px solid #E4DDD3; padding:18px">
+        <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 2px">Prancha 03.A</p>
+        <h3 style="font-family:'Cormorant Garamond', serif; font-weight:400; font-size:20px; margin:0 0 16px">Rosa antigo + marinho — plissado</h3>
+        <div style="display:flex; gap:16px; margin-bottom:16px">
+          <div style="flex:1">
+            <p style="font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:#715549; margin:0 0 8px">Gestante</p>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:3px">
+              <div style="width:78%; height:46px; background:#22304A; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#FFFFFF">TRICÔ MARINHO</span></div>
+              <div style="width:94%; height:86px; background:#E4BFB6; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#6B453C">SAIA PLISSADA</span></div>
+              <div style="width:52%; height:14px; background:#D8B8A8; display:flex; align-items:center; justify-content:center"><span style="font-size:7px; letter-spacing:0.06em; color:#5A4038">SAPATO NUDE</span></div>
+            </div>
+          </div>
+          <div style="flex:1">
+            <p style="font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:#715549; margin:0 0 8px">Acompanhante</p>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:3px">
+              <div style="width:96%; height:58px; background:#E4BFB6; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#6B453C">CAMISA ROSA</span></div>
+              <div style="width:88%; height:74px; background:#22304A; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#FFFFFF">CALÇA MARINHO</span></div>
+              <div style="width:52%; height:14px; background:#4A342A; display:flex; align-items:center; justify-content:center"><span style="font-size:7px; letter-spacing:0.06em; color:#FFFFFF">SAPATO CAFÉ</span></div>
+            </div>
+          </div>
+        </div>
+        <ul style="margin:0; padding-left:15px; font-size:12px; line-height:1.85; font-weight:300">
+          <li>O par invertido: nela o escuro em cima, nele o rosa em cima.</li>
+          <li>Saia com cós elástico apoiado <strong style="font-weight:600">acima</strong> da barriga, plissado caindo livre.</li>
+          <li>Acento: bolsa pequena rosa e argola dourada fina.</li>
+        </ul>
+        <p style="margin:12px 0 0; font-size:11px; line-height:1.7; color:#715549">Cenário: externa campo no fim de tarde, ou lifestyle em casa.</p>
+      </article>
+
+      <article style="background:#FFFFFF; border:1px solid #E4DDD3; padding:18px">
+        <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 2px">Prancha 03.B</p>
+        <h3 style="font-family:'Cormorant Garamond', serif; font-weight:400; font-size:20px; margin:0 0 16px">Tule sobre nude</h3>
+        <div style="display:flex; gap:16px; margin-bottom:16px">
+          <div style="flex:1">
+            <p style="font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:#715549; margin:0 0 8px">Gestante</p>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:3px">
+              <div style="width:66%; height:36px; background:#D8B8A8; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#5A4038">TOP NUDE</span></div>
+              <div style="width:100%; height:96px; background:#E4BFB6; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#6B453C">SAIA DE TULE</span></div>
+              <div style="width:52%; height:14px; background:#F7F2EC; border:1px solid #DBD3C9; display:flex; align-items:center; justify-content:center"><span style="font-size:7px; letter-spacing:0.06em; color:#715549">DESCALÇA</span></div>
+            </div>
+          </div>
+          <div style="flex:1">
+            <p style="font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:#715549; margin:0 0 8px">Acompanhante</p>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:3px">
+              <div style="width:96%; height:58px; background:#F7F2EC; border:1px solid #DBD3C9; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#715549">CAMISA LEITE</span></div>
+              <div style="width:88%; height:74px; background:#9A8A7B; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#FFFFFF">CALÇA TAUPE</span></div>
+              <div style="width:52%; height:14px; background:#F7F2EC; border:1px solid #DBD3C9; display:flex; align-items:center; justify-content:center"><span style="font-size:7px; letter-spacing:0.06em; color:#715549">DESCALÇO</span></div>
+            </div>
+          </div>
+        </div>
+        <ul style="margin:0; padding-left:15px; font-size:12px; line-height:1.85; font-weight:300">
+          <li>Barriga inteira à mostra entre o top e o cós da saia.</li>
+          <li>Tule precisa de movimento: pedir giro ou vento, nunca parada de frente.</li>
+          <li>Forro de algodão sob o tule — pinica e esquenta em sessão longa.</li>
+        </ul>
+        <p style="margin:12px 0 0; font-size:11px; line-height:1.7; color:#715549">Cenário: estúdio claro com contraluz, ou campo aberto.</p>
+      </article>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(210px,1fr)); gap:1px; background:#DBD3C9; margin-top:16px">
+      <div style="background:#FFFFFF; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 7px">Tecidos</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300">Tule, chiffon, renda chantilly, plissado, musseline, tricô fino. Volume só abaixo da barriga.</p></div>
+      <div style="background:#FFFFFF; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#B0603E; margin:0 0 7px">Evitar</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300">Rosa-chiclete, floral miúdo, poá, laço na cintura, flor artificial de plástico, glitter.</p></div>
+      <div style="background:#FFFFFF; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 7px">Acessórios e calçados</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300">Ouro fino, gota de pérola, flores secas da paleta. Descalça ou sapatilha nude.</p></div>
+      <div style="background:#FFFFFF; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 7px">Cabelo e maquiagem</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300">Ondas soltas ou meio-preso com fios soltos. Blush alto, boca rosada, iluminador leve.</p></div>
+      <div style="background:#FFFFFF; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 7px">Filhos</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300">Vestido liso branco-leite ou rosa antigo; menino de camisa leite e bermuda marinho.</p></div>
+      <div style="background:#352D27; color:#EDE4D6; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#C8BCAE; margin:0 0 7px">Semana e conforto</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300">30ª–34ª. Tule pesa: prender com elástico, nunca zíper fixo, e prever pausas.</p></div>
+    </div>
+
+    <div style="margin-top:14px"><image-slot id="ref-e03" shape="rect" style="width:100%; height:180px" placeholder="Arraste aqui uma foto sua de referência deste estilo"></image-slot></div>
+  </section>
+
+  <section id="e04" style="padding:40px 22px; background:#FFFFFF; border-bottom:1px solid #EDE4D6">
+    <p style="font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:#715549; margin:0">Estilo 04</p>
+    <h2 style="font-family:'Cormorant Garamond', serif; font-weight:300; font-size:31px; margin:5px 0 8px">Boho <em style="font-style:italic">Natural</em></h2>
+    <p style="margin:0 0 20px; font-size:12.5px; line-height:1.75; font-weight:300; max-width:520px">Terra, vegetal e sol baixo. Textura é a estampa deste estilo: linho, crochê e palha no mesmo quadro. Feito para externa, não para estúdio fechado.</p>
+
+    <div style="display:flex; gap:1px; background:#DBD3C9; margin-bottom:8px">
+      <div style="flex:1; height:56px; background:#EDE4D6; display:flex; align-items:flex-end; padding:6px"><span style="font-size:8px; letter-spacing:0.08em; color:#715549">CRU · EDE4D6</span></div>
+      <div style="flex:1; height:56px; background:#B0603E; display:flex; align-items:flex-end; padding:6px"><span style="font-size:8px; letter-spacing:0.08em; color:#FFFFFF">TERRACOTA · B0603E</span></div>
+      <div style="flex:1; height:56px; background:#C08B3E; display:flex; align-items:flex-end; padding:6px"><span style="font-size:8px; letter-spacing:0.08em; color:#FFFFFF">OCRE · C08B3E</span></div>
+      <div style="flex:1; height:56px; background:#6B6F4A; display:flex; align-items:flex-end; padding:6px"><span style="font-size:8px; letter-spacing:0.08em; color:#FFFFFF">MUSGO · 6B6F4A</span></div>
+      <div style="flex:1; height:56px; background:#A8BDD1; display:flex; align-items:flex-end; padding:6px"><span style="font-size:8px; letter-spacing:0.08em; color:#2C3E4C">AZUL CLARO · A8BDD1</span></div>
+    </div>
+    <p style="margin:0 0 22px; font-size:11.5px; line-height:1.7; color:#715549">Combinações válidas: <strong style="font-weight:600">terracota + cru</strong> · <strong style="font-weight:600">terracota + azul claro</strong> · <strong style="font-weight:600">musgo + ocre</strong>.</p>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(270px,1fr)); gap:14px">
+
+      <article style="background:#F7F5F1; border:1px solid #E4DDD3; padding:18px">
+        <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 2px">Prancha 04.A</p>
+        <h3 style="font-family:'Cormorant Garamond', serif; font-weight:400; font-size:20px; margin:0 0 16px">Terracota + azul claro</h3>
+        <div style="display:flex; gap:16px; margin-bottom:16px">
+          <div style="flex:1">
+            <p style="font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:#715549; margin:0 0 8px">Gestante</p>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:3px">
+              <div style="width:82%; height:46px; background:#A8BDD1; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#2C3E4C">CAMISA AZUL</span></div>
+              <div style="width:94%; height:86px; background:#B0603E; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#FFFFFF">PANTALONA TERRACOTA</span></div>
+              <div style="width:52%; height:14px; background:#7A5A44; display:flex; align-items:center; justify-content:center"><span style="font-size:7px; letter-spacing:0.06em; color:#FFFFFF">MULE DE COURO</span></div>
+            </div>
+          </div>
+          <div style="flex:1">
+            <p style="font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:#C8BCAE; margin:0 0 8px">Acompanhante</p>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:3px">
+              <div style="width:96%; height:58px; background:#B0603E; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#FFFFFF">POLO TERRACOTA</span></div>
+              <div style="width:88%; height:74px; background:#A8BDD1; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#2C3E4C">CALÇA AZUL CLARO</span></div>
+              <div style="width:52%; height:14px; background:#EDE4D6; display:flex; align-items:center; justify-content:center"><span style="font-size:7px; letter-spacing:0.06em; color:#715549">TÊNIS CRU</span></div>
+            </div>
+          </div>
+        </div>
+        <ul style="margin:0; padding-left:15px; font-size:12px; line-height:1.85; font-weight:300">
+          <li>O azul claro esfria o terracota — é o que impede o look de ficar barro.</li>
+          <li>Camisa por dentro do cós alto, mangas dobradas até o cotovelo.</li>
+          <li>Acento: relógio dourado fino e bolsa de couro marrom.</li>
+        </ul>
+        <p style="margin:12px 0 0; font-size:11px; line-height:1.7; color:#715549">Cenário: externa natureza ou urbano de dia.</p>
+      </article>
+
+      <article style="background:#F7F5F1; border:1px solid #E4DDD3; padding:18px">
+        <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 2px">Prancha 04.B</p>
+        <h3 style="font-family:'Cormorant Garamond', serif; font-weight:400; font-size:20px; margin:0 0 16px">Cru + palha — linho de campo</h3>
+        <div style="display:flex; gap:16px; margin-bottom:16px">
+          <div style="flex:1">
+            <p style="font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:#715549; margin:0 0 8px">Gestante</p>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:3px">
+              <div style="width:96%; height:20px; background:#C08B3E; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#FFFFFF">CHAPÉU DE PALHA</span></div>
+              <div style="width:94%; height:112px; background:#EDE4D6; border:1px solid #DBD3C9; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#715549">VESTIDO DE LINHO CRU</span></div>
+              <div style="width:52%; height:14px; background:#7A5A44; display:flex; align-items:center; justify-content:center"><span style="font-size:7px; letter-spacing:0.06em; color:#FFFFFF">RASTEIRA DE COURO</span></div>
+            </div>
+          </div>
+          <div style="flex:1">
+            <p style="font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:#C8BCAE; margin:0 0 8px">Acompanhante</p>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:3px">
+              <div style="width:96%; height:58px; background:#EDE4D6; border:1px solid #DBD3C9; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#715549">CAMISA DE LINHO CRU</span></div>
+              <div style="width:88%; height:74px; background:#7A5A44; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#FFFFFF">CALÇA MARROM-NOZ</span></div>
+              <div style="width:52%; height:14px; background:#EDE4D6; display:flex; align-items:center; justify-content:center"><span style="font-size:7px; letter-spacing:0.06em; color:#715549">DESCALÇO</span></div>
+            </div>
+          </div>
+        </div>
+        <ul style="margin:0; padding-left:15px; font-size:12px; line-height:1.85; font-weight:300">
+          <li>Linho amassa: fotografar nos primeiros 30 minutos de cada troca.</li>
+          <li>Um chapéu <strong style="font-weight:600">ou</strong> um colar de contas — nunca os dois.</li>
+          <li>Acento: xale de crochê cru nos ombros para as fotos sentadas.</li>
+        </ul>
+        <p style="margin:12px 0 0; font-size:11px; line-height:1.7; color:#715549">Cenário: campo, capim alto, golden hour.</p>
+      </article>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(210px,1fr)); gap:1px; background:#DBD3C9; margin-top:16px">
+      <div style="background:#F7F5F1; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 7px">Tecidos</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300">Linho, musseline, laise, algodão rústico, crochê, tricô de fio grosso, couro natural.</p></div>
+      <div style="background:#F7F5F1; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#B0603E; margin:0 0 7px">Evitar</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300">Cor fria saturada, cetim, verniz, alfaiataria rígida, franja em excesso, neon.</p></div>
+      <div style="background:#F7F5F1; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 7px">Acessórios e calçados</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300">Palha, madeira, couro, ouro envelhecido. Rasteira de couro ou descalça.</p></div>
+      <div style="background:#F7F5F1; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 7px">Cabelo e maquiagem</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300">Textura natural, trança embutida frouxa. Pele fosca bronzeada, boca terracota.</p></div>
+      <div style="background:#F7F5F1; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 7px">Filhos</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300">Peça única de algodão cru ou ocre, pés descalços. Suspensório de couro nos meninos.</p></div>
+      <div style="background:#352D27; color:#EDE4D6; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#C8BCAE; margin:0 0 7px">Semana e conforto</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300">26ª–34ª. Terreno irregular pede calçado fechado no deslocamento, água e repelente.</p></div>
+    </div>
+
+    <div style="margin-top:14px"><image-slot id="ref-e04" shape="rect" style="width:100%; height:180px" placeholder="Arraste aqui uma foto sua de referência deste estilo"></image-slot></div>
+  </section>
+
+  <section id="e05" style="padding:40px 22px; background:#352D27; color:#EDE4D6; border-bottom:1px solid #EDE4D6">
+    <p style="font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:#C8BCAE; margin:0">Estilo 05</p>
+    <h2 style="font-family:'Cormorant Garamond', serif; font-weight:300; font-size:31px; margin:5px 0 8px; color:#F7F2EC">Ousado <em style="font-style:italic; color:#DBD3C9">Editorial</em></h2>
+    <p style="margin:0 0 20px; font-size:12.5px; line-height:1.75; font-weight:300; max-width:520px; color:#C8BCAE">Contraste duro, pouca cor, atitude. A gestante aqui é figura, não fragilidade. Exige luz dura e alinhar antes o nível de exposição que a cliente aceita.</p>
+
+    <div style="display:flex; gap:1px; background:#715549; margin-bottom:8px">
+      <div style="flex:1; height:56px; background:#1C1A19; display:flex; align-items:flex-end; padding:6px"><span style="font-size:8px; letter-spacing:0.08em; color:#FFFFFF">PRETO · 1C1A19</span></div>
+      <div style="flex:1; height:56px; background:#FFFFFF; display:flex; align-items:flex-end; padding:6px"><span style="font-size:8px; letter-spacing:0.08em; color:#352D27">BRANCO · FFFFFF</span></div>
+      <div style="flex:1; height:56px; background:#6B2230; display:flex; align-items:flex-end; padding:6px"><span style="font-size:8px; letter-spacing:0.08em; color:#FFFFFF">VINHO · 6B2230</span></div>
+      <div style="flex:1; height:56px; background:#A75B2B; display:flex; align-items:flex-end; padding:6px"><span style="font-size:8px; letter-spacing:0.08em; color:#FFFFFF">COBRE · A75B2B</span></div>
+      <div style="flex:1; height:56px; background:#6E6F71; display:flex; align-items:flex-end; padding:6px"><span style="font-size:8px; letter-spacing:0.08em; color:#FFFFFF">CHUMBO · 6E6F71</span></div>
+    </div>
+    <p style="margin:0 0 22px; font-size:11.5px; line-height:1.7; color:#DBD3C9">Combinações válidas: <strong style="font-weight:600; color:#F7F2EC">preto + branco ótico</strong> · <strong style="font-weight:600; color:#F7F2EC">vinho + preto</strong> · <strong style="font-weight:600; color:#F7F2EC">cobre + chumbo</strong>. Uma cor forte por look, nunca duas.</p>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(270px,1fr)); gap:14px">
+
+      <article style="background:#443A32; border:1px solid #715549; padding:18px">
+        <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#C8BCAE; margin:0 0 2px">Prancha 05.A</p>
+        <h3 style="font-family:'Cormorant Garamond', serif; font-weight:400; font-size:20px; margin:0 0 16px; color:#F7F2EC">Preto total — silhueta recortada</h3>
+        <div style="display:flex; gap:16px; margin-bottom:16px">
+          <div style="flex:1">
+            <p style="font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:#C8BCAE; margin:0 0 8px">Gestante</p>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:3px">
+              <div style="width:96%; height:22px; background:#1C1A19; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#FFFFFF">BLAZER OVERSIZED</span></div>
+              <div style="width:62%; height:30px; background:#1C1A19; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#FFFFFF">TOP FAIXA</span></div>
+              <div style="width:78%; height:16px; background:#443A32; border:1px dashed #9A8A7B; display:flex; align-items:center; justify-content:center"><span style="font-size:7px; letter-spacing:0.06em; color:#DBD3C9">BARRIGA LIVRE</span></div>
+              <div style="width:88%; height:66px; background:#1C1A19; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#FFFFFF">CALÇA PRETA</span></div>
+              <div style="width:52%; height:14px; background:#1C1A19; display:flex; align-items:center; justify-content:center"><span style="font-size:7px; letter-spacing:0.06em; color:#FFFFFF">BOTA PRETA</span></div>
+            </div>
+          </div>
+          <div style="flex:1">
+            <p style="font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:#C8BCAE; margin:0 0 8px">Acompanhante</p>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:3px">
+              <div style="width:96%; height:58px; background:#1C1A19; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#FFFFFF">CAMISETA PRETA</span></div>
+              <div style="width:88%; height:74px; background:#1C1A19; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#FFFFFF">CALÇA PRETA</span></div>
+              <div style="width:52%; height:14px; background:#1C1A19; display:flex; align-items:center; justify-content:center"><span style="font-size:7px; letter-spacing:0.06em; color:#FFFFFF">BOTA PRETA</span></div>
+            </div>
+          </div>
+        </div>
+        <ul style="margin:0; padding-left:15px; font-size:12px; line-height:1.85; font-weight:300; color:#EDE4D6">
+          <li>Cintura da calça <strong style="font-weight:600; color:#FFFFFF">abaixo</strong> da barriga, top faixa acima: recorte no meio.</li>
+          <li>Um acessório grande e só: maxibrinco dourado ou corrente grossa.</li>
+          <li>Blazer caído em um ombro nas fotos de perfil.</li>
+        </ul>
+        <p style="margin:12px 0 0; font-size:11px; line-height:1.7; color:#C8BCAE">Cenário: estúdio fundo escuro, luz dura lateral.</p>
+      </article>
+
+      <article style="background:#443A32; border:1px solid #715549; padding:18px">
+        <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#C8BCAE; margin:0 0 2px">Prancha 05.B</p>
+        <h3 style="font-family:'Cormorant Garamond', serif; font-weight:400; font-size:20px; margin:0 0 16px; color:#F7F2EC">Vinho + preto — tecido escultural</h3>
+        <div style="display:flex; gap:16px; margin-bottom:16px">
+          <div style="flex:1">
+            <p style="font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:#C8BCAE; margin:0 0 8px">Gestante</p>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:3px">
+              <div style="width:56%; height:20px; background:#6B2230; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#FFFFFF">OMBRO ÚNICO</span></div>
+              <div style="width:94%; height:112px; background:#6B2230; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#FFFFFF">TECIDO DRAPEADO 4 M</span></div>
+              <div style="width:52%; height:14px; background:#1C1A19; display:flex; align-items:center; justify-content:center"><span style="font-size:7px; letter-spacing:0.06em; color:#FFFFFF">DESCALÇA</span></div>
+            </div>
+          </div>
+          <div style="flex:1">
+            <p style="font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:#C8BCAE; margin:0 0 8px">Acompanhante</p>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:3px">
+              <div style="width:96%; height:58px; background:#1C1A19; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#FFFFFF">CAMISA PRETA ABERTA</span></div>
+              <div style="width:88%; height:74px; background:#1C1A19; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#FFFFFF">CALÇA PRETA</span></div>
+              <div style="width:52%; height:14px; background:#1C1A19; display:flex; align-items:center; justify-content:center"><span style="font-size:7px; letter-spacing:0.06em; color:#FFFFFF">DESCALÇO</span></div>
+            </div>
+          </div>
+        </div>
+        <ul style="margin:0; padding-left:15px; font-size:12px; line-height:1.85; font-weight:300; color:#EDE4D6">
+          <li>Corte de tecido do acervo, preso no ombro com alfinete escondido.</li>
+          <li>Por baixo, apenas calcinha no tom da pele. Nenhum acessório.</li>
+          <li>Cabelo molhado puxado para trás; boca vinho <strong style="font-weight:600; color:#FFFFFF">ou</strong> olho preto, nunca os dois.</li>
+        </ul>
+        <p style="margin:12px 0 0; font-size:11px; line-height:1.7; color:#C8BCAE">Cenário: estúdio fundo escuro, sombra profunda.</p>
+      </article>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(210px,1fr)); gap:1px; background:#715549; margin-top:16px">
+      <div style="background:#443A32; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#C8BCAE; margin:0 0 7px">Tecidos</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300; color:#EDE4D6">Cetim, couro, malha lisa, popeline engomada, cortes de tecido cru. Nada translúcido embaixo.</p></div>
+      <div style="background:#443A32; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#E0A88C; margin:0 0 7px">Evitar</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300; color:#EDE4D6">Animal print, paetê, pastel, tule, duas cores fortes juntas, lingerie clara sob tecido claro.</p></div>
+      <div style="background:#443A32; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#C8BCAE; margin:0 0 7px">Acessórios e calçados</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300; color:#EDE4D6">Uma peça grande e só. Bota preta, sandália de tira fina ou descalça.</p></div>
+      <div style="background:#443A32; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#C8BCAE; margin:0 0 7px">Cabelo e maquiagem</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300; color:#EDE4D6">Molhado ou liso chapado. Pele matte, um único ponto de força no rosto.</p></div>
+      <div style="background:#443A32; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#C8BCAE; margin:0 0 7px">Filhos</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300; color:#EDE4D6">Em geral é um estilo solo ou de casal. Com filhos: preto ou branco liso, sem estampa.</p></div>
+      <div style="background:#1C1A19; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#C8BCAE; margin:0 0 7px">Semana e conforto</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300; color:#EDE4D6">34ª–38ª, barriga no auge. Sessão curta, poses sentadas intercaladas.</p></div>
+    </div>
+
+    <div style="margin-top:14px"><image-slot id="ref-e05" shape="rect" style="width:100%; height:180px" placeholder="Arraste aqui uma foto sua de referência deste estilo"></image-slot></div>
+  </section>
+
+  <section id="e06" style="padding:40px 22px; background:#F7F5F1; border-bottom:1px solid #EDE4D6">
+    <p style="font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:#715549; margin:0">Estilo 06</p>
+    <h2 style="font-family:'Cormorant Garamond', serif; font-weight:300; font-size:31px; margin:5px 0 8px">Casual <em style="font-style:italic">em casa</em></h2>
+    <p style="margin:0 0 20px; font-size:12.5px; line-height:1.75; font-weight:300; max-width:520px">Roupa de viver, não de posar. Funciona porque parece real — e parecer real exige a paleta mais controlada de todas: a roupa precisa ser mais clara que a casa.</p>
+
+    <div style="display:flex; gap:1px; background:#DBD3C9; margin-bottom:8px">
+      <div style="flex:1; height:56px; background:#F7F5F1; display:flex; align-items:flex-end; padding:6px"><span style="font-size:8px; letter-spacing:0.08em; color:#715549">BRANCO · F7F5F1</span></div>
+      <div style="flex:1; height:56px; background:#D9CDBC; display:flex; align-items:flex-end; padding:6px"><span style="font-size:8px; letter-spacing:0.08em; color:#6B5844">AVEIA · D9CDBC</span></div>
+      <div style="flex:1; height:56px; background:#CFCFCB; display:flex; align-items:flex-end; padding:6px"><span style="font-size:8px; letter-spacing:0.08em; color:#4A4A48">CINZA · CFCFCB</span></div>
+      <div style="flex:1; height:56px; background:#8CA4BF; display:flex; align-items:flex-end; padding:6px"><span style="font-size:8px; letter-spacing:0.08em; color:#FFFFFF">JEANS · 8CA4BF</span></div>
+      <div style="flex:1; height:56px; background:#9A8A7B; display:flex; align-items:flex-end; padding:6px"><span style="font-size:8px; letter-spacing:0.08em; color:#FFFFFF">TAUPE · 9A8A7B</span></div>
+    </div>
+    <p style="margin:0 0 22px; font-size:11.5px; line-height:1.7; color:#715549">Combinações válidas: <strong style="font-weight:600">branco + aveia</strong> · <strong style="font-weight:600">jeans claro + branco</strong> · <strong style="font-weight:600">cinza + branco</strong>.</p>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(270px,1fr)); gap:14px">
+
+      <article style="background:#FFFFFF; border:1px solid #E4DDD3; padding:18px">
+        <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 2px">Prancha 06.A</p>
+        <h3 style="font-family:'Cormorant Garamond', serif; font-weight:400; font-size:20px; margin:0 0 16px">Branco total — cama e janela</h3>
+        <div style="display:flex; gap:16px; margin-bottom:16px">
+          <div style="flex:1">
+            <p style="font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:#715549; margin:0 0 8px">Gestante</p>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:3px">
+              <div style="width:88%; height:52px; background:#F7F5F1; border:1px solid #DBD3C9; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#715549">CAMISA DE ALGODÃO</span></div>
+              <div style="width:72%; height:44px; background:#F7F5F1; border:1px solid #DBD3C9; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#715549">SHORT BRANCO</span></div>
+              <div style="width:52%; height:14px; background:#EDE4D6; display:flex; align-items:center; justify-content:center"><span style="font-size:7px; letter-spacing:0.06em; color:#715549">DESCALÇA</span></div>
+            </div>
+          </div>
+          <div style="flex:1">
+            <p style="font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:#715549; margin:0 0 8px">Acompanhante</p>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:3px">
+              <div style="width:96%; height:52px; background:#F7F5F1; border:1px solid #DBD3C9; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#715549">CAMISETA BRANCA</span></div>
+              <div style="width:88%; height:74px; background:#D9CDBC; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#6B5844">MOLETOM AVEIA</span></div>
+              <div style="width:52%; height:14px; background:#EDE4D6; display:flex; align-items:center; justify-content:center"><span style="font-size:7px; letter-spacing:0.06em; color:#715549">DESCALÇO</span></div>
+            </div>
+          </div>
+        </div>
+        <ul style="margin:0; padding-left:15px; font-size:12px; line-height:1.85; font-weight:300">
+          <li>Trocar a roupa de cama por lençol branco liso antes de começar.</li>
+          <li>Acessório é objeto, não joia: ultrassom, sapatinho, xícara. Um por foto.</li>
+          <li>Sem maquiagem aparente — base leve e boca hidratada.</li>
+        </ul>
+        <p style="margin:12px 0 0; font-size:11px; line-height:1.7; color:#715549">Cenário: em casa, quarto, luz de janela sem flash.</p>
+      </article>
+
+      <article style="background:#FFFFFF; border:1px solid #E4DDD3; padding:18px">
+        <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 2px">Prancha 06.B</p>
+        <h3 style="font-family:'Cormorant Garamond', serif; font-weight:400; font-size:20px; margin:0 0 16px">Jeans claro + branco</h3>
+        <div style="display:flex; gap:16px; margin-bottom:16px">
+          <div style="flex:1">
+            <p style="font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:#715549; margin:0 0 8px">Gestante</p>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:3px">
+              <div style="width:96%; height:20px; background:#D9CDBC; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#6B5844">CARDIGÃ AVEIA</span></div>
+              <div style="width:66%; height:36px; background:#F7F5F1; border:1px solid #DBD3C9; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#715549">CAMISETA BRANCA</span></div>
+              <div style="width:88%; height:72px; background:#8CA4BF; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#FFFFFF">JEANS CLARO GESTANTE</span></div>
+              <div style="width:52%; height:14px; background:#F7F5F1; border:1px solid #DBD3C9; display:flex; align-items:center; justify-content:center"><span style="font-size:7px; letter-spacing:0.06em; color:#715549">TÊNIS BRANCO</span></div>
+            </div>
+          </div>
+          <div style="flex:1">
+            <p style="font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:#715549; margin:0 0 8px">Acompanhante</p>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:3px">
+              <div style="width:96%; height:58px; background:#CFCFCB; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#4A4A48">CAMISETA CINZA</span></div>
+              <div style="width:88%; height:74px; background:#8CA4BF; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#FFFFFF">JEANS CLARO</span></div>
+              <div style="width:52%; height:14px; background:#F7F5F1; border:1px solid #DBD3C9; display:flex; align-items:center; justify-content:center"><span style="font-size:7px; letter-spacing:0.06em; color:#715549">TÊNIS BRANCO</span></div>
+            </div>
+          </div>
+        </div>
+        <ul style="margin:0; padding-left:15px; font-size:12px; line-height:1.85; font-weight:300">
+          <li>Barra da camiseta por dentro do cós elástico — marca a barriga.</li>
+          <li>Jeans claro apenas: escuro endurece a luz suave da casa.</li>
+          <li>O único estilo do guia em que jeans e tênis são permitidos.</li>
+        </ul>
+        <p style="margin:12px 0 0; font-size:11px; line-height:1.7; color:#715549">Cenário: em casa, varanda ou urbano de dia.</p>
+      </article>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(210px,1fr)); gap:1px; background:#DBD3C9; margin-top:16px">
+      <div style="background:#FFFFFF; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 7px">Tecidos</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300">Algodão, moletinho, malha canelada, tricô, gaze, denim claro. Tudo lavado e macio.</p></div>
+      <div style="background:#FFFFFF; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#B0603E; margin:0 0 7px">Evitar</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300">Pijama de personagem, escrita na camiseta, logo, jeans escuro rasgado, chinelo de dedo.</p></div>
+      <div style="background:#FFFFFF; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 7px">Acessórios e calçados</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300">Meia canelada, tênis branco liso ou descalça. Objeto de enxoval no lugar de joia.</p></div>
+      <div style="background:#FFFFFF; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 7px">Cabelo e maquiagem</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300">Cabelo do dia a dia, solto ou coque bagunçado. Maquiagem mínima.</p></div>
+      <div style="background:#FFFFFF; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 7px">Filhos</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300">Pijama ou body liso branco/aveia. Todos de meia ou descalços, inclusive o pai.</p></div>
+      <div style="background:#352D27; color:#EDE4D6; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#C8BCAE; margin:0 0 7px">Semana e conforto</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300">24ª–38ª. O mais confortável do guia e o único indicado depois da 36ª semana.</p></div>
+    </div>
+
+    <div style="margin-top:14px"><image-slot id="ref-e06" shape="rect" style="width:100%; height:180px" placeholder="Arraste aqui uma foto sua de referência deste estilo"></image-slot></div>
+  </section>
+
+  <section id="e07" style="padding:40px 22px; background:#FFFFFF; border-bottom:1px solid #EDE4D6">
+    <p style="font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:#715549; margin:0">Estilo 07</p>
+    <h2 style="font-family:'Cormorant Garamond', serif; font-weight:300; font-size:31px; margin:5px 0 8px">Luxo <em style="font-style:italic">Glam noturno</em></h2>
+    <p style="margin:0 0 20px; font-size:12.5px; line-height:1.75; font-weight:300; max-width:520px">Cetim, cor profunda e metal velho. O brilho vem do tecido, nunca do paetê — e é o estilo de maior valor percebido do nicho.</p>
+
+    <div style="display:flex; gap:1px; background:#DBD3C9; margin-bottom:8px">
+      <div style="flex:1; height:56px; background:#E4CFA8; display:flex; align-items:flex-end; padding:6px"><span style="font-size:8px; letter-spacing:0.08em; color:#6B5530">CHAMPANHE · E4CFA8</span></div>
+      <div style="flex:1; height:56px; background:#B18F4E; display:flex; align-items:flex-end; padding:6px"><span style="font-size:8px; letter-spacing:0.08em; color:#FFFFFF">DOURADO · B18F4E</span></div>
+      <div style="flex:1; height:56px; background:#4E2A3C; display:flex; align-items:flex-end; padding:6px"><span style="font-size:8px; letter-spacing:0.08em; color:#FFFFFF">AMEIXA · 4E2A3C</span></div>
+      <div style="flex:1; height:56px; background:#1B2540; display:flex; align-items:flex-end; padding:6px"><span style="font-size:8px; letter-spacing:0.08em; color:#FFFFFF">MARINHO · 1B2540</span></div>
+      <div style="flex:1; height:56px; background:#6E6F71; display:flex; align-items:flex-end; padding:6px"><span style="font-size:8px; letter-spacing:0.08em; color:#FFFFFF">CHUMBO · 6E6F71</span></div>
+    </div>
+    <p style="margin:0 0 22px; font-size:11.5px; line-height:1.7; color:#715549">Combinações válidas: <strong style="font-weight:600">ameixa + cinza chumbo</strong> · <strong style="font-weight:600">ameixa + verde musgo</strong> · <strong style="font-weight:600">marinho + marrom café</strong> · <strong style="font-weight:600">champanhe + dourado velho</strong>.</p>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(270px,1fr)); gap:14px">
+
+      <article style="background:#F7F5F1; border:1px solid #E4DDD3; padding:18px">
+        <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 2px">Prancha 07.A</p>
+        <h3 style="font-family:'Cormorant Garamond', serif; font-weight:400; font-size:20px; margin:0 0 16px">Ameixa + chumbo — slip e cardigã</h3>
+        <div style="display:flex; gap:16px; margin-bottom:16px">
+          <div style="flex:1">
+            <p style="font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:#715549; margin:0 0 8px">Gestante</p>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:3px">
+              <div style="width:96%; height:22px; background:#6E6F71; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#FFFFFF">CARDIGÃ CHUMBO</span></div>
+              <div style="width:78%; height:26px; background:#4E2A3C; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#FFFFFF">DECOTE V</span></div>
+              <div style="width:92%; height:92px; background:#4E2A3C; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#FFFFFF">SLIP DE CETIM AMEIXA</span></div>
+              <div style="width:52%; height:14px; background:#4A342A; display:flex; align-items:center; justify-content:center"><span style="font-size:7px; letter-spacing:0.06em; color:#FFFFFF">SAPATO CAFÉ</span></div>
+            </div>
+          </div>
+          <div style="flex:1">
+            <p style="font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:#C8BCAE; margin:0 0 8px">Acompanhante</p>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:3px">
+              <div style="width:96%; height:24px; background:#CFCFCB; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#4A4A48">TERNO CINZA CLARO</span></div>
+              <div style="width:66%; height:34px; background:#4E2A3C; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#FFFFFF">CAMISA AMEIXA</span></div>
+              <div style="width:88%; height:74px; background:#CFCFCB; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#4A4A48">CALÇA CINZA</span></div>
+              <div style="width:52%; height:14px; background:#4A342A; display:flex; align-items:center; justify-content:center"><span style="font-size:7px; letter-spacing:0.06em; color:#FFFFFF">SAPATO CAFÉ</span></div>
+            </div>
+          </div>
+        </div>
+        <ul style="margin:0; padding-left:15px; font-size:12px; line-height:1.85; font-weight:300">
+          <li>Cetim enviesado desliza sobre a barriga sem marcar dobra.</li>
+          <li>Lingerie sem costura no tom da pele — cetim revela todo relevo.</li>
+          <li>Um único metal no quadro: dourado velho. Prata fica fora.</li>
+        </ul>
+        <p style="margin:12px 0 0; font-size:11px; line-height:1.7; color:#715549">Cenário: estúdio escuro com luz quente, ou hall de arquitetura clássica.</p>
+      </article>
+
+      <article style="background:#F7F5F1; border:1px solid #E4DDD3; padding:18px">
+        <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 2px">Prancha 07.B</p>
+        <h3 style="font-family:'Cormorant Garamond', serif; font-weight:400; font-size:20px; margin:0 0 16px">Champanhe — cetim de gala</h3>
+        <div style="display:flex; gap:16px; margin-bottom:16px">
+          <div style="flex:1">
+            <p style="font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:#715549; margin:0 0 8px">Gestante</p>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:3px">
+              <div style="width:86%; height:30px; background:#E4CFA8; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#6B5530">MANGA BUFANTE</span></div>
+              <div style="width:94%; height:104px; background:#E4CFA8; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#6B5530">VESTIDO TRANSPASSADO</span></div>
+              <div style="width:52%; height:14px; background:#D8B8A8; display:flex; align-items:center; justify-content:center"><span style="font-size:7px; letter-spacing:0.06em; color:#5A4038">SANDÁLIA NUDE</span></div>
+            </div>
+          </div>
+          <div style="flex:1">
+            <p style="font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:#715549; margin:0 0 8px">Acompanhante</p>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:3px">
+              <div style="width:96%; height:24px; background:#1B2540; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#FFFFFF">BLAZER MARINHO</span></div>
+              <div style="width:66%; height:34px; background:#E4CFA8; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#6B5530">CAMISA CHAMPANHE</span></div>
+              <div style="width:88%; height:74px; background:#1B2540; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#FFFFFF">CALÇA MARINHO</span></div>
+              <div style="width:52%; height:14px; background:#4A342A; display:flex; align-items:center; justify-content:center"><span style="font-size:7px; letter-spacing:0.06em; color:#FFFFFF">SAPATO CAFÉ</span></div>
+            </div>
+          </div>
+        </div>
+        <ul style="margin:0; padding-left:15px; font-size:12px; line-height:1.85; font-weight:300">
+          <li>Nó do transpasse acima da barriga: sustenta e alonga ao mesmo tempo.</li>
+          <li>Sem colar — o decote transpassado já é o foco. Brinco de gota.</li>
+          <li>Cetim claro sempre forrado: sem forro, transparece no flash.</li>
+        </ul>
+        <p style="margin:12px 0 0; font-size:11px; line-height:1.7; color:#715549">Cenário: estúdio escuro, escada, mármore.</p>
+      </article>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(210px,1fr)); gap:1px; background:#DBD3C9; margin-top:16px">
+      <div style="background:#F7F5F1; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 7px">Tecidos</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300">Cetim pesado, seda, crepe, veludo liso, cashmere. Peso que cai reto e reflete luz.</p></div>
+      <div style="background:#F7F5F1; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#B0603E; margin:0 0 7px">Evitar</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300">Paetê, lurex, pedraria corrida, cetim leve (marca dobra), dourado e prata juntos.</p></div>
+      <div style="background:#F7F5F1; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 7px">Acessórios e calçados</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300">Clutch rígida, brinco de pedra, um anel. Salto bloco de no máximo 5 cm.</p></div>
+      <div style="background:#F7F5F1; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 7px">Cabelo e maquiagem</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300">Coque baixo com risca ou ondas de lado. Pele luminosa, olho quente, boca vinho.</p></div>
+      <div style="background:#F7F5F1; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 7px">Filhos</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300">Marinho ou champanhe liso. Menino de camisa e calça, menina de vestido de cetim leve.</p></div>
+      <div style="background:#352D27; color:#EDE4D6; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#C8BCAE; margin:0 0 7px">Semana e conforto</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300">30ª–36ª. Cadeira entre as poses e um segundo par de sapato baixo no set.</p></div>
+    </div>
+
+    <div style="margin-top:14px"><image-slot id="ref-e07" shape="rect" style="width:100%; height:180px" placeholder="Arraste aqui uma foto sua de referência deste estilo"></image-slot></div>
+  </section>
+
+  <section id="e08" style="padding:40px 22px; background:#F7F5F1; border-bottom:1px solid #EDE4D6">
+    <p style="font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:#715549; margin:0">Estilo 08</p>
+    <h2 style="font-family:'Cormorant Garamond', serif; font-weight:300; font-size:31px; margin:5px 0 8px">Esportivo <em style="font-style:italic">Ativo</em></h2>
+    <p style="margin:0 0 20px; font-size:12.5px; line-height:1.75; font-weight:300; max-width:520px">Corpo forte, linha limpa, nenhuma marca à vista. Gestação com movimento — sem clima de academia.</p>
+
+    <div style="display:flex; gap:1px; background:#DBD3C9; margin-bottom:8px">
+      <div style="flex:1; height:56px; background:#1C1A19; display:flex; align-items:flex-end; padding:6px"><span style="font-size:8px; letter-spacing:0.08em; color:#FFFFFF">PRETO · 1C1A19</span></div>
+      <div style="flex:1; height:56px; background:#A5A5A2; display:flex; align-items:flex-end; padding:6px"><span style="font-size:8px; letter-spacing:0.08em; color:#2E2E2C">MESCLA · A5A5A2</span></div>
+      <div style="flex:1; height:56px; background:#D8C3B0; display:flex; align-items:flex-end; padding:6px"><span style="font-size:8px; letter-spacing:0.08em; color:#6B4F3C">NUDE · D8C3B0</span></div>
+      <div style="flex:1; height:56px; background:#5F6644; display:flex; align-items:flex-end; padding:6px"><span style="font-size:8px; letter-spacing:0.08em; color:#FFFFFF">OLIVA · 5F6644</span></div>
+      <div style="flex:1; height:56px; background:#F4F1EC; display:flex; align-items:flex-end; padding:6px"><span style="font-size:8px; letter-spacing:0.08em; color:#715549">OFF-WHITE · F4F1EC</span></div>
+    </div>
+    <p style="margin:0 0 22px; font-size:11.5px; line-height:1.7; color:#715549">Combinações válidas: <strong style="font-weight:600">preto + cinza mescla</strong> · <strong style="font-weight:600">nude + off-white</strong> · <strong style="font-weight:600">oliva + off-white</strong>. Sem logo, sem cor fluorescente.</p>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(270px,1fr)); gap:14px">
+
+      <article style="background:#FFFFFF; border:1px solid #E4DDD3; padding:18px">
+        <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 2px">Prancha 08.A</p>
+        <h3 style="font-family:'Cormorant Garamond', serif; font-weight:400; font-size:20px; margin:0 0 16px">Preto + mescla — conjunto liso</h3>
+        <div style="display:flex; gap:16px; margin-bottom:16px">
+          <div style="flex:1">
+            <p style="font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:#715549; margin:0 0 8px">Gestante</p>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:3px">
+              <div style="width:62%; height:32px; background:#1C1A19; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#FFFFFF">TOP DE ALÇA LARGA</span></div>
+              <div style="width:78%; height:16px; background:#FFFFFF; border:1px dashed #C4B9AB; display:flex; align-items:center; justify-content:center"><span style="font-size:7px; letter-spacing:0.06em; color:#715549">BARRIGA LIVRE</span></div>
+              <div style="width:88%; height:74px; background:#1C1A19; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#FFFFFF">LEGGING CÓS BAIXO</span></div>
+              <div style="width:52%; height:14px; background:#F4F1EC; border:1px solid #DBD3C9; display:flex; align-items:center; justify-content:center"><span style="font-size:7px; letter-spacing:0.06em; color:#715549">DESCALÇA</span></div>
+            </div>
+          </div>
+          <div style="flex:1">
+            <p style="font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:#715549; margin:0 0 8px">Acompanhante</p>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:3px">
+              <div style="width:96%; height:58px; background:#A5A5A2; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#2E2E2C">CAMISETA MESCLA</span></div>
+              <div style="width:88%; height:74px; background:#1C1A19; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#FFFFFF">CALÇA PRETA</span></div>
+              <div style="width:52%; height:14px; background:#F4F1EC; border:1px solid #DBD3C9; display:flex; align-items:center; justify-content:center"><span style="font-size:7px; letter-spacing:0.06em; color:#715549">DESCALÇO</span></div>
+            </div>
+          </div>
+        </div>
+        <ul style="margin:0; padding-left:15px; font-size:12px; line-height:1.85; font-weight:300">
+          <li>Legging de cós baixo, abaixo da barriga: a linha do corpo é o assunto.</li>
+          <li>Malha de compressão fosca e sem costura aparente.</li>
+          <li>Nenhum acessório além da aliança. Rabo alto, pele sem base.</li>
+        </ul>
+        <p style="margin:12px 0 0; font-size:11px; line-height:1.7; color:#715549">Cenário: estúdio neutro ou fundo escuro, luz lateral.</p>
+      </article>
+
+      <article style="background:#FFFFFF; border:1px solid #E4DDD3; padding:18px">
+        <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 2px">Prancha 08.B</p>
+        <h3 style="font-family:'Cormorant Garamond', serif; font-weight:400; font-size:20px; margin:0 0 16px">Oliva + off-white — urbano</h3>
+        <div style="display:flex; gap:16px; margin-bottom:16px">
+          <div style="flex:1">
+            <p style="font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:#715549; margin:0 0 8px">Gestante</p>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:3px">
+              <div style="width:96%; height:22px; background:#5F6644; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#FFFFFF">CORTA-VENTO OLIVA</span></div>
+              <div style="width:62%; height:32px; background:#1C1A19; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#FFFFFF">TOP PRETO</span></div>
+              <div style="width:88%; height:72px; background:#1C1A19; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#FFFFFF">LEGGING PRETA</span></div>
+              <div style="width:52%; height:14px; background:#F4F1EC; border:1px solid #DBD3C9; display:flex; align-items:center; justify-content:center"><span style="font-size:7px; letter-spacing:0.06em; color:#715549">TÊNIS OFF-WHITE</span></div>
+            </div>
+          </div>
+          <div style="flex:1">
+            <p style="font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:#715549; margin:0 0 8px">Acompanhante</p>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:3px">
+              <div style="width:96%; height:58px; background:#5F6644; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#FFFFFF">CAMISETA OLIVA</span></div>
+              <div style="width:88%; height:74px; background:#1C1A19; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#FFFFFF">CALÇA PRETA</span></div>
+              <div style="width:52%; height:14px; background:#F4F1EC; border:1px solid #DBD3C9; display:flex; align-items:center; justify-content:center"><span style="font-size:7px; letter-spacing:0.06em; color:#715549">TÊNIS OFF-WHITE</span></div>
+            </div>
+          </div>
+        </div>
+        <ul style="margin:0; padding-left:15px; font-size:12px; line-height:1.85; font-weight:300">
+          <li>Concreto e oliva se sustentam bem na luz de fim de tarde.</li>
+          <li>Corta-vento aberto, mangas subidas; boné oliva é opcional.</li>
+          <li>Legging clara está fora: fica translúcida em contraluz.</li>
+        </ul>
+        <p style="margin:12px 0 0; font-size:11px; line-height:1.7; color:#715549">Cenário: urbano / arquitetura, fim de tarde.</p>
+      </article>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(210px,1fr)); gap:1px; background:#DBD3C9; margin-top:16px">
+      <div style="background:#FFFFFF; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 7px">Tecidos</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300">Malha de compressão fosca, algodão, moletom leve, nylon seco. Nada acetinado.</p></div>
+      <div style="background:#FFFFFF; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#B0603E; margin:0 0 7px">Evitar</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300">Logo grande, neon, tecido brilhante, legging clara, meia aparente, estampa esportiva.</p></div>
+      <div style="background:#FFFFFF; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 7px">Acessórios e calçados</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300">Tênis liso off-white ou descalça. Aliança e nada mais.</p></div>
+      <div style="background:#FFFFFF; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 7px">Cabelo e maquiagem</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300">Rabo alto ou coque puxado. Pele fosca, zero brilho no rosto, boca hidratada.</p></div>
+      <div style="background:#FFFFFF; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 7px">Filhos</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300">Camiseta lisa preta ou oliva e short escuro. Tênis branco liso.</p></div>
+      <div style="background:#352D27; color:#EDE4D6; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#C8BCAE; margin:0 0 7px">Semana e conforto</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300">26ª–34ª. Movimento leve apenas; nenhuma pose de esforço ou apoio no chão.</p></div>
+    </div>
+
+    <div style="margin-top:14px"><image-slot id="ref-e08" shape="rect" style="width:100%; height:180px" placeholder="Arraste aqui uma foto sua de referência deste estilo"></image-slot></div>
+  </section>
+
+  <section id="tecidos" style="padding:40px 22px; background:#EDE4D6; border-bottom:1px solid #DBD3C9">
+    <p style="font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:#715549; margin:0">Módulo técnico</p>
+    <h2 style="font-family:'Cormorant Garamond', serif; font-weight:300; font-size:31px; margin:5px 0 8px">Tecidos para gestante</h2>
+    <p style="margin:0 0 22px; font-size:12.5px; line-height:1.75; font-weight:300; max-width:520px">A escolha do tecido resolve mais que a modelagem. No nicho gestante, só entra tecido que <strong style="font-weight:600">acompanha o volume sem apertar</strong> — com elastano, com viés ou com drapeado.</p>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:1px; background:#DBD3C9">
+      <div style="background:#F7F5F1; padding:18px">
+        <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 8px">Elastano — a base do acervo</p>
+        <p style="margin:0 0 10px; font-size:12px; line-height:1.8; font-weight:300">Malha canelada, jersey, modal e crepe com 5–8% de elastano. São os únicos que servem da 26ª à 38ª semana na mesma peça.</p>
+        <p style="margin:0; font-size:11px; line-height:1.7; color:#715549">Usa nos estilos: minimalista, ativo, romântico (parte de cima), casual.</p>
+      </div>
+      <div style="background:#F7F5F1; padding:18px">
+        <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 8px">Viés e drapeado</p>
+        <p style="margin:0 0 10px; font-size:12px; line-height:1.8; font-weight:300">Cetim pesado e seda cortados no viés deslizam sobre a barriga sem marcar dobra. Drapeado lateral sustenta o volume sem cós.</p>
+        <p style="margin:0; font-size:11px; line-height:1.7; color:#715549">Usa nos estilos: luxo, elegante, ousado.</p>
+      </div>
+      <div style="background:#F7F5F1; padding:18px">
+        <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 8px">Leves com volume</p>
+        <p style="margin:0 0 10px; font-size:12px; line-height:1.8; font-weight:300">Tule, chiffon, musseline e laise: volume só abaixo da barriga, cós de elástico acima dela, sempre com forro de algodão.</p>
+        <p style="margin:0; font-size:11px; line-height:1.7; color:#715549">Usa nos estilos: romântico, boho.</p>
+      </div>
+      <div style="background:#F7F5F1; padding:18px">
+        <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#B0603E; margin:0 0 8px">Tecidos que não entram</p>
+        <p style="margin:0 0 10px; font-size:12px; line-height:1.8; font-weight:300">Linho puro sem mistura (amassa em 20 min), cetim leve (marca cada dobra), popeline rígida na parte de baixo, poliéster brilhante.</p>
+        <p style="margin:0; font-size:11px; line-height:1.7; color:#715549">Exceção: linho misto no boho, fotografado no início da troca.</p>
+      </div>
+      <div style="background:#F7F5F1; padding:18px">
+        <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 8px">Metragem de corte de tecido</p>
+        <p style="margin:0 0 10px; font-size:12px; line-height:1.8; font-weight:300">Corte solto para drapear no corpo: <strong style="font-weight:600">4 m de comprimento por 1,50 m de largura</strong> por cor. Com 3 m já não fecha volta e ombro.</p>
+        <p style="margin:0; font-size:11px; line-height:1.7; color:#715549">Serve também no nicho feminino e no casal.</p>
+      </div>
+      <div style="background:#F7F5F1; padding:18px">
+        <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 8px">Grade de tamanho</p>
+        <p style="margin:0 0 10px; font-size:12px; line-height:1.8; font-weight:300">Cada peça do acervo em dois tamanhos: <strong style="font-weight:600">P/M e G/GG</strong>. Malha com elastano cobre as duas faixas; cetim e crepe, não.</p>
+        <p style="margin:0; font-size:11px; line-height:1.7; color:#715549">Sempre com cós elástico ou amarração, nunca zíper fixo.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="acervo" style="padding:40px 22px; background:#FFFFFF; border-bottom:1px solid #EDE4D6">
+    <p style="font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:#715549; margin:0">Módulo de compra</p>
+    <h2 style="font-family:'Cormorant Garamond', serif; font-weight:300; font-size:31px; margin:5px 0 8px">Acervo gestante</h2>
+    <p style="margin:0 0 22px; font-size:12.5px; line-height:1.75; font-weight:300; max-width:520px">Em ordem de prioridade. O bloco 1 já cobre os oito estilos deste caderno; os blocos 2 e 3 ampliam a escolha da cliente.</p>
+
+    <div style="display:grid; gap:12px">
+      <div style="border:1px solid #E4DDD3; padding:18px">
+        <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:12px">
+          <span style="font-family:'Cormorant Garamond', serif; font-size:30px; line-height:0.9; color:#DBD3C9">1</span>
+          <div>
+            <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0">Essencial · 7 peças</p>
+            <p style="margin:2px 0 0; font-size:12px; line-height:1.6; color:#715549">Cobre todos os estilos do caderno com o mínimo investimento.</p>
+          </div>
+        </div>
+        <ul style="margin:0; padding-left:16px; font-size:12.5px; line-height:1.95; font-weight:300">
+          <li>Vestido longo de malha canelada <strong style="font-weight:600">off-white</strong>, manga longa, gola alta — 2 tamanhos.</li>
+          <li>Vestido longo de crepe <strong style="font-weight:600">marinho</strong>, drapeado lateral, manga 3/4.</li>
+          <li>Saia de tule <strong style="font-weight:600">rosa antigo</strong>, cós elástico, camadas até o chão.</li>
+          <li>Vestido de linho misto <strong style="font-weight:600">cru</strong>, manga bufante, cintura império.</li>
+          <li>Cortes de tecido de 4 m: <strong style="font-weight:600">vinho</strong>, <strong style="font-weight:600">taupe</strong> e <strong style="font-weight:600">off-white</strong>.</li>
+          <li>Blazer <strong style="font-weight:600">preto</strong> oversized e camisa branca de popeline grande.</li>
+          <li>Tops de segunda pele: <strong style="font-weight:600">nude</strong>, <strong style="font-weight:600">cru</strong> e <strong style="font-weight:600">preto</strong>, alça larga e manga longa.</li>
+        </ul>
+      </div>
+
+      <div style="border:1px solid #E4DDD3; padding:18px">
+        <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:12px">
+          <span style="font-family:'Cormorant Garamond', serif; font-size:30px; line-height:0.9; color:#DBD3C9">2</span>
+          <div>
+            <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0">Ampliação · 6 peças</p>
+            <p style="margin:2px 0 0; font-size:12px; line-height:1.6; color:#715549">Entra quando o estilo luxo e o boho passam a ser vendidos com frequência.</p>
+          </div>
+        </div>
+        <ul style="margin:0; padding-left:16px; font-size:12.5px; line-height:1.95; font-weight:300">
+          <li>Vestido de cetim pesado <strong style="font-weight:600">champanhe</strong>, transpassado, manga bufante.</li>
+          <li>Slip dress de cetim <strong style="font-weight:600">ameixa</strong>, corte enviesado.</li>
+          <li>Robe longo de renda ou chiffon <strong style="font-weight:600">branco-leite</strong>.</li>
+          <li>Xale de crochê <strong style="font-weight:600">cru</strong> e chapéu de palha de aba larga.</li>
+          <li>Pantalona de linho misto <strong style="font-weight:600">terracota</strong>, cós elástico alto.</li>
+          <li>Conjunto de malha canelada <strong style="font-weight:600">taupe</strong>: top e saia longa.</li>
+        </ul>
+      </div>
+
+      <div style="border:1px solid #E4DDD3; padding:18px">
+        <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:12px">
+          <span style="font-family:'Cormorant Garamond', serif; font-size:30px; line-height:0.9; color:#DBD3C9">3</span>
+          <div>
+            <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0">Apoio de set</p>
+            <p style="margin:2px 0 0; font-size:12px; line-height:1.6; color:#715549">Não é figurino, mas sem isso a troca de look não funciona.</p>
+          </div>
+        </div>
+        <ul style="margin:0; padding-left:16px; font-size:12.5px; line-height:1.95; font-weight:300">
+          <li>Lingerie sem costura tom de pele, três tamanhos, e sutiã tomara-que-caia.</li>
+          <li>Sapatos neutros: sandália nude de tira fina, scarpin café, bota preta — 35 ao 39.</li>
+          <li>Calçado de salto bloco de 5 cm. Nada acima disso no nicho.</li>
+          <li>Roupa de cama e lençol branco liso para os looks casual e romântico em casa.</li>
+          <li>Alfinetes, presilhas, clipes de costas e vaporizador de roupa no set.</li>
+          <li>Cadeira ou banqueta sempre à mão para as pausas entre poses.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="margin-top:14px; background:#EDE4D6; padding:18px; border-left:2px solid #9A8A7B">
+      <p style="font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:#715549; margin:0 0 8px">Aproveitamento entre nichos</p>
+      <p style="margin:0; font-size:12.5px; line-height:1.85; font-weight:300">O vestido marinho drapeado, o cetim champanhe, o slip ameixa e os três cortes de tecido atendem também o nicho <strong style="font-weight:600">feminino</strong> (individual, aniversário e 15 anos) e o <strong style="font-weight:600">casal</strong>. Comprar com a grade P/M e G/GG resolve os dois nichos com o mesmo investimento.</p>
+    </div>
+  </section>
+
+  <footer style="padding:40px 22px 48px; background:#352D27; color:#C8BCAE; text-align:center; display:flex; flex-direction:column; align-items:center; gap:14px">
+    <a href="Guia Lumiar.dc.html" style="font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:#EDE4D6; border:1px solid #715549; padding:10px 16px">← Voltar ao mapa de nichos</a>
+    <p style="margin:0; max-width:420px; font-size:12.5px; line-height:1.8; font-weight:300">Caderno do nicho Gestante. Os demais nichos seguem a mesma estrutura: paleta, pranchas de figurino, tecidos e acervo.</p>
+    <p style="margin:0; font-family:'Cormorant Garamond', serif; font-size:19px; font-style:italic; color:#EDE4D6">Lumiar Retratos &amp; Estúdio</p>
+  </footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    const HEX = /(?:^|[\s·#(])([0-9A-Fa-f]{6})(?![0-9A-Za-z])/;
+    const root = document.querySelector('x-dc') || document.body;
+    root.querySelectorAll('span, p, div, li, strong').forEach(el => {
+      let own = '';
+      el.childNodes.forEach(n => { if (n.nodeType === 3) own += n.nodeValue; });
+      const m = own.match(HEX);
+      if (!m) return;
+      const hex = '#' + m[1].toUpperCase();
+      el.setAttribute('data-hex', hex);
+      el.style.cursor = 'pointer';
+      el.title = 'Clique para copiar ' + hex;
+    });
+    this._onClick = (e) => {
+      const el = e.target.closest('[data-hex]');
+      if (!el) return;
+      const hex = el.getAttribute('data-hex');
+      const done = () => this.toast(hex + ' copiado');
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(hex).then(done, () => this.fallback(hex, done));
+      } else this.fallback(hex, done);
+    };
+    root.addEventListener('click', this._onClick);
+  }
+  componentWillUnmount() {
+    const root = document.querySelector('x-dc') || document.body;
+    if (this._onClick) root.removeEventListener('click', this._onClick);
+    if (this._toastEl) this._toastEl.remove();
+  }
+  fallback(hex, done) {
+    const ta = document.createElement('textarea');
+    ta.value = hex; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); } catch (err) {}
+    ta.remove(); done();
+  }
+  toast(msg) {
+    if (!this._toastEl) {
+      const t = document.createElement('div');
+      t.style.cssText = 'position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#352D27;color:#F7F2EC;font:500 11px/1 Montserrat,sans-serif;letter-spacing:0.14em;text-transform:uppercase;padding:12px 18px;z-index:9999;opacity:0;transition:opacity .18s;pointer-events:none';
+      document.body.appendChild(t);
+      this._toastEl = t;
+    }
+    this._toastEl.textContent = msg;
+    this._toastEl.style.opacity = '1';
+    clearTimeout(this._toastTimer);
+    this._toastTimer = setTimeout(() => { this._toastEl.style.opacity = '0'; }, 1400);
+  }
+}
+</script>
+</body>
+</html>

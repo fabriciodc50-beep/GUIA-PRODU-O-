@@ -1,0 +1,1565 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Sora:wght@200;300;400;500;600&display=swap" />
+<script src="./image-slot.js"></script>
+<style>
+  html, body { margin:0; padding:0; background:#0C0B0A; }
+  * { box-sizing:border-box; }
+  a { color:#E9A13C; text-decoration:none; }
+  a:hover { color:#F5CE93; }
+  ::-webkit-scrollbar { width:8px; height:8px; }
+  ::-webkit-scrollbar-thumb { background:#2A2521; }
+  ::-webkit-scrollbar-track { background:#0C0B0A; }
+</style>
+</helmet>
+
+<div style="font-family:Sora, sans-serif; background:#0C0B0A; min-height:100vh; color:#E8DFD4">
+
+  <sc-if value="{{ toast }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed; left:50%; bottom:26px; transform:translateX(-50%); z-index:200; background:#E9A13C; color:#161310; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; font-weight:500; padding:13px 22px">{{ toast }}</div>
+  </sc-if>
+
+  <div style="position:fixed; left:16px; top:50%; transform:translateY(-50%); z-index:100; display:flex; flex-direction:column; gap:7px">
+    <sc-for list="{{ menu }}" as="m" hint-placeholder-count="5">
+      <div onClick="{{ m.go }}" title="{{ m.nome }}" style="width:50px; height:50px; overflow:hidden; display:flex; align-items:center; gap:14px; padding:0 16px; border:1px solid {{ m.borda }}; border-radius:25px; background:{{ m.fundo }}; color:{{ m.cor }}; cursor:pointer; white-space:nowrap; transition:width .24s cubic-bezier(.4,0,.2,1), border-color .18s" style-hover="width:184px; border-color:#E9A13C">
+        <span style="font-size:15px; line-height:1; flex:0 0 18px; text-align:center">{{ m.glifo }}</span>
+        <span style="font-size:10px; letter-spacing:0.18em; text-transform:uppercase">{{ m.nome }}</span>
+      </div>
+    </sc-for>
+  </div>
+
+  <sc-if value="{{ menuAberto }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed; left:78px; top:50%; transform:translateY(-50%); z-index:110; background:#131110; border:1px solid #2A2521; padding:10px; display:flex; flex-direction:column; gap:2px; min-width:210px">
+      <sc-for list="{{ menuExtra }}" as="m" hint-placeholder-count="5">
+        <div onClick="{{ m.go }}" style="display:flex; align-items:center; gap:13px; padding:11px 13px; cursor:pointer; color:{{ m.cor }}" style-hover="background:#1E1A16">
+          <span style="font-size:14px; flex:0 0 16px">{{ m.glifo }}</span>
+          <span style="font-size:10.5px; letter-spacing:0.16em; text-transform:uppercase">{{ m.nome }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </sc-if>
+
+  <div style="padding:0 26px 80px 92px">
+
+    <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap; padding:26px 0 18px; border-bottom:1px solid #1C1916">
+      <sc-if value="{{ canBack }}" hint-placeholder-val="{{ false }}">
+        <div onClick="{{ goBack }}" style="width:32px; height:32px; flex:0 0 auto; border:1px solid #2E2823; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#B4A594; font-size:13px; cursor:pointer" style-hover="border-color:#E9A13C; color:#E9A13C">←</div>
+      </sc-if>
+      <div style="flex:1; min-width:200px">
+        <p style="margin:0; font-size:9px; letter-spacing:0.28em; text-transform:uppercase; color:#8B7B6C">{{ eyebrow }}</p>
+        <h1 style="margin:4px 0 0; font-family:'Instrument Serif', serif; font-weight:400; font-size:38px; line-height:1.05; color:#F4EEE6; text-wrap:pretty">{{ title }}</h1>
+      </div>
+      <div style="display:flex; align-items:center; gap:9px; flex:0 0 auto">
+        <input value="{{ busca }}" onChange="{{ setBusca }}" placeholder="Buscar no Engine" style="width:180px; background:#131110; border:1px solid #2A2521; color:#E8DFD4; font-family:Sora, sans-serif; font-size:11px; padding:11px 13px; outline:none" />
+        <div onClick="{{ toggleModoCliente }}" style="border:1px solid {{ mcBorda }}; background:{{ mcFundo }}; color:{{ mcCor }}; padding:11px 15px; font-size:9.5px; letter-spacing:0.16em; text-transform:uppercase; cursor:pointer; white-space:nowrap">modo cliente</div>
+      </div>
+    </div>
+
+    <div style="padding-top:24px; max-width:1240px">
+
+      <sc-if value="{{ isBusca }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex; flex-direction:column; gap:10px">
+          <sc-for list="{{ resultados }}" as="r" hint-placeholder-count="0">
+            <div onClick="{{ r.go }}" style="border:1px solid #1C1916; background:#131110; padding:15px; display:flex; align-items:center; gap:14px; cursor:pointer" style-hover="border-color:#E9A13C">
+              <div style="width:40px; height:40px; flex:0 0 auto; background:{{ r.hex }}"></div>
+              <div style="flex:1; min-width:0">
+                <p style="margin:0; font-size:12px; color:#F4EEE6">{{ r.nome }}</p>
+                <p style="margin:3px 0 0; font-size:10px; color:#8B7B6C">{{ r.contexto }}</p>
+              </div>
+              <span style="font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:#E9A13C">{{ r.tipo }}</span>
+            </div>
+          </sc-for>
+          <sc-if value="{{ semResultado }}" hint-placeholder-val="{{ false }}">
+            <p style="margin:0; font-size:12px; color:#8B7B6C; font-weight:300">Nada encontrado para essa busca.</p>
+          </sc-if>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isInicio }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex; flex-direction:column; gap:26px">
+
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(190px,1fr)); gap:10px">
+            <sc-for list="{{ acoes }}" as="a" hint-placeholder-count="4">
+              <div onClick="{{ a.go }}" style="border:1px solid #2A2521; background:#131110; padding:17px; cursor:pointer; display:flex; align-items:center; gap:13px" style-hover="border-color:#E9A13C; background:#1A1614">
+                <span style="font-size:17px; color:#E9A13C; flex:0 0 auto">{{ a.glifo }}</span>
+                <span style="font-size:11px; letter-spacing:0.1em; color:#E8DFD4">{{ a.nome }}</span>
+              </div>
+            </sc-for>
+          </div>
+
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:12px; align-items:start">
+
+            <div style="grid-column:span 2; min-width:0; border:1px solid #1C1916; background:#131110; padding:22px">
+              <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:16px">
+                <p style="margin:0; font-size:9px; letter-spacing:0.24em; text-transform:uppercase; color:#8B7B6C">Produções em andamento</p>
+                <span onClick="{{ irSessoes }}" style="font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase; color:#E9A13C; cursor:pointer">ver todas</span>
+              </div>
+              <div style="display:flex; flex-direction:column; gap:12px">
+                <sc-for list="{{ producoes }}" as="p" hint-placeholder-count="2">
+                  <div onClick="{{ p.go }}" style="border:1px solid #1C1916; padding:16px; cursor:pointer" style-hover="border-color:#E9A13C">
+                    <div style="display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap">
+                      <p style="margin:0; font-family:'Instrument Serif', serif; font-size:22px; color:#F4EEE6">{{ p.titulo }}</p>
+                      <span style="font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase; color:#8B7B6C">{{ p.data }}</span>
+                    </div>
+                    <p style="margin:5px 0 12px; font-size:11px; color:#8B7B6C; font-weight:300">{{ p.sub }}</p>
+                    <div style="height:4px; background:#221E1A; margin-bottom:9px">
+                      <div style="height:4px; width:{{ p.pct }}; background:#E9A13C"></div>
+                    </div>
+                    <p style="margin:0; font-size:10px; letter-spacing:0.08em; color:#A49585">{{ p.etapas }}</p>
+                  </div>
+                </sc-for>
+                <sc-if value="{{ semProducao }}" hint-placeholder-val="{{ false }}">
+                  <p style="margin:0; font-size:12px; line-height:1.8; color:#8B7B6C; font-weight:300">Nenhuma sessão planejada. Crie uma em Sessões.</p>
+                </sc-if>
+              </div>
+            </div>
+
+            <div style="display:flex; flex-direction:column; gap:12px; min-width:0">
+              <div style="border:1px solid #1C1916; background:#131110; padding:20px">
+                <p style="margin:0 0 14px; font-size:9px; letter-spacing:0.24em; text-transform:uppercase; color:#8B7B6C">Estado do estúdio</p>
+                <div style="display:flex; flex-direction:column; gap:11px">
+                  <sc-for list="{{ alertas }}" as="al" hint-placeholder-count="3">
+                    <div onClick="{{ al.go }}" style="display:flex; align-items:flex-start; gap:11px; cursor:pointer">
+                      <div style="width:8px; height:8px; flex:0 0 auto; margin-top:5px; background:{{ al.cor }}"></div>
+                      <p style="margin:0; font-size:11.5px; line-height:1.65; color:#D6CCC0; font-weight:300">{{ al.texto }}</p>
+                    </div>
+                  </sc-for>
+                </div>
+              </div>
+              <div style="border:1px solid #1C1916; padding:20px">
+                <p style="margin:0 0 14px; font-size:9px; letter-spacing:0.24em; text-transform:uppercase; color:#8B7B6C">Acervo</p>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px">
+                  <sc-for list="{{ contagens }}" as="c" hint-placeholder-count="4">
+                    <div onClick="{{ c.go }}" style="border:1px solid #1C1916; padding:13px; cursor:pointer" style-hover="border-color:#E9A13C">
+                      <p style="margin:0; font-family:'Instrument Serif', serif; font-size:24px; line-height:1; color:#E9A13C">{{ c.n }}</p>
+                      <p style="margin:5px 0 0; font-size:8.5px; letter-spacing:0.14em; text-transform:uppercase; color:#8B7B6C">{{ c.nome }}</p>
+                    </div>
+                  </sc-for>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isPaletas }}" hint-placeholder-val="{{ false }}">
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:12px">
+          <sc-for list="{{ nichos }}" as="n" hint-placeholder-count="8">
+            <div onClick="{{ n.go }}" style="border:1px solid #1C1916; background:#131110; padding:18px; cursor:pointer; display:flex; flex-direction:column; gap:13px" style-hover="border-color:#E9A13C; background:#1A1614">
+              <div style="display:flex; gap:3px">
+                <sc-for list="{{ n.chips }}" as="c" hint-placeholder-count="5">
+                  <div style="flex:1; height:40px; background:{{ c }}"></div>
+                </sc-for>
+              </div>
+              <div>
+                <div style="display:flex; align-items:baseline; justify-content:space-between; gap:10px">
+                  <p style="margin:0; font-family:'Instrument Serif', serif; font-size:23px; line-height:1.1; color:#F4EEE6">{{ n.nome }}</p>
+                  <span style="font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:#E9A13C">{{ n.contagem }}</span>
+                </div>
+                <p style="margin:6px 0 0; font-size:11.5px; line-height:1.7; color:#8B7B6C; font-weight:300">{{ n.resumo }}</p>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isNicho }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex; flex-direction:column; gap:18px">
+          <p style="margin:0; max-width:640px; font-size:13px; line-height:1.85; color:#A49585; font-weight:300">{{ nichoDesc }}</p>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(290px,1fr)); gap:12px">
+            <sc-for list="{{ estilos }}" as="e" hint-placeholder-count="4">
+              <div onClick="{{ e.go }}" style="border:1px solid #1C1916; background:#131110; padding:19px; cursor:pointer; display:flex; flex-direction:column; gap:14px" style-hover="border-color:#E9A13C; background:#1A1614">
+                <div style="display:flex; gap:3px">
+                  <sc-for list="{{ e.chips }}" as="c" hint-placeholder-count="5">
+                    <div style="flex:1; height:46px; background:{{ c }}"></div>
+                  </sc-for>
+                </div>
+                <div>
+                  <p style="margin:0; font-family:'Instrument Serif', serif; font-size:24px; line-height:1.1; color:#F4EEE6">{{ e.nome }}</p>
+                  <p style="margin:7px 0 0; font-size:11.5px; line-height:1.75; color:#8B7B6C; font-weight:300">{{ e.resumo }}</p>
+                </div>
+                <div style="display:flex; align-items:center; justify-content:space-between; border-top:1px solid #1C1916; padding-top:12px">
+                  <span style="font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:#8B7B6C">{{ e.disp }}</span>
+                  <span style="font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase; color:#E9A13C">abrir →</span>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isEstilo }}" hint-placeholder-val="{{ false }}">
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:13px; align-items:start">
+
+          <div style="grid-column:span 2; min-width:0; display:flex; flex-direction:column; gap:13px">
+            <div style="border:1px solid #1C1916; background:#131110; padding:22px">
+              <div style="display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin-bottom:15px; flex-wrap:wrap">
+                <p style="margin:0; font-size:9px; letter-spacing:0.24em; text-transform:uppercase; color:#8B7B6C">Paleta · clique para selecionar</p>
+                <span onClick="{{ selectAll }}" style="font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase; color:#E9A13C; cursor:pointer">selecionar tudo</span>
+              </div>
+              <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(146px,1fr)); gap:9px">
+                <sc-for list="{{ paleta }}" as="c" hint-placeholder-count="5">
+                  <div onClick="{{ c.toggle }}" style="cursor:pointer; border:1px solid {{ c.borda }}; background:#0F0E0D; padding:8px" style-hover="border-color:#E9A13C">
+                    <div style="height:82px; background:{{ c.hex }}; display:flex; align-items:flex-start; justify-content:flex-end; padding:7px">
+                      <span style="font-size:14px; line-height:1; color:{{ c.marcaCor }}">{{ c.marca }}</span>
+                    </div>
+                    <p style="margin:9px 0 0; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:#E4DACE">{{ c.nome }}</p>
+                    <p style="margin:3px 0 0; font-size:9.5px; color:#8B7B6C">{{ c.hex }} · {{ c.funcao }}</p>
+                    <p style="margin:2px 0 0; font-size:9px; color:#6E6156">{{ c.rgb }}</p>
+                    <p style="margin:1px 0 0; font-size:9px; color:#6E6156">{{ c.cmyk }}</p>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+
+            <div style="border:1px solid #1C1916; background:#131110; padding:22px">
+              <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:14px">
+                <p style="margin:0; font-size:9px; letter-spacing:0.24em; text-transform:uppercase; color:#8B7B6C">Por que esta paleta</p>
+                <span style="border:1px solid {{ evCor }}; color:{{ evCor }}; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; padding:5px 10px">{{ evNivel }}</span>
+                <span style="border:1px solid #2A2521; color:#8B7B6C; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; padding:5px 10px">{{ evCamada }}</span>
+              </div>
+              <p style="margin:0 0 14px; font-size:12px; line-height:1.8; color:#D6CCC0; font-weight:300">{{ evTexto }}</p>
+              <div style="display:flex; flex-direction:column; gap:7px; margin-bottom:14px">
+                <sc-for list="{{ evBase }}" as="b" hint-placeholder-count="3">
+                  <div style="display:flex; gap:10px; align-items:baseline">
+                    <span style="color:#7E8F6B; font-size:11px; flex:0 0 auto">✓</span>
+                    <p style="margin:0; font-size:11.5px; line-height:1.7; color:#A49585; font-weight:300">{{ b }}</p>
+                  </div>
+                </sc-for>
+              </div>
+              <p style="margin:0; border-top:1px solid #1C1916; padding-top:13px; font-size:10.5px; line-height:1.7; color:#6E6156; font-weight:300">{{ evAviso }}</p>
+            </div>
+
+            <div style="border:1px solid #1C1916; padding:20px">
+              <p style="margin:0 0 13px; font-size:9px; letter-spacing:0.24em; text-transform:uppercase; color:#8B7B6C">Figurino peça a peça</p>
+              <div style="display:flex; flex-direction:column; gap:9px">
+                <sc-for list="{{ pecas }}" as="p" hint-placeholder-count="4">
+                  <div style="display:flex; gap:11px; align-items:baseline">
+                    <div style="width:6px; height:6px; flex:0 0 auto; background:#E9A13C; margin-top:6px"></div>
+                    <p style="margin:0; font-size:12px; line-height:1.75; color:#D6CCC0; font-weight:300">{{ p }}</p>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+
+            <div style="border:1px solid #1C1916; padding:20px">
+              <p style="margin:0 0 13px; font-size:9px; letter-spacing:0.24em; text-transform:uppercase; color:#8B7B6C">Tecidos e caimento</p>
+              <div style="display:flex; flex-direction:column; gap:9px">
+                <sc-for list="{{ tecidosEstilo }}" as="t" hint-placeholder-count="2">
+                  <p style="margin:0; font-size:12px; line-height:1.75; color:#D6CCC0; font-weight:300">{{ t }}</p>
+                </sc-for>
+              </div>
+            </div>
+
+            <sc-if value="{{ mostraEstoque }}" hint-placeholder-val="{{ false }}">
+              <div style="border:1px solid #1C1916; background:#131110; padding:22px">
+                <div style="display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin-bottom:15px; flex-wrap:wrap">
+                  <p style="margin:0; font-size:9px; letter-spacing:0.24em; text-transform:uppercase; color:#8B7B6C">Estoque inteligente · paleta × acervo</p>
+                  <span onClick="{{ gerarCompras }}" style="font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase; color:#E9A13C; cursor:pointer">gerar lista de compras</span>
+                </div>
+                <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(150px,1fr)); gap:9px; margin-bottom:16px">
+                  <div style="border:1px solid #1C1916; padding:13px"><p style="margin:0; font-family:'Instrument Serif', serif; font-size:26px; line-height:1; color:#7E8F6B">{{ nTenho }}</p><p style="margin:5px 0 0; font-size:8.5px; letter-spacing:0.14em; text-transform:uppercase; color:#8B7B6C">já possuo</p></div>
+                  <div style="border:1px solid #1C1916; padding:13px"><p style="margin:0; font-family:'Instrument Serif', serif; font-size:26px; line-height:1; color:#E9A13C">{{ nAdapt }}</p><p style="margin:5px 0 0; font-size:8.5px; letter-spacing:0.14em; text-transform:uppercase; color:#8B7B6C">substituto</p></div>
+                  <div style="border:1px solid #1C1916; padding:13px"><p style="margin:0; font-family:'Instrument Serif', serif; font-size:26px; line-height:1; color:#C0504A">{{ nFalta }}</p><p style="margin:5px 0 0; font-size:8.5px; letter-spacing:0.14em; text-transform:uppercase; color:#8B7B6C">faltando</p></div>
+                </div>
+                <div style="display:flex; flex-direction:column; gap:7px">
+                  <sc-for list="{{ cruzamento }}" as="x" hint-placeholder-count="5">
+                    <div style="display:flex; align-items:center; gap:12px; border:1px solid #1C1916; padding:11px 13px">
+                      <div style="width:26px; height:26px; flex:0 0 auto; background:{{ x.hex }}"></div>
+                      <div style="flex:1; min-width:0">
+                        <p style="margin:0; font-size:11.5px; color:#E4DACE">{{ x.cor }}</p>
+                        <p style="margin:2px 0 0; font-size:10px; color:#8B7B6C; font-weight:300">{{ x.detalhe }}</p>
+                      </div>
+                      <span style="font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:{{ x.cor2 }}; flex:0 0 auto">{{ x.status }}</span>
+                    </div>
+                  </sc-for>
+                </div>
+              </div>
+            </sc-if>
+          </div>
+
+          <div style="display:flex; flex-direction:column; gap:12px; min-width:0">
+            <div style="border:1px solid #1C1916; padding:20px">
+              <p style="margin:0 0 12px; font-size:9px; letter-spacing:0.24em; text-transform:uppercase; color:#8B7B6C">Fundo fotográfico</p>
+              <div style="display:flex; align-items:center; gap:13px">
+                <div style="width:62px; height:40px; flex:0 0 auto; background:{{ fundoHex }}"></div>
+                <p style="margin:0; font-size:11.5px; line-height:1.7; color:#A49585; font-weight:300">{{ fundoTexto }}</p>
+              </div>
+            </div>
+            <div style="border:1px solid #1C1916; padding:20px">
+              <p style="margin:0 0 10px; font-size:9px; letter-spacing:0.24em; text-transform:uppercase; color:#8B7B6C">Iluminação</p>
+              <p style="margin:0; font-size:11.5px; line-height:1.75; color:#D6CCC0; font-weight:300">{{ luz }}</p>
+            </div>
+            <div style="border:1px solid #1C1916; padding:20px">
+              <p style="margin:0 0 10px; font-size:9px; letter-spacing:0.24em; text-transform:uppercase; color:#8B7B6C">Cabelo e maquiagem</p>
+              <p style="margin:0; font-size:11.5px; line-height:1.75; color:#D6CCC0; font-weight:300">{{ beleza }}</p>
+            </div>
+            <div style="border:1px solid #1C1916; padding:20px">
+              <p style="margin:0 0 10px; font-size:9px; letter-spacing:0.24em; text-transform:uppercase; color:#8B7B6C">Acessórios e metal</p>
+              <p style="margin:0; font-size:11.5px; line-height:1.75; color:#D6CCC0; font-weight:300">{{ acessorios }}</p>
+            </div>
+            <div style="border:1px solid #1C1916; padding:20px">
+              <p style="margin:0 0 10px; font-size:9px; letter-spacing:0.24em; text-transform:uppercase; color:#8B7B6C">Cenário e objetos</p>
+              <p style="margin:0; font-size:11.5px; line-height:1.75; color:#D6CCC0; font-weight:300">{{ cenario }}</p>
+            </div>
+            <div style="border:1px solid #33291E; background:#1A1611; padding:18px">
+              <p style="margin:0; font-size:11.5px; line-height:1.8; color:#C9BEB0; font-weight:300"><strong style="font-weight:500; color:#E9A13C">Evitar · </strong>{{ evitar }}</p>
+            </div>
+            <div onClick="{{ usarNaSessao }}" style="border:1px solid #E9A13C; background:#E9A13C; color:#161310; padding:15px; text-align:center; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; font-weight:500; cursor:pointer" style-hover="background:#F5CE93">usar esta paleta na sessão</div>
+            <div onClick="{{ irSelecao }}" style="border:1px solid #2E2823; color:#D6CCC0; padding:15px; text-align:center; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; cursor:pointer" style-hover="border-color:#E9A13C; color:#E9A13C">seleção · {{ selCount }}</div>
+          </div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isAcervo }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex; flex-direction:column; gap:20px">
+          <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center">
+            <sc-for list="{{ filtrosTipo }}" as="f" hint-placeholder-count="5">
+              <div onClick="{{ f.go }}" style="border:1px solid {{ f.borda }}; background:{{ f.fundo }}; color:{{ f.cor }}; padding:9px 14px; font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase; cursor:pointer">{{ f.nome }}</div>
+            </sc-for>
+            <div onClick="{{ novoItem }}" style="margin-left:auto; border:1px solid #E9A13C; background:#E9A13C; color:#161310; padding:11px 17px; font-size:9.5px; letter-spacing:0.16em; text-transform:uppercase; font-weight:500; cursor:pointer" style-hover="background:#F5CE93">+ cadastrar</div>
+          </div>
+
+          <sc-for list="{{ grupos }}" as="g" hint-placeholder-count="4">
+            <div>
+              <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:11px">
+                <p style="margin:0; font-size:9px; letter-spacing:0.24em; text-transform:uppercase; color:{{ g.cor }}">{{ g.nome }}</p>
+                <span style="font-size:9px; color:#6E6156">{{ g.n }}</span>
+              </div>
+              <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(210px,1fr)); gap:10px">
+                <sc-for list="{{ g.itens }}" as="i" hint-placeholder-count="4">
+                  <div onClick="{{ i.go }}" style="border:1px solid #1C1916; background:#131110; cursor:pointer" style-hover="border-color:#E9A13C">
+                    <div style="height:64px; background:{{ i.hex }}"></div>
+                    <div style="padding:13px">
+                      <p style="margin:0; font-size:11.5px; line-height:1.4; color:#F4EEE6">{{ i.nome }}</p>
+                      <p style="margin:5px 0 0; font-size:10px; color:#8B7B6C; font-weight:300">{{ i.linha }}</p>
+                      <p style="margin:3px 0 0; font-size:9.5px; color:#6E6156">{{ i.local }}</p>
+                    </div>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isItem }}" hint-placeholder-val="{{ false }}">
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:13px; align-items:start; max-width:900px">
+          <div style="border:1px solid #1C1916; background:#131110; padding:20px; display:flex; flex-direction:column; gap:14px">
+            <div style="height:150px; background:{{ itHex }}"></div>
+            <image-slot id="{{ itSlot }}" placeholder="Foto do material" style="height:150px; display:block"></image-slot>
+            <p style="margin:0; font-size:10px; line-height:1.7; color:#6E6156; font-weight:300">Arraste a foto do material para o espaço acima. Ela fica salva no aparelho.</p>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:10px; min-width:0">
+            <sc-for list="{{ itCampos }}" as="c" hint-placeholder-count="8">
+              <div style="display:flex; gap:12px; align-items:baseline; border-bottom:1px solid #16130F; padding-bottom:9px">
+                <p style="margin:0; flex:0 0 118px; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:#8B7B6C">{{ c.rot }}</p>
+                <p style="margin:0; flex:1; font-size:12px; line-height:1.6; color:#E4DACE; font-weight:300">{{ c.val }}</p>
+              </div>
+            </sc-for>
+            <div style="display:flex; gap:9px; flex-wrap:wrap; margin-top:6px">
+              <div onClick="{{ itCopiar }}" style="border:1px solid #2E2823; color:#D6CCC0; padding:12px 17px; font-size:9.5px; letter-spacing:0.16em; text-transform:uppercase; cursor:pointer" style-hover="border-color:#E9A13C; color:#E9A13C">copiar hex</div>
+              <div onClick="{{ itEditar }}" style="border:1px solid #2E2823; color:#D6CCC0; padding:12px 17px; font-size:9.5px; letter-spacing:0.16em; text-transform:uppercase; cursor:pointer" style-hover="border-color:#E9A13C; color:#E9A13C">editar</div>
+              <div onClick="{{ itExcluir }}" style="border:1px solid #2E2823; color:#8B7B6C; padding:12px 17px; font-size:9.5px; letter-spacing:0.16em; text-transform:uppercase; cursor:pointer" style-hover="border-color:#C0504A; color:#C0504A">excluir</div>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isForm }}" hint-placeholder-val="{{ false }}">
+        <div style="max-width:660px; display:flex; flex-direction:column; gap:12px">
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(210px,1fr)); gap:10px">
+            <sc-for list="{{ formCampos }}" as="f" hint-placeholder-count="10">
+              <div>
+                <p style="margin:0 0 6px; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:#8B7B6C">{{ f.rot }}</p>
+                <input value="{{ f.val }}" onChange="{{ f.set }}" placeholder="{{ f.dica }}" style="width:100%; background:#131110; border:1px solid #2A2521; color:#E8DFD4; font-family:Sora, sans-serif; font-size:12px; padding:12px; outline:none" />
+              </div>
+            </sc-for>
+          </div>
+          <div>
+            <p style="margin:0 0 8px; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:#8B7B6C">Nichos a que serve</p>
+            <div style="display:flex; gap:7px; flex-wrap:wrap">
+              <sc-for list="{{ formNichos }}" as="n" hint-placeholder-count="8">
+                <div onClick="{{ n.toggle }}" style="border:1px solid {{ n.borda }}; background:{{ n.fundo }}; color:{{ n.cor }}; padding:9px 13px; font-size:9.5px; letter-spacing:0.12em; text-transform:uppercase; cursor:pointer">{{ n.nome }}</div>
+              </sc-for>
+            </div>
+          </div>
+          <div style="display:flex; gap:9px; margin-top:6px">
+            <div onClick="{{ formSalvar }}" style="border:1px solid #E9A13C; background:#E9A13C; color:#161310; padding:14px 22px; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; font-weight:500; cursor:pointer" style-hover="background:#F5CE93">salvar item</div>
+            <div onClick="{{ formCancelar }}" style="border:1px solid #2E2823; color:#8B7B6C; padding:14px 22px; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; cursor:pointer" style-hover="border-color:#E9A13C; color:#E9A13C">cancelar</div>
+          </div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isSessoes }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex; flex-direction:column; gap:12px; max-width:900px">
+          <div onClick="{{ novaSessao }}" style="border:1px dashed #2E2823; padding:16px; text-align:center; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:#E9A13C; cursor:pointer" style-hover="border-color:#E9A13C; background:#151210">+ nova sessão</div>
+          <sc-for list="{{ listaSessoes }}" as="s" hint-placeholder-count="0">
+            <div onClick="{{ s.go }}" style="border:1px solid #1C1916; background:#131110; padding:18px; cursor:pointer" style-hover="border-color:#E9A13C">
+              <div style="display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap">
+                <p style="margin:0; font-family:'Instrument Serif', serif; font-size:23px; color:#F4EEE6">{{ s.titulo }}</p>
+                <span style="font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase; color:#8B7B6C">{{ s.data }}</span>
+              </div>
+              <p style="margin:5px 0 12px; font-size:11.5px; color:#8B7B6C; font-weight:300">{{ s.sub }}</p>
+              <div style="display:flex; gap:3px; margin-bottom:11px">
+                <sc-for list="{{ s.chips }}" as="c" hint-placeholder-count="5">
+                  <div style="flex:1; height:22px; background:{{ c }}"></div>
+                </sc-for>
+              </div>
+              <div style="height:4px; background:#221E1A"><div style="height:4px; width:{{ s.pct }}; background:#E9A13C"></div></div>
+              <p style="margin:9px 0 0; font-size:10px; color:#A49585">{{ s.etapas }}</p>
+            </div>
+          </sc-for>
+          <sc-if value="{{ semSessoes }}" hint-placeholder-val="{{ false }}">
+            <p style="margin:0; font-size:12px; line-height:1.8; color:#8B7B6C; font-weight:300">Nenhuma sessão ainda. Crie uma acima, ou abra um estilo e use "usar esta paleta na sessão".</p>
+          </sc-if>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isSessao }}" hint-placeholder-val="{{ false }}">
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(290px,1fr)); gap:13px; align-items:start; max-width:1100px">
+          <div style="grid-column:span 2; min-width:0; display:flex; flex-direction:column; gap:13px">
+
+            <div style="border:1px solid #1C1916; background:#131110; padding:22px">
+              <p style="margin:0 0 15px; font-size:9px; letter-spacing:0.24em; text-transform:uppercase; color:#8B7B6C">Dados da sessão</p>
+              <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(190px,1fr)); gap:10px">
+                <sc-for list="{{ sesCampos }}" as="f" hint-placeholder-count="6">
+                  <div>
+                    <p style="margin:0 0 6px; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:#8B7B6C">{{ f.rot }}</p>
+                    <input value="{{ f.val }}" onChange="{{ f.set }}" placeholder="{{ f.dica }}" style="width:100%; background:#0F0E0D; border:1px solid #2A2521; color:#E8DFD4; font-family:Sora, sans-serif; font-size:12px; padding:11px; outline:none" />
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+
+            <div style="border:1px solid #1C1916; padding:22px">
+              <p style="margin:0 0 14px; font-size:9px; letter-spacing:0.24em; text-transform:uppercase; color:#8B7B6C">Checklist de produção</p>
+              <div style="display:flex; flex-direction:column; gap:2px">
+                <sc-for list="{{ sesEtapas }}" as="e" hint-placeholder-count="8">
+                  <div onClick="{{ e.toggle }}" style="display:flex; align-items:center; gap:12px; padding:11px 4px; cursor:pointer; border-bottom:1px solid #16130F" style-hover="background:#151210">
+                    <div style="width:18px; height:18px; flex:0 0 auto; border:1px solid {{ e.borda }}; background:{{ e.fundo }}; display:flex; align-items:center; justify-content:center; font-size:11px; color:#161310">{{ e.marca }}</div>
+                    <p style="margin:0; font-size:12px; color:{{ e.cor }}; font-weight:300">{{ e.nome }}</p>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+
+            <div style="border:1px solid #1C1916; background:#131110; padding:22px">
+              <div style="display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin-bottom:15px; flex-wrap:wrap">
+                <p style="margin:0; font-size:9px; letter-spacing:0.24em; text-transform:uppercase; color:#8B7B6C">Moodboard da sessão</p>
+                <span onClick="{{ sesExportar }}" style="font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase; color:#E9A13C; cursor:pointer">exportar ficha</span>
+              </div>
+              <div style="display:flex; gap:3px; margin-bottom:12px">
+                <sc-for list="{{ sesPaleta }}" as="c" hint-placeholder-count="5">
+                  <div style="flex:1; height:70px; background:{{ c }}"></div>
+                </sc-for>
+              </div>
+              <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(150px,1fr)); gap:8px">
+                <sc-for list="{{ sesSlots }}" as="s" hint-placeholder-count="6">
+                  <image-slot id="{{ s.id }}" placeholder="{{ s.rot }}" style="height:120px; display:block"></image-slot>
+                </sc-for>
+              </div>
+              <p style="margin:12px 0 0; font-size:10px; line-height:1.7; color:#6E6156; font-weight:300">Arraste suas fotos de referência para os espaços. Ficam salvas no aparelho.</p>
+            </div>
+          </div>
+
+          <div style="display:flex; flex-direction:column; gap:12px; min-width:0">
+            <div style="border:1px solid #1C1916; padding:20px">
+              <p style="margin:0 0 12px; font-size:9px; letter-spacing:0.24em; text-transform:uppercase; color:#8B7B6C">Progresso</p>
+              <p style="margin:0 0 10px; font-family:'Instrument Serif', serif; font-size:40px; line-height:1; color:#E9A13C">{{ sesPct }}</p>
+              <div style="height:4px; background:#221E1A"><div style="height:4px; width:{{ sesPct }}; background:#E9A13C"></div></div>
+            </div>
+            <div style="border:1px solid #1C1916; padding:20px">
+              <p style="margin:0 0 12px; font-size:9px; letter-spacing:0.24em; text-transform:uppercase; color:#8B7B6C">Separar do acervo</p>
+              <div style="display:flex; flex-direction:column; gap:8px">
+                <sc-for list="{{ sesAcervo }}" as="a" hint-placeholder-count="4">
+                  <div onClick="{{ a.go }}" style="display:flex; align-items:center; gap:10px; cursor:pointer">
+                    <div style="width:22px; height:22px; flex:0 0 auto; background:{{ a.hex }}"></div>
+                    <div style="min-width:0">
+                      <p style="margin:0; font-size:11px; color:#E4DACE">{{ a.nome }}</p>
+                      <p style="margin:2px 0 0; font-size:9.5px; color:#6E6156">{{ a.local }}</p>
+                    </div>
+                  </div>
+                </sc-for>
+                <sc-if value="{{ sesSemAcervo }}" hint-placeholder-val="{{ false }}">
+                  <p style="margin:0; font-size:11px; line-height:1.7; color:#8B7B6C; font-weight:300">Nenhuma peça do acervo bate com esta paleta.</p>
+                </sc-if>
+              </div>
+            </div>
+            <div onClick="{{ sesModo }}" style="border:1px solid #E9A13C; background:#E9A13C; color:#161310; padding:15px; text-align:center; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; font-weight:500; cursor:pointer" style-hover="background:#F5CE93">modo sessão</div>
+            <div onClick="{{ sesExcluir }}" style="border:1px solid #2E2823; color:#8B7B6C; padding:14px; text-align:center; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; cursor:pointer" style-hover="border-color:#C0504A; color:#C0504A">excluir sessão</div>
+          </div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isModoSessao }}" hint-placeholder-val="{{ false }}">
+        <div style="max-width:720px; display:flex; flex-direction:column; gap:22px">
+          <div style="display:flex; gap:3px">
+            <sc-for list="{{ sesPaleta }}" as="c" hint-placeholder-count="5">
+              <div style="flex:1; height:90px; background:{{ c }}"></div>
+            </sc-for>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:1px; background:#1C1916">
+            <sc-for list="{{ modoLinhas }}" as="l" hint-placeholder-count="6">
+              <div style="background:#0C0B0A; padding:20px 4px; display:flex; gap:18px; align-items:baseline; flex-wrap:wrap">
+                <p style="margin:0; flex:0 0 130px; font-size:9px; letter-spacing:0.22em; text-transform:uppercase; color:#8B7B6C">{{ l.rot }}</p>
+                <p style="margin:0; flex:1; min-width:180px; font-family:'Instrument Serif', serif; font-size:25px; line-height:1.25; color:#F4EEE6">{{ l.val }}</p>
+              </div>
+            </sc-for>
+          </div>
+          <div onClick="{{ sairModo }}" style="border:1px solid #2E2823; color:#8B7B6C; padding:15px; text-align:center; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; cursor:pointer" style-hover="border-color:#E9A13C; color:#E9A13C">sair do modo sessão</div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isCompras }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex; flex-direction:column; gap:18px; max-width:860px">
+          <div style="display:flex; gap:9px; flex-wrap:wrap">
+            <div onClick="{{ comprasCopiar }}" style="border:1px solid #E9A13C; background:#E9A13C; color:#161310; padding:13px 20px; font-size:9.5px; letter-spacing:0.16em; text-transform:uppercase; font-weight:500; cursor:pointer" style-hover="background:#F5CE93">copiar lista</div>
+            <div onClick="{{ comprasBaixar }}" style="border:1px solid #2E2823; color:#D6CCC0; padding:13px 20px; font-size:9.5px; letter-spacing:0.16em; text-transform:uppercase; cursor:pointer" style-hover="border-color:#E9A13C; color:#E9A13C">baixar .txt</div>
+            <div onClick="{{ comprasImprimir }}" style="border:1px solid #2E2823; color:#D6CCC0; padding:13px 20px; font-size:9.5px; letter-spacing:0.16em; text-transform:uppercase; cursor:pointer" style-hover="border-color:#E9A13C; color:#E9A13C">imprimir</div>
+          </div>
+          <sc-for list="{{ comprasGrupos }}" as="g" hint-placeholder-count="3">
+            <div>
+              <div style="display:flex; align-items:center; gap:10px; margin-bottom:11px">
+                <div style="width:9px; height:9px; background:{{ g.cor }}"></div>
+                <p style="margin:0; font-size:9px; letter-spacing:0.24em; text-transform:uppercase; color:{{ g.cor }}">{{ g.nome }}</p>
+                <span style="font-size:9px; color:#6E6156">{{ g.n }}</span>
+              </div>
+              <div style="display:flex; flex-direction:column; gap:8px">
+                <sc-for list="{{ g.itens }}" as="i" hint-placeholder-count="3">
+                  <div style="border:1px solid #1C1916; background:#131110; padding:14px; display:flex; align-items:center; gap:13px">
+                    <div style="width:34px; height:34px; flex:0 0 auto; background:{{ i.hex }}"></div>
+                    <div style="flex:1; min-width:0">
+                      <p style="margin:0; font-size:12px; color:#F4EEE6">{{ i.item }} <span style="color:#8B7B6C">· {{ i.qtd }}</span></p>
+                      <p style="margin:3px 0 0; font-size:10.5px; line-height:1.6; color:#8B7B6C; font-weight:300">{{ i.esp }}</p>
+                      <p style="margin:2px 0 0; font-size:9.5px; color:#6E6156">Para: {{ i.fim }}</p>
+                    </div>
+                    <div onClick="{{ i.comprado }}" style="border:1px solid #2E2823; color:#B4A594; padding:9px 13px; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; cursor:pointer; flex:0 0 auto" style-hover="border-color:#7E8F6B; color:#7E8F6B">comprei</div>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </sc-for>
+          <sc-if value="{{ semCompras }}" hint-placeholder-val="{{ false }}">
+            <p style="margin:0; font-size:12px; line-height:1.8; color:#8B7B6C; font-weight:300">Lista vazia. Abra um estilo e use "gerar lista de compras" no estoque inteligente.</p>
+          </sc-if>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isClientes }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex; flex-direction:column; gap:12px; max-width:860px">
+          <div onClick="{{ novoCliente }}" style="border:1px dashed #2E2823; padding:16px; text-align:center; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:#E9A13C; cursor:pointer" style-hover="border-color:#E9A13C; background:#151210">+ nova cliente</div>
+          <sc-for list="{{ listaClientes }}" as="c" hint-placeholder-count="0">
+            <div style="border:1px solid #1C1916; background:#131110; padding:18px">
+              <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px,1fr)); gap:10px">
+                <sc-for list="{{ c.campos }}" as="f" hint-placeholder-count="4">
+                  <div>
+                    <p style="margin:0 0 6px; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:#8B7B6C">{{ f.rot }}</p>
+                    <input value="{{ f.val }}" onChange="{{ f.set }}" placeholder="{{ f.dica }}" style="width:100%; background:#0F0E0D; border:1px solid #2A2521; color:#E8DFD4; font-family:Sora, sans-serif; font-size:12px; padding:11px; outline:none" />
+                  </div>
+                </sc-for>
+              </div>
+              <div onClick="{{ c.excluir }}" style="margin-top:12px; display:inline-block; border:1px solid #2E2823; color:#8B7B6C; padding:9px 14px; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; cursor:pointer" style-hover="border-color:#C0504A; color:#C0504A">excluir</div>
+            </div>
+          </sc-for>
+          <sc-if value="{{ semClientes }}" hint-placeholder-val="{{ false }}">
+            <p style="margin:0; font-size:12px; line-height:1.8; color:#8B7B6C; font-weight:300">Nenhuma cliente cadastrada.</p>
+          </sc-if>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isTecidos }}" hint-placeholder-val="{{ false }}">
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:12px">
+          <sc-for list="{{ listaTecidos }}" as="t" hint-placeholder-count="12">
+            <div style="border:1px solid #1C1916; background:#131110; padding:19px">
+              <p style="margin:0 0 14px; font-family:'Instrument Serif', serif; font-size:23px; color:#F4EEE6">{{ t.nome }}</p>
+              <div style="display:flex; flex-direction:column; gap:8px; margin-bottom:14px">
+                <sc-for list="{{ t.linhas }}" as="l" hint-placeholder-count="5">
+                  <div style="display:flex; gap:10px; align-items:baseline">
+                    <p style="margin:0; flex:0 0 92px; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:#8B7B6C">{{ l.rot }}</p>
+                    <p style="margin:0; flex:1; font-size:11.5px; line-height:1.6; color:#D6CCC0; font-weight:300">{{ l.val }}</p>
+                  </div>
+                </sc-for>
+              </div>
+              <p style="margin:0; border-top:1px solid #1C1916; padding-top:12px; font-size:11px; line-height:1.7; color:#A49585; font-weight:300"><strong style="font-weight:500; color:#E9A13C">Metragem · </strong>{{ t.metragem }}</p>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isMetragem }}" hint-placeholder-val="{{ false }}">
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(290px,1fr)); gap:13px; align-items:start; max-width:920px">
+          <div style="border:1px solid #1C1916; background:#131110; padding:22px; display:flex; flex-direction:column; gap:16px">
+            <div>
+              <p style="margin:0 0 9px; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:#8B7B6C">Finalidade</p>
+              <div style="display:flex; gap:7px; flex-wrap:wrap">
+                <sc-for list="{{ mtTipos }}" as="t" hint-placeholder-count="3">
+                  <div onClick="{{ t.go }}" style="border:1px solid {{ t.borda }}; background:{{ t.fundo }}; color:{{ t.cor }}; padding:10px 15px; font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase; cursor:pointer">{{ t.nome }}</div>
+                </sc-for>
+              </div>
+            </div>
+            <sc-for list="{{ mtCampos }}" as="c" hint-placeholder-count="5">
+              <div>
+                <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:7px">
+                  <p style="margin:0; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:#8B7B6C">{{ c.rot }}</p>
+                  <span style="font-size:11px; color:#E9A13C">{{ c.mostra }}</span>
+                </div>
+                <input type="range" min="{{ c.min }}" max="{{ c.max }}" step="{{ c.step }}" value="{{ c.val }}" onChange="{{ c.set }}" style="width:100%; accent-color:#E9A13C" />
+              </div>
+            </sc-for>
+            <div>
+              <p style="margin:0 0 9px; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:#8B7B6C">Largura do tecido</p>
+              <div style="display:flex; gap:7px; flex-wrap:wrap">
+                <sc-for list="{{ mtLarguras }}" as="l" hint-placeholder-count="3">
+                  <div onClick="{{ l.go }}" style="border:1px solid {{ l.borda }}; background:{{ l.fundo }}; color:{{ l.cor }}; padding:10px 15px; font-size:9.5px; letter-spacing:0.14em; cursor:pointer">{{ l.nome }}</div>
+                </sc-for>
+              </div>
+            </div>
+            <div style="display:flex; gap:7px; flex-wrap:wrap">
+              <sc-for list="{{ mtToggles }}" as="t" hint-placeholder-count="2">
+                <div onClick="{{ t.go }}" style="border:1px solid {{ t.borda }}; background:{{ t.fundo }}; color:{{ t.cor }}; padding:10px 15px; font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase; cursor:pointer">{{ t.nome }}</div>
+              </sc-for>
+            </div>
+          </div>
+
+          <div style="display:flex; flex-direction:column; gap:12px; min-width:0">
+            <div style="border:1px solid #E9A13C; background:#1A1611; padding:24px">
+              <p style="margin:0 0 8px; font-size:9px; letter-spacing:0.24em; text-transform:uppercase; color:#8B7B6C">Estimativa de produção</p>
+              <p style="margin:0; font-family:'Instrument Serif', serif; font-size:52px; line-height:1; color:#E9A13C">{{ mtResultado }}</p>
+              <p style="margin:10px 0 0; font-size:11.5px; line-height:1.7; color:#C9BEB0; font-weight:300">{{ mtDetalhe }}</p>
+            </div>
+            <div style="border:1px solid #1C1916; padding:20px">
+              <p style="margin:0 0 11px; font-size:9px; letter-spacing:0.24em; text-transform:uppercase; color:#8B7B6C">Como o número foi montado</p>
+              <div style="display:flex; flex-direction:column; gap:7px">
+                <sc-for list="{{ mtConta }}" as="l" hint-placeholder-count="4">
+                  <div style="display:flex; justify-content:space-between; gap:12px; border-bottom:1px solid #16130F; padding-bottom:7px">
+                    <p style="margin:0; font-size:11px; color:#A49585; font-weight:300">{{ l.rot }}</p>
+                    <p style="margin:0; font-size:11px; color:#E4DACE">{{ l.val }}</p>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+            <div style="border:1px solid #33291E; background:#1A1611; padding:18px">
+              <p style="margin:0; font-size:11px; line-height:1.8; color:#C9BEB0; font-weight:300"><strong style="font-weight:500; color:#E9A13C">Atenção · </strong>estimativa de produção para compra de tecido, não modelagem de costura. Para vestido sob medida, a costureira refaz a conta com as medidas reais do corpo.</p>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isIdentidade }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex; flex-direction:column; gap:16px; max-width:900px">
+          <sc-if value="{{ idVazio }}" hint-placeholder-val="{{ false }}">
+            <div style="border:1px dashed #2A2521; padding:44px 26px; text-align:center">
+              <p style="margin:0 0 7px; font-family:'Instrument Serif', serif; font-size:26px; color:#F4EEE6">Nenhuma cor selecionada</p>
+              <p style="margin:0; font-size:12px; line-height:1.8; color:#8B7B6C; font-weight:300">Abra um estilo, selecione as cores e volte aqui para ver o sistema gráfico.</p>
+            </div>
+          </sc-if>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(160px,1fr)); gap:10px">
+            <sc-for list="{{ idPapeis }}" as="p" hint-placeholder-count="0">
+              <div style="border:1px solid #1C1916; background:#131110">
+                <div style="height:88px; background:{{ p.hex }}"></div>
+                <div style="padding:14px">
+                  <p style="margin:0; font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#E9A13C">{{ p.papel }}</p>
+                  <p style="margin:6px 0 0; font-size:11.5px; color:#F4EEE6">{{ p.nome }}</p>
+                  <p style="margin:5px 0 0; font-size:10px; color:#8B7B6C">{{ p.hex }}</p>
+                  <p style="margin:2px 0 0; font-size:9.5px; color:#6E6156">{{ p.rgb }}</p>
+                  <p style="margin:1px 0 0; font-size:9.5px; color:#6E6156">{{ p.cmyk }}</p>
+                  <p style="margin:1px 0 0; font-size:9.5px; color:#6E6156">{{ p.hsl }}</p>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:12px">
+            <sc-for list="{{ idAplicacoes }}" as="a" hint-placeholder-count="4">
+              <div style="border:1px solid #1C1916; padding:19px">
+                <p style="margin:0 0 9px; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:#8B7B6C">{{ a.nome }}</p>
+                <div style="display:flex; gap:3px; margin-bottom:11px">
+                  <sc-for list="{{ a.chips }}" as="c" hint-placeholder-count="4">
+                    <div style="flex:1; height:26px; background:{{ c }}"></div>
+                  </sc-for>
+                </div>
+                <p style="margin:0; font-size:11px; line-height:1.7; color:#A49585; font-weight:300">{{ a.uso }}</p>
+              </div>
+            </sc-for>
+          </div>
+          <div style="border:1px solid #33291E; background:#1A1611; padding:18px">
+            <p style="margin:0; font-size:11px; line-height:1.8; color:#C9BEB0; font-weight:300"><strong style="font-weight:500; color:#E9A13C">Sugestão conceitual · </strong>este sistema nasce da paleta do ensaio. Não substitui nem altera a identidade oficial da Lumiar. CMYK é conversão aproximada — para impressão, confirme com a gráfica.</p>
+          </div>
+          <div onClick="{{ idCopiar }}" style="border:1px solid #E9A13C; background:#E9A13C; color:#161310; padding:15px; text-align:center; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; font-weight:500; cursor:pointer; max-width:280px" style-hover="background:#F5CE93">copiar sistema completo</div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isImagem }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex; flex-direction:column; gap:16px; max-width:880px">
+          <p style="margin:0; max-width:620px; font-size:12.5px; line-height:1.85; color:#A49585; font-weight:300">Solte uma referência no espaço abaixo e toque em extrair. O app lê as cores dominantes da imagem — só isso. Tecido, marca e fonte não são identificáveis por leitura de pixel e não serão adivinhados.</p>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:13px; align-items:start">
+            <div style="display:flex; flex-direction:column; gap:11px">
+              <image-slot id="ref-extracao" placeholder="Referência para extrair a paleta" style="height:280px; display:block"></image-slot>
+              <div onClick="{{ imgExtrair }}" style="border:1px solid #E9A13C; background:#E9A13C; color:#161310; padding:15px; text-align:center; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; font-weight:500; cursor:pointer" style-hover="background:#F5CE93">extrair paleta</div>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:10px">
+              <sc-if value="{{ imgVazio }}" hint-placeholder-val="{{ true }}">
+                <div style="border:1px dashed #2A2521; padding:36px 22px; text-align:center">
+                  <p style="margin:0; font-size:12px; line-height:1.8; color:#8B7B6C; font-weight:300">A paleta extraída aparece aqui.</p>
+                </div>
+              </sc-if>
+              <sc-for list="{{ imgCores }}" as="c" hint-placeholder-count="0">
+                <div onClick="{{ c.toggle }}" style="border:1px solid {{ c.borda }}; background:#131110; padding:11px; display:flex; align-items:center; gap:13px; cursor:pointer" style-hover="border-color:#E9A13C">
+                  <div style="width:48px; height:48px; flex:0 0 auto; background:{{ c.hex }}"></div>
+                  <div style="flex:1; min-width:0">
+                    <p style="margin:0; font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#E9A13C">{{ c.papel }}</p>
+                    <p style="margin:4px 0 0; font-size:11.5px; color:#F4EEE6">{{ c.hex }}</p>
+                    <p style="margin:2px 0 0; font-size:9.5px; color:#6E6156">{{ c.rgb }} · {{ c.cmyk }}</p>
+                  </div>
+                  <span style="font-size:13px; color:#E9A13C; flex:0 0 auto">{{ c.marca }}</span>
+                </div>
+              </sc-for>
+              <sc-if value="{{ imgTem }}" hint-placeholder-val="{{ false }}">
+                <div style="border:1px solid #33291E; background:#1A1611; padding:16px">
+                  <p style="margin:0 0 7px; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:#E9A13C">Não identificável por imagem</p>
+                  <p style="margin:0; font-size:11px; line-height:1.75; color:#C9BEB0; font-weight:300">Composição do tecido, gramatura, marca, fonte tipográfica e temperatura real da luz no set. Isso exige a peça ou os dados da produção.</p>
+                </div>
+              </sc-if>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isSelecao }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex; flex-direction:column; gap:12px; max-width:760px">
+          <sc-if value="{{ selVazio }}" hint-placeholder-val="{{ true }}">
+            <div style="border:1px dashed #2A2521; padding:44px 26px; text-align:center">
+              <p style="margin:0 0 7px; font-family:'Instrument Serif', serif; font-size:26px; color:#F4EEE6">Nada selecionado</p>
+              <p style="margin:0; font-size:12px; line-height:1.8; color:#8B7B6C; font-weight:300">Abra um estilo e clique nas amostras de cor.</p>
+            </div>
+          </sc-if>
+          <sc-for list="{{ selLista }}" as="s" hint-placeholder-count="0">
+            <div style="border:1px solid #1C1916; background:#131110; padding:14px; display:flex; align-items:center; gap:14px">
+              <div style="width:54px; height:54px; flex:0 0 auto; background:{{ s.hex }}"></div>
+              <div style="flex:1; min-width:0">
+                <p style="margin:0; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:#F4EEE6">{{ s.nome }}</p>
+                <p style="margin:4px 0 0; font-size:10.5px; color:#8B7B6C; font-weight:300">{{ s.hex }} · {{ s.origem }}</p>
+              </div>
+              <div onClick="{{ s.copy }}" style="width:32px; height:32px; flex:0 0 auto; border:1px solid #2E2823; display:flex; align-items:center; justify-content:center; color:#B4A594; font-size:11px; cursor:pointer" style-hover="border-color:#E9A13C; color:#E9A13C">⧉</div>
+              <div onClick="{{ s.remove }}" style="width:32px; height:32px; flex:0 0 auto; border:1px solid #2E2823; display:flex; align-items:center; justify-content:center; color:#B4A594; font-size:14px; cursor:pointer" style-hover="border-color:#E9A13C; color:#E9A13C">×</div>
+            </div>
+          </sc-for>
+          <sc-if value="{{ selTem }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex; gap:9px; flex-wrap:wrap">
+              <div onClick="{{ selCopiar }}" style="border:1px solid #E9A13C; background:#E9A13C; color:#161310; padding:15px 22px; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; font-weight:500; cursor:pointer" style-hover="background:#F5CE93">copiar códigos</div>
+              <div onClick="{{ selBaixar }}" style="border:1px solid #2E2823; color:#D6CCC0; padding:15px 22px; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; cursor:pointer" style-hover="border-color:#E9A13C; color:#E9A13C">baixar .txt</div>
+              <div onClick="{{ selIdent }}" style="border:1px solid #2E2823; color:#D6CCC0; padding:15px 22px; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; cursor:pointer" style-hover="border-color:#E9A13C; color:#E9A13C">ver identidade visual</div>
+              <div onClick="{{ selLimpar }}" style="border:1px solid #2E2823; color:#8B7B6C; padding:15px 22px; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; cursor:pointer" style-hover="border-color:#C0504A; color:#C0504A">limpar</div>
+            </div>
+          </sc-if>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isCriar }}" hint-placeholder-val="{{ false }}">
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:12px">
+          <sc-for list="{{ criarOpcoes }}" as="c" hint-placeholder-count="5">
+            <div onClick="{{ c.go }}" style="border:1px solid #1C1916; background:#131110; padding:24px; cursor:pointer; display:flex; flex-direction:column; gap:12px" style-hover="border-color:#E9A13C; background:#1A1614">
+              <span style="font-size:22px; color:#E9A13C">{{ c.glifo }}</span>
+              <div>
+                <p style="margin:0; font-family:'Instrument Serif', serif; font-size:24px; line-height:1.1; color:#F4EEE6">{{ c.nome }}</p>
+                <p style="margin:7px 0 0; font-size:11.5px; line-height:1.7; color:#8B7B6C; font-weight:300">{{ c.sub }}</p>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = {
+    tela: "inicio", nicho: null, estilo: null, menuAberto: false, busca: "",
+    modoCliente: false, toast: "", pronto: false,
+    acervo: [], sessoes: [], compras: [], clientes: [], sel: [], hist: []
+  };
+
+  componentDidMount() {
+    Promise.all([import("./lumiar-data.js"), import("./lumiar-data2.js")]).then(([a, b]) => {
+      this.NICHOS = Object.assign({}, a.NICHOS, b.NICHOS2);
+      this.TECIDOS = b.TECIDOS; this.TIPOS = b.TIPOS; this.ESTADOS = b.ESTADOS;
+      const salvo = this.carregar();
+      this.setState({
+        pronto: true,
+        acervo: salvo.acervo || b.ACERVO,
+        compras: salvo.compras || b.COMPRAS_SEED,
+        sessoes: salvo.sessoes || [],
+        clientes: salvo.clientes || [],
+        sel: salvo.sel || []
+      });
+    });
+  }
+
+  carregar() {
+    try { return JSON.parse(localStorage.getItem("lumiar-engine") || "{}"); } catch (e) { return {}; }
+  }
+
+  salvar(extra) {
+    const s = Object.assign({}, this.state, extra || {});
+    try {
+      localStorage.setItem("lumiar-engine", JSON.stringify({
+        acervo: s.acervo, compras: s.compras, sessoes: s.sessoes, clientes: s.clientes, sel: s.sel
+      }));
+    } catch (e) {}
+  }
+
+  set(extra) { this.setState(extra, () => this.salvar()); }
+
+  ir(tela, extra) {
+    this.setState(s => Object.assign({ tela, menuAberto: false, busca: "", hist: s.hist.concat([{ t: s.tela, n: s.nicho, e: s.estilo }]).slice(-12) }, extra || {}));
+    window.scrollTo(0, 0);
+  }
+
+  voltar() {
+    this.setState(s => {
+      const h = s.hist.slice();
+      const p = h.pop();
+      return p ? { tela: p.t, nicho: p.n, estilo: p.e, hist: h, busca: "" } : { tela: "inicio", hist: [] };
+    });
+    window.scrollTo(0, 0);
+  }
+
+  flash(msg) {
+    this.setState({ toast: msg });
+    clearTimeout(this._t);
+    this._t = setTimeout(() => this.setState({ toast: "" }), 1600);
+  }
+
+  // Camada de evidência. REGRA ZERO: sem fonte verificada, nada é declarado tendência.
+  // Nenhuma fonte de tendência está conectada a este app — por isso não existe
+  // nenhum registro VALIDADA aqui. Tudo é prática de estúdio ou curadoria interna.
+  evidencia(nichoKey, estilo) {
+    const ESTABELECIDAS = {
+      gestante: ["Minimalista", "Elegante", "Romântico", "Luxo", "Boho", "Casal", "Com filhos"],
+      feminino: ["Individual atemporal", "Aniversário", "15 anos"],
+      newborn: ["Branco-leite e cru", "Terroso quente", "Empoado"],
+      familia: ["Neutro de estúdio", "Terroso de externa", "Inverno escuro"],
+      infantil: ["Natural de estúdio", "Clássico", "Smash the cake"],
+      casal: ["Urbano de dia", "Editorial noturno", "Pré-wedding"],
+      corporativo: ["Retrato executivo", "Equipe", "Ambiente de trabalho"],
+      temas: ["Natal terroso", "Páscoa", "Verão"]
+    };
+    const lista = ESTABELECIDAS[nichoKey] || [];
+    if (lista.indexOf(estilo.nome) >= 0) {
+      return {
+        nivel: "estabelecida", rotulo: "Estabelecida", cor: "#6E8FA8",
+        camada: "Curadoria Lumiar",
+        texto: "Prática recorrente de estúdio fotográfico, não uma tendência de temporada. Vale enquanto o nicho existir.",
+        base: ["Comportamento de tecido e cor sob luz de estúdio", "Recorrência no próprio portfólio do nicho", "Regras de enquadramento e contraste de retrato"]
+      };
+    }
+    return {
+      nivel: "conceitual", rotulo: "Conceitual", cor: "#8B7B6C",
+      camada: "Curadoria Lumiar",
+      texto: "Proposta interna do estúdio. Não é tendência de mercado e não deve ser apresentada como tal à cliente.",
+      base: ["Composição cromática interna", "Compatibilidade com o acervo existente"]
+    };
+  }
+
+  extrair() {
+    const slot = document.querySelector('image-slot[id="ref-extracao"]');
+    const img = slot && (slot.shadowRoot || slot).querySelector("img");
+    if (!img || !img.src) { this.flash("solte uma imagem primeiro"); return; }
+    const c = document.createElement("canvas");
+    const w = 120, h = Math.max(1, Math.round(120 * (img.naturalHeight || 1) / (img.naturalWidth || 1)));
+    c.width = w; c.height = h;
+    const ctx = c.getContext("2d");
+    try { ctx.drawImage(img, 0, 0, w, h); } catch (e) { this.flash("não consegui ler a imagem"); return; }
+    let data;
+    try { data = ctx.getImageData(0, 0, w, h).data; } catch (e) { this.flash("imagem protegida, não consigo ler"); return; }
+    const buckets = {};
+    for (let i = 0; i < data.length; i += 4) {
+      if (data[i + 3] < 128) continue;
+      const k = [Math.round(data[i] / 26), Math.round(data[i + 1] / 26), Math.round(data[i + 2] / 26)].join(",");
+      if (!buckets[k]) buckets[k] = { n: 0, r: 0, g: 0, b: 0 };
+      const b = buckets[k];
+      b.n++; b.r += data[i]; b.g += data[i + 1]; b.b += data[i + 2];
+    }
+    const ord = Object.keys(buckets).map(k => buckets[k]).sort((a, b) => b.n - a.n);
+    const hexs = [];
+    ord.forEach(b => {
+      if (hexs.length >= 5) return;
+      const hex = "#" + [b.r / b.n, b.g / b.n, b.b / b.n].map(v => Math.round(v).toString(16).padStart(2, "0")).join("").toUpperCase();
+      if (!hexs.some(h => this.distHex(h, hex) < 40)) hexs.push(hex);
+    });
+    if (!hexs.length) { this.flash("não encontrei cores"); return; }
+    this.setState({ extraidas: hexs });
+    this.flash(hexs.length + " cores extraídas");
+  }
+
+  rgb(hex) { return [parseInt(hex.slice(1, 3), 16), parseInt(hex.slice(3, 5), 16), parseInt(hex.slice(5, 7), 16)]; }
+
+  cmyk(hex) {
+    const [r, g, b] = this.rgb(hex).map(v => v / 255);
+    const k = 1 - Math.max(r, g, b);
+    if (k === 1) return [0, 0, 0, 100];
+    return [
+      Math.round((1 - r - k) / (1 - k) * 100), Math.round((1 - g - k) / (1 - k) * 100),
+      Math.round((1 - b - k) / (1 - k) * 100), Math.round(k * 100)
+    ];
+  }
+
+  hsl(hex) {
+    let [r, g, b] = this.rgb(hex).map(v => v / 255);
+    const mx = Math.max(r, g, b), mn = Math.min(r, g, b), d = mx - mn;
+    let h = 0;
+    if (d) { if (mx === r) h = ((g - b) / d) % 6; else if (mx === g) h = (b - r) / d + 2; else h = (r - g) / d + 4; }
+    h = Math.round(h * 60); if (h < 0) h += 360;
+    const l = (mx + mn) / 2;
+    const s = d ? d / (1 - Math.abs(2 * l - 1)) : 0;
+    return [h, Math.round(s * 100), Math.round(l * 100)];
+  }
+
+  distHex(a, b) {
+    if (!a || !b || a[0] !== "#" || b[0] !== "#") return 999;
+    const x = this.rgb(a), y = this.rgb(b);
+    return Math.sqrt(Math.pow(x[0] - y[0], 2) + Math.pow(x[1] - y[1], 2) + Math.pow(x[2] - y[2], 2));
+  }
+
+  cobertura(estilo) {
+    const ac = this.state.acervo;
+    const ok = estilo.paleta.filter(p => ac.some(i => this.distHex(i.hex, p[1]) < 70)).length;
+    return Math.round(ok / estilo.paleta.length * 100);
+  }
+
+  copiar(txt, msg) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(txt).then(() => this.flash(msg), () => this.flash("não foi possível copiar"));
+    } else this.flash("não foi possível copiar");
+  }
+
+  renderVals() {
+    const st = this.state;
+    if (!st.pronto) {
+      return { eyebrow: "Carregando", title: "Lumiar Engine", menu: [], menuExtra: [], acoes: [], producoes: [], alertas: [], contagens: [], criarOpcoes: [], resultados: [], isInicio: false, isCriar: false, isBusca: false, canBack: false, menuAberto: false, toast: "", busca: "", semProducao: false, semResultado: false, mcBorda: "#2A2521", mcFundo: "transparent", mcCor: "#8B7B6C", goBack: () => {}, setBusca: () => {}, toggleModoCliente: () => {}, irSessoes: () => {} };
+    }
+
+    const N = this.NICHOS;
+    const principais = [
+      { id: "inicio", nome: "Início", glifo: "◈" },
+      { id: "criar", nome: "Criar", glifo: "✦" },
+      { id: "acervo", nome: "Acervo", glifo: "▤" },
+      { id: "sessoes", nome: "Sessões", glifo: "◷" }
+    ];
+    const extras = [
+      { id: "paletas", nome: "Paletas", glifo: "◐" },
+      { id: "tecidos", nome: "Tecidos", glifo: "≋" },
+      { id: "metragem", nome: "Metragem", glifo: "⌗" },
+      { id: "compras", nome: "Compras", glifo: "⊕" },
+      { id: "clientes", nome: "Clientes", glifo: "◍" },
+      { id: "identidade", nome: "Identidade", glifo: "◑" },
+      { id: "imagem", nome: "Da imagem", glifo: "⊡" },
+      { id: "selecao", nome: "Seleção", glifo: "◉" }
+    ];
+    const base = { nicho: "paletas", estilo: "paletas", item: "acervo", sessao: "sessoes", cliente: "clientes", moodboard: "sessoes" }[st.tela] || st.tela;
+
+    const menu = principais.map(m => {
+      const ativo = base === m.id;
+      return { nome: m.nome, glifo: m.glifo, borda: ativo ? "#E9A13C" : "#26211D", fundo: ativo ? "#1E1913" : "#131110", cor: ativo ? "#E9A13C" : "#B4A594", go: () => this.ir(m.id) };
+    }).concat([{
+      nome: "Menu", glifo: "☰",
+      borda: st.menuAberto ? "#E9A13C" : "#26211D",
+      fundo: st.menuAberto ? "#1E1913" : "#131110",
+      cor: st.menuAberto ? "#E9A13C" : "#B4A594",
+      go: () => this.setState(s => ({ menuAberto: !s.menuAberto }))
+    }]);
+
+    const menuExtra = extras.map(m => ({
+      nome: m.nome, glifo: m.glifo,
+      cor: base === m.id ? "#E9A13C" : "#B4A594",
+      go: () => this.ir(m.id)
+    }));
+
+    const tipos = ["Vestido", "Tecido", "Acessório", "Cenário"];
+    const contagens = tipos.map(t => ({
+      nome: t + (t === "Acessório" ? "s" : "s"), n: st.acervo.filter(i => i.tipo === t).length,
+      go: () => this.ir("acervo")
+    }));
+
+    const faltamAlta = st.compras.filter(c => c.prio === "alta").length;
+    const alertas = [
+      { cor: "#C0504A", texto: faltamAlta + " itens de prioridade alta na lista de compras", go: () => this.ir("compras") },
+      { cor: "#E9A13C", texto: st.acervo.filter(i => i.estado === "Reparar").length + " peças marcadas para reparo", go: () => this.ir("acervo") },
+      { cor: "#7E8F6B", texto: st.acervo.length + " itens cadastrados no acervo", go: () => this.ir("acervo") }
+    ];
+
+    const producoes = st.sessoes.slice(0, 3).map(s => {
+      const feitas = (s.etapas || []).filter(Boolean).length;
+      const total = 8;
+      return {
+        titulo: s.cliente || "Sessão sem nome", data: s.data || "sem data",
+        sub: (N[s.nicho] ? N[s.nicho].nome : "—") + " · " + (s.estilo || "estilo a definir"),
+        pct: Math.round(feitas / total * 100) + "%",
+        etapas: feitas + " de " + total + " etapas concluídas",
+        go: () => this.ir("sessao", { sessaoId: s.id })
+      };
+    });
+
+    const q = st.busca.trim().toLowerCase();
+    let resultados = [];
+    if (q.length > 1) {
+      Object.keys(N).forEach(k => N[k].estilos.forEach((e, i) => {
+        if ((e.nome + " " + N[k].nome + " " + e.paleta.map(p => p[0] + p[1]).join(" ")).toLowerCase().includes(q))
+          resultados.push({ nome: e.nome, contexto: N[k].nome, tipo: "paleta", hex: e.paleta[0][1], go: () => this.ir("estilo", { nicho: k, estilo: i }) });
+      }));
+      st.acervo.forEach(it => {
+        if ((it.nome + " " + it.cor + " " + it.hex + " " + it.tipo + " " + it.local).toLowerCase().includes(q))
+          resultados.push({ nome: it.nome, contexto: it.tipo + " · " + it.local, tipo: "acervo", hex: it.hex, go: () => this.ir("item", { itemId: it.id }) });
+      });
+      this.TECIDOS.forEach(t => {
+        if (t.nome.toLowerCase().includes(q))
+          resultados.push({ nome: t.nome, contexto: t.uso, tipo: "tecido", hex: "#3A332C", go: () => this.ir("tecidos") });
+      });
+      st.clientes.forEach(c => {
+        if ((c.nome || "").toLowerCase().includes(q))
+          resultados.push({ nome: c.nome, contexto: c.nicho || "cliente", tipo: "cliente", hex: "#3A332C", go: () => this.ir("cliente", { clienteId: c.id }) });
+      });
+    }
+
+    const vals = {
+      menu, menuExtra, menuAberto: st.menuAberto, toast: st.toast, busca: st.busca,
+      setBusca: e => this.setState({ busca: e.target.value }),
+      canBack: st.hist.length > 0, goBack: () => this.voltar(),
+      isBusca: q.length > 1, resultados: resultados.slice(0, 20), semResultado: q.length > 1 && resultados.length === 0,
+      isInicio: st.tela === "inicio" && q.length < 2,
+      isCriar: st.tela === "criar" && q.length < 2,
+      contagens, alertas, producoes, semProducao: st.sessoes.length === 0,
+      irSessoes: () => this.ir("sessoes"),
+      mcBorda: st.modoCliente ? "#E9A13C" : "#2A2521",
+      mcFundo: st.modoCliente ? "#E9A13C" : "transparent",
+      mcCor: st.modoCliente ? "#161310" : "#8B7B6C",
+      toggleModoCliente: () => { this.setState(s => ({ modoCliente: !s.modoCliente })); this.flash(st.modoCliente ? "modo estúdio" : "modo cliente ativo"); },
+      acoes: [
+        { nome: "Nova sessão", glifo: "+", go: () => this.ir("sessoes") },
+        { nome: "Abrir paletas", glifo: "◐", go: () => this.ir("paletas") },
+        { nome: "Cadastrar no acervo", glifo: "▤", go: () => this.ir("acervo") },
+        { nome: "Calcular metragem", glifo: "⌗", go: () => this.ir("metragem") }
+      ],
+      criarOpcoes: [
+        { nome: "Paleta", glifo: "◐", sub: "Abrir a biblioteca por nicho e escolher o sistema cromático.", go: () => this.ir("paletas") },
+        { nome: "Sessão", glifo: "◷", sub: "Planejar uma produção do briefing ao checklist.", go: () => this.ir("sessoes") },
+        { nome: "Item de acervo", glifo: "▤", sub: "Cadastrar tecido, vestido, acessório ou cenário.", go: () => this.ir("acervo") },
+        { nome: "Moodboard", glifo: "▣", sub: "Montar a prancha da cliente com cor e espaço para foto.", go: () => this.ir("sessoes") },
+        { nome: "Paleta de imagem", glifo: "⊡", sub: "Extrair cores de uma referência que você soltar aqui.", go: () => this.ir("imagem") }
+      ]
+    };
+
+    vals.selCount = st.sel.length;
+    vals.irSelecao = () => this.ir("selecao");
+    vals.isPaletas = st.tela === "paletas" && q.length < 2;
+    vals.isNicho = st.tela === "nicho" && q.length < 2;
+    vals.isEstilo = st.tela === "estilo" && q.length < 2;
+    vals.nichos = Object.keys(N).map(k => ({
+      nome: N[k].nome, resumo: N[k].resumo,
+      contagem: N[k].estilos.length + " estilos",
+      chips: N[k].estilos[0].paleta.map(p => p[1]),
+      go: () => this.ir("nicho", { nicho: k, estilo: null })
+    }));
+
+    const nA = st.nicho ? N[st.nicho] : null;
+    const eA = nA && st.estilo != null ? nA.estilos[st.estilo] : null;
+
+    if (nA) {
+      vals.nichoDesc = nA.desc;
+      vals.estilos = nA.estilos.map((e, i) => ({
+        nome: e.nome, resumo: e.resumo, chips: e.paleta.map(p => p[1]),
+        disp: this.cobertura(e) + "% no acervo",
+        go: () => this.ir("estilo", { estilo: i })
+      }));
+    }
+
+    if (eA) {
+      const origem = nA.nome + " · " + eA.nome;
+      const funcoes = ["Dominante", "Secundária", "Apoio", "Contraste", "Destaque", "Neutro"];
+      vals.paleta = eA.paleta.map((p, i) => {
+        const ativo = st.sel.some(c => c.hex === p[1] && c.origem === origem);
+        const rgb = this.rgb(p[1]);
+        const claro = rgb[0] + rgb[1] + rgb[2] > 400;
+        return {
+          nome: p[0], hex: p[1], funcao: funcoes[i] || "Apoio",
+          rgb: "RGB " + rgb.join(" / "), cmyk: "CMYK " + this.cmyk(p[1]).join(" / "),
+          borda: ativo ? "#E9A13C" : "#26211D",
+          marca: ativo ? "✓" : "", marcaCor: claro ? "#3A322B" : "#F4EEE6",
+          toggle: () => this.setState(s => {
+            const idx = s.sel.findIndex(c => c.hex === p[1] && c.origem === origem);
+            const n2 = s.sel.slice();
+            if (idx >= 0) n2.splice(idx, 1); else n2.push({ nome: p[0], hex: p[1], origem });
+            return { sel: n2 };
+          }, () => this.salvar())
+        };
+      });
+      const ev = this.evidencia(st.nicho, eA);
+      vals.evNivel = ev.rotulo; vals.evCor = ev.cor; vals.evCamada = ev.camada;
+      vals.evTexto = ev.texto; vals.evBase = ev.base;
+      vals.evAviso = "Nenhuma fonte de tendência de mercado está conectada a este app. Nada aqui é apresentado como previsão de temporada.";
+      vals.pecas = eA.pecas;
+      vals.tecidosEstilo = eA.tecidos || [];
+      vals.fundoHex = eA.fundo[0];
+      vals.fundoTexto = eA.fundo[1];
+      vals.luz = eA.luz; vals.beleza = eA.beleza;
+      vals.acessorios = eA.acessorios; vals.cenario = eA.cenario; vals.evitar = eA.evitar;
+      vals.selectAll = () => {
+        this.setState(s => {
+          const n2 = s.sel.slice();
+          eA.paleta.forEach(p => { if (!n2.some(c => c.hex === p[1] && c.origem === origem)) n2.push({ nome: p[0], hex: p[1], origem }); });
+          return { sel: n2 };
+        }, () => this.salvar());
+        this.flash("paleta adicionada");
+      };
+      vals.usarNaSessao = () => {
+        const id = "s" + Date.now();
+        this.setState(s => ({
+          sessoes: s.sessoes.concat([{ id, cliente: "", data: "", nicho: st.nicho, estilo: eA.nome, paleta: eA.paleta, etapas: [true, true, false, false, false, false, false, false], notas: "", valor: "", restricoes: "", figurinos: [] }]),
+          tela: "sessao", sessaoId: id
+        }), () => this.salvar());
+        this.flash("sessão criada com esta paleta");
+      };
+
+      const cruz = eA.paleta.map(p => {
+        const exatos = st.acervo.filter(i => this.distHex(i.hex, p[1]) < 24);
+        const vizinhos = st.acervo.filter(i => this.distHex(i.hex, p[1]) < 70);
+        if (exatos.length) return { cor: p[0], hex: p[1], status: "possuo", cor2: "#7E8F6B", detalhe: exatos.map(i => i.nome).slice(0, 2).join(" · ") };
+        if (vizinhos.length) return { cor: p[0], hex: p[1], status: "substituto", cor2: "#E9A13C", detalhe: "vizinho: " + vizinhos[0].nome };
+        return { cor: p[0], hex: p[1], status: "falta", cor2: "#C0504A", detalhe: "nenhuma peça nesta faixa de cor" };
+      });
+      vals.cruzamento = cruz;
+      vals.nTenho = cruz.filter(c => c.status === "possuo").length;
+      vals.nAdapt = cruz.filter(c => c.status === "substituto").length;
+      vals.nFalta = cruz.filter(c => c.status === "falta").length;
+      vals.mostraEstoque = !st.modoCliente;
+      vals.gerarCompras = () => {
+        const novos = cruz.filter(c => c.status === "falta").map(c => ({
+          id: "c" + Date.now() + c.hex, item: "Peça em " + c.cor, qtd: "1",
+          esp: "Tom " + c.hex + " para " + origem, hex: c.hex, prio: "alta", fim: origem
+        }));
+        if (!novos.length) { this.flash("nada faltando nesta paleta"); return; }
+        this.setState(s => ({ compras: s.compras.concat(novos) }), () => this.salvar());
+        this.flash(novos.length + " itens na lista de compras");
+      };
+    }
+
+    vals.isAcervo = st.tela === "acervo" && q.length < 2;
+    vals.isItem = st.tela === "item" && q.length < 2;
+    vals.isForm = st.tela === "form" && q.length < 2;
+
+    if (vals.isAcervo) {
+      const ft = st.filtroTipo || "Todos";
+      const lista = st.acervo.filter(i => ft === "Todos" || i.tipo === ft);
+      vals.filtrosTipo = ["Todos"].concat(this.TIPOS).map(t => ({
+        nome: t, borda: ft === t ? "#E9A13C" : "#2A2521",
+        fundo: ft === t ? "#1E1913" : "transparent", cor: ft === t ? "#E9A13C" : "#8B7B6C",
+        go: () => this.setState({ filtroTipo: t })
+      }));
+      const card = i => ({
+        nome: i.nome, hex: i.hex,
+        linha: [i.cor, i.tecido, i.metragem !== "—" ? i.metragem : i.tamanho].filter(x => x && x !== "—").join(" · "),
+        local: i.local + " · " + i.qtd + " un. · " + i.estado,
+        go: () => this.ir("item", { itemId: i.id })
+      });
+      const coringas = lista.filter(i => (i.nichos || []).length >= 4);
+      const grupos = [];
+      if (coringas.length) grupos.push({ nome: "Coringas", cor: "#E9A13C", n: coringas.length + " itens · servem 4 nichos ou mais", itens: coringas.map(card) });
+      Object.keys(N).forEach(k => {
+        const itens = lista.filter(i => (i.nichos || []).indexOf(k) >= 0 && (i.nichos || []).length < 4);
+        if (itens.length) grupos.push({ nome: N[k].nome, cor: "#8B7B6C", n: itens.length + " itens", itens: itens.map(card) });
+      });
+      const soltos = lista.filter(i => !(i.nichos || []).length);
+      if (soltos.length) grupos.push({ nome: "Sem nicho definido", cor: "#8B7B6C", n: soltos.length + " itens", itens: soltos.map(card) });
+      vals.grupos = grupos;
+      vals.novoItem = () => this.ir("form", { form: { id: "", tipo: "Vestido", nome: "", codigo: "", cor: "", hex: "#C4B9AB", tecido: "", metragem: "", largura: "", tamanho: "", estado: "Novo", local: "", qtd: 1, nichos: [] } });
+    }
+
+    if (vals.isItem) {
+      const it = st.acervo.filter(i => i.id === st.itemId)[0];
+      if (it) {
+        vals.itHex = it.hex; vals.itSlot = "acervo-" + it.id;
+        vals.itCampos = [
+          { rot: "Nome", val: it.nome }, { rot: "Código", val: it.codigo },
+          { rot: "Tipo", val: it.tipo }, { rot: "Cor", val: it.cor + " · " + it.hex },
+          { rot: "Tecido", val: it.tecido }, { rot: "Metragem", val: it.metragem + " · larg. " + it.largura },
+          { rot: "Tamanho", val: it.tamanho }, { rot: "Quantidade", val: it.qtd + " un." },
+          { rot: "Estado", val: it.estado }, { rot: "Onde está", val: it.local },
+          { rot: "Serve a", val: (it.nichos || []).map(k => N[k] ? N[k].nome : k).join(", ") || "—" }
+        ];
+        vals.itCopiar = () => this.copiar(it.hex, it.hex + " copiado");
+        vals.itEditar = () => this.ir("form", { form: Object.assign({}, it) });
+        vals.itExcluir = () => {
+          this.setState(s => ({ acervo: s.acervo.filter(x => x.id !== it.id), tela: "acervo" }), () => this.salvar());
+          this.flash("item excluído");
+        };
+        vals.itTitulo = it.nome; vals.itTipo = it.tipo;
+      }
+    }
+
+    if (vals.isForm) {
+      const f = st.form || {};
+      const campo = (rot, key, dica) => ({
+        rot, val: f[key] == null ? "" : String(f[key]), dica: dica || "",
+        set: e => { const v = e.target.value; this.setState(s => ({ form: Object.assign({}, s.form, { [key]: v }) })); }
+      });
+      vals.formCampos = [
+        campo("Nome", "nome", "Vestido longo marinho"), campo("Código", "codigo", "VS-06"),
+        campo("Tipo", "tipo", "Vestido / Tecido / Acessório"), campo("Cor", "cor", "Marinho"),
+        campo("HEX", "hex", "#1B2540"), campo("Tecido e composição", "tecido", "Crepe de viscose"),
+        campo("Metragem", "metragem", "4 m"), campo("Largura", "largura", "1,50 m"),
+        campo("Tamanho", "tamanho", "P/M/G — cós elástico"), campo("Estado", "estado", "Novo / Bom / Usado / Reparar"),
+        campo("Onde está guardado", "local", "Arara 1"), campo("Quantidade", "qtd", "1")
+      ];
+      vals.formNichos = Object.keys(N).map(k => {
+        const on = (f.nichos || []).indexOf(k) >= 0;
+        return {
+          nome: N[k].nome, borda: on ? "#E9A13C" : "#2A2521",
+          fundo: on ? "#1E1913" : "transparent", cor: on ? "#E9A13C" : "#8B7B6C",
+          toggle: () => this.setState(s => {
+            const arr = (s.form.nichos || []).slice();
+            const i = arr.indexOf(k); if (i >= 0) arr.splice(i, 1); else arr.push(k);
+            return { form: Object.assign({}, s.form, { nichos: arr }) };
+          })
+        };
+      });
+      vals.formSalvar = () => {
+        const d = this.state.form;
+        if (!d.nome) { this.flash("dê um nome ao item"); return; }
+        const item = Object.assign({}, d, { id: d.id || "a" + Date.now(), qtd: Number(d.qtd) || 1, hex: (d.hex || "#C4B9AB").trim() });
+        ["cor", "tecido", "metragem", "largura", "tamanho", "local"].forEach(k => { if (!item[k]) item[k] = "—"; });
+        this.setState(s => ({
+          acervo: d.id ? s.acervo.map(x => x.id === d.id ? item : x) : s.acervo.concat([item]),
+          tela: "item", itemId: item.id
+        }), () => this.salvar());
+        this.flash("item salvo");
+      };
+      vals.formCancelar = () => this.voltar();
+    }
+
+    const ETAPAS = ["Briefing", "Paleta definida", "Moodboard", "Figurino separado", "Tecidos separados", "Cenário e fundo montados", "Iluminação configurada", "Pós-produção entregue"];
+
+    vals.isSessoes = st.tela === "sessoes" && q.length < 2;
+    vals.isSessao = st.tela === "sessao" && q.length < 2;
+    vals.isModoSessao = st.tela === "modosessao" && q.length < 2;
+    vals.isCompras = st.tela === "compras" && q.length < 2;
+    vals.isClientes = st.tela === "clientes" && q.length < 2;
+
+    if (vals.isSessoes) {
+      vals.listaSessoes = st.sessoes.map(s => {
+        const feitas = (s.etapas || []).filter(Boolean).length;
+        return {
+          titulo: s.cliente || "Sessão sem nome", data: s.data || "sem data",
+          sub: (N[s.nicho] ? N[s.nicho].nome : "—") + " · " + (s.estilo || "estilo a definir"),
+          chips: (s.paleta || []).map(p => p[1]),
+          pct: Math.round(feitas / ETAPAS.length * 100) + "%",
+          etapas: feitas + " de " + ETAPAS.length + " etapas",
+          go: () => this.ir("sessao", { sessaoId: s.id })
+        };
+      });
+      vals.semSessoes = st.sessoes.length === 0;
+      vals.novaSessao = () => {
+        const id = "s" + Date.now();
+        this.setState(s => ({ sessoes: s.sessoes.concat([{ id, cliente: "", data: "", nicho: null, estilo: "", paleta: [], etapas: ETAPAS.map(() => false), valor: "", restricoes: "", notas: "" }]), tela: "sessao", sessaoId: id }), () => this.salvar());
+      };
+    }
+
+    const ses = st.sessoes.filter(s => s.id === st.sessaoId)[0];
+    if ((vals.isSessao || vals.isModoSessao) && ses) {
+      const upd = patch => this.setState(s => ({ sessoes: s.sessoes.map(x => x.id === ses.id ? Object.assign({}, x, patch) : x) }), () => this.salvar());
+      const campo = (rot, key, dica) => ({ rot, val: ses[key] || "", dica, set: e => upd({ [key]: e.target.value }) });
+      vals.sesCampos = [
+        campo("Nome e contato", "cliente", "Ana · 11 9…"), campo("Data e hora", "data", "18/10 · 15h"),
+        campo("Estilo", "estilo", "Editorial"), campo("Valor e pagamento", "valor", "R$ — · pix"),
+        campo("Restrições e preferências", "restricoes", "não gosta de decote"), campo("Observações internas", "notas", "trazer o trench")
+      ];
+      const et = ses.etapas || ETAPAS.map(() => false);
+      vals.sesEtapas = ETAPAS.map((nome, i) => ({
+        nome, marca: et[i] ? "✓" : "",
+        borda: et[i] ? "#E9A13C" : "#2E2823", fundo: et[i] ? "#E9A13C" : "transparent",
+        cor: et[i] ? "#E8DFD4" : "#8B7B6C",
+        toggle: () => { const n2 = et.slice(); n2[i] = !n2[i]; upd({ etapas: n2 }); }
+      }));
+      const feitas = et.filter(Boolean).length;
+      vals.sesPct = Math.round(feitas / ETAPAS.length * 100) + "%";
+      vals.sesPaleta = (ses.paleta || []).map(p => p[1]);
+      vals.sesSlots = ["Referência", "Tecido", "Figurino", "Cenário", "Detalhe", "Iluminação"].map((rot, i) => ({ rot, id: "mood-" + ses.id + "-" + i }));
+      const casa = st.acervo.filter(i => (ses.paleta || []).some(p => this.distHex(i.hex, p[1]) < 70));
+      vals.sesAcervo = casa.slice(0, 8).map(i => ({ nome: i.nome, hex: i.hex, local: i.local, go: () => this.ir("item", { itemId: i.id }) }));
+      vals.sesSemAcervo = casa.length === 0;
+      vals.sesModo = () => this.ir("modosessao");
+      vals.sairModo = () => this.ir("sessao");
+      vals.sesExcluir = () => { this.setState(s => ({ sessoes: s.sessoes.filter(x => x.id !== ses.id), tela: "sessoes" }), () => this.salvar()); this.flash("sessão excluída"); };
+      vals.sesExportar = () => {
+        const nk = ses.nicho && N[ses.nicho];
+        const eObj = nk ? nk.estilos.filter(e => e.nome === ses.estilo)[0] : null;
+        const txt = ["FICHA DE SESSÃO — LUMIAR", "", "Cliente: " + (ses.cliente || "—"), "Data: " + (ses.data || "—"),
+          "Nicho: " + (nk ? nk.nome : "—"), "Estilo: " + (ses.estilo || "—"), "",
+          "PALETA", (ses.paleta || []).map(p => p[1] + "  " + p[0]).join("\n"), "",
+          eObj ? "FIGURINO\n" + eObj.pecas.join("\n") + "\n\nFUNDO\n" + eObj.fundo[1] + "\n\nLUZ\n" + eObj.luz + "\n\nBELEZA\n" + eObj.beleza + "\n\nEVITAR\n" + eObj.evitar : "",
+          "", "CHECKLIST", ETAPAS.map((n2, i) => (et[i] ? "[x] " : "[ ] ") + n2).join("\n"),
+          "", "Restrições: " + (ses.restricoes || "—"), "Notas: " + (ses.notas || "—")].join("\n");
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(new Blob([txt], { type: "text/plain" }));
+        a.download = "sessao-" + (ses.cliente || "lumiar").replace(/\s+/g, "-").toLowerCase() + ".txt";
+        a.click(); URL.revokeObjectURL(a.href);
+        this.flash("ficha exportada");
+      };
+      const nk2 = ses.nicho && N[ses.nicho];
+      const e2 = nk2 ? nk2.estilos.filter(e => e.nome === ses.estilo)[0] : null;
+      vals.modoLinhas = [
+        { rot: "Cliente", val: ses.cliente || "—" },
+        { rot: "Figurino", val: e2 ? e2.pecas[0] : "—" },
+        { rot: "Fundo", val: e2 ? e2.fundo[1] : "—" },
+        { rot: "Luz", val: e2 ? e2.luz : "—" },
+        { rot: "Beleza", val: e2 ? e2.beleza : "—" },
+        { rot: "Evitar", val: e2 ? e2.evitar : "—" }
+      ];
+      vals.sesTitulo = ses.cliente || "Sessão sem nome";
+      vals.sesSub = (nk2 ? nk2.nome : "Sessão") + (ses.estilo ? " · " + ses.estilo : "");
+    }
+
+    if (vals.isCompras) {
+      const prios = [
+        { key: "alta", nome: "Prioridade alta", cor: "#C0504A" },
+        { key: "media", nome: "Prioridade média", cor: "#E9A13C" },
+        { key: "baixa", nome: "Prioridade baixa", cor: "#7E8F6B" }
+      ];
+      vals.comprasGrupos = prios.map(p => {
+        const itens = st.compras.filter(c => c.prio === p.key);
+        return {
+          nome: p.nome, cor: p.cor, n: itens.length + " itens",
+          itens: itens.map(c => ({
+            item: c.item, qtd: c.qtd, esp: c.esp, fim: c.fim, hex: c.hex,
+            comprado: () => { this.setState(s => ({ compras: s.compras.filter(x => x.id !== c.id) }), () => this.salvar()); this.flash("item comprado, saiu da lista"); }
+          }))
+        };
+      }).filter(g => g.itens.length);
+      vals.semCompras = st.compras.length === 0;
+      const texto = "LISTA DE COMPRAS — LUMIAR\n\n" + prios.map(p => {
+        const itens = st.compras.filter(c => c.prio === p.key);
+        return itens.length ? p.nome.toUpperCase() + "\n" + itens.map(c => "· " + c.item + " — " + c.qtd + " — " + c.esp + " — " + c.hex + " — para " + c.fim).join("\n") : "";
+      }).filter(Boolean).join("\n\n");
+      vals.comprasCopiar = () => this.copiar(texto, "lista copiada");
+      vals.comprasBaixar = () => {
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(new Blob([texto], { type: "text/plain" }));
+        a.download = "lista-de-compras.txt"; a.click(); URL.revokeObjectURL(a.href);
+        this.flash("arquivo gerado");
+      };
+      vals.comprasImprimir = () => window.print();
+    }
+
+    if (vals.isClientes) {
+      const updC = (id, patch) => this.setState(s => ({ clientes: s.clientes.map(x => x.id === id ? Object.assign({}, x, patch) : x) }), () => this.salvar());
+      vals.listaClientes = st.clientes.map(c => ({
+        campos: [
+          { rot: "Nome", val: c.nome || "", dica: "Ana Silva", set: e => updC(c.id, { nome: e.target.value }) },
+          { rot: "Contato", val: c.contato || "", dica: "11 9…", set: e => updC(c.id, { contato: e.target.value }) },
+          { rot: "Nicho", val: c.nicho || "", dica: "Gestante", set: e => updC(c.id, { nicho: e.target.value }) },
+          { rot: "Preferências", val: c.pref || "", dica: "elegante, sem decote", set: e => updC(c.id, { pref: e.target.value }) }
+        ],
+        excluir: () => { this.setState(s => ({ clientes: s.clientes.filter(x => x.id !== c.id) }), () => this.salvar()); this.flash("cliente excluída"); }
+      }));
+      vals.semClientes = st.clientes.length === 0;
+      vals.novoCliente = () => this.setState(s => ({ clientes: s.clientes.concat([{ id: "cl" + Date.now(), nome: "", contato: "", nicho: "", pref: "" }]) }), () => this.salvar());
+    }
+
+    vals.isTecidos = st.tela === "tecidos" && q.length < 2;
+    vals.isMetragem = st.tela === "metragem" && q.length < 2;
+    vals.isIdentidade = st.tela === "identidade" && q.length < 2;
+    vals.isImagem = st.tela === "imagem" && q.length < 2;
+    vals.isSelecao = st.tela === "selecao" && q.length < 2;
+
+    if (vals.isTecidos) {
+      vals.listaTecidos = this.TECIDOS.map(t => ({
+        nome: t.nome, metragem: t.metragem,
+        linhas: [
+          { rot: "Peso", val: t.peso }, { rot: "Transparência", val: t.transp },
+          { rot: "Caimento", val: t.caimento }, { rot: "Sob a luz", val: t.luz },
+          { rot: "Aplicação", val: t.uso }
+        ]
+      }));
+    }
+
+    if (vals.isMetragem) {
+      const m = st.metragem || { tipo: "Tecido esvoaçante", altura: 165, volume: 2, camadas: 1, largura: 1.5, cauda: false, margem: true };
+      const setM = patch => this.setState(s => ({ metragem: Object.assign({}, m, patch) }));
+      vals.mtTipos = ["Tecido esvoaçante", "Moulage", "Vestido"].map(t => ({
+        nome: t, borda: m.tipo === t ? "#E9A13C" : "#2A2521",
+        fundo: m.tipo === t ? "#1E1913" : "transparent", cor: m.tipo === t ? "#E9A13C" : "#8B7B6C",
+        go: () => setM({ tipo: t })
+      }));
+      const VOL = ["Baixo", "Médio", "Alto", "Muito alto"];
+      vals.mtCampos = [
+        { rot: "Altura da cliente", val: m.altura, min: 145, max: 195, step: 1, mostra: m.altura + " cm", set: e => setM({ altura: Number(e.target.value) }) },
+        { rot: "Volume desejado", val: m.volume, min: 0, max: 3, step: 1, mostra: VOL[m.volume], set: e => setM({ volume: Number(e.target.value) }) },
+        { rot: "Camadas", val: m.camadas, min: 1, max: 4, step: 1, mostra: m.camadas + (m.camadas > 1 ? " camadas" : " camada"), set: e => setM({ camadas: Number(e.target.value) }) }
+      ];
+      vals.mtLarguras = [1.4, 1.5, 2.8, 3].map(l => ({
+        nome: String(l).replace(".", ",") + " m", borda: m.largura === l ? "#E9A13C" : "#2A2521",
+        fundo: m.largura === l ? "#1E1913" : "transparent", cor: m.largura === l ? "#E9A13C" : "#8B7B6C",
+        go: () => setM({ largura: l })
+      }));
+      vals.mtToggles = [
+        { key: "cauda", nome: "Com cauda" }, { key: "margem", nome: "Margem de 15%" }
+      ].map(t => ({
+        nome: t.nome, borda: m[t.key] ? "#E9A13C" : "#2A2521",
+        fundo: m[t.key] ? "#1E1913" : "transparent", cor: m[t.key] ? "#E9A13C" : "#8B7B6C",
+        go: () => setM({ [t.key]: !m[t.key] })
+      }));
+
+      const fVol = [1, 1.35, 1.8, 2.3][m.volume];
+      let base, conta;
+      if (m.tipo === "Tecido esvoaçante") {
+        base = (m.altura / 100) * 2.2 * fVol;
+        conta = [{ rot: "Altura × 2,2", val: ((m.altura / 100) * 2.2).toFixed(1) + " m" }, { rot: "Fator de volume", val: "× " + fVol }];
+      } else if (m.tipo === "Moulage") {
+        base = (m.altura / 100) * 2.6 * fVol;
+        conta = [{ rot: "Altura × 2,6", val: ((m.altura / 100) * 2.6).toFixed(1) + " m" }, { rot: "Fator de volume", val: "× " + fVol }];
+      } else {
+        base = ((m.altura / 100) + 0.35) * 2 * fVol;
+        conta = [{ rot: "Comprimento + bainha × 2", val: (((m.altura / 100) + 0.35) * 2).toFixed(1) + " m" }, { rot: "Fator de volume", val: "× " + fVol }];
+      }
+      base = base * m.camadas;
+      conta.push({ rot: "Camadas", val: "× " + m.camadas });
+      if (m.cauda) { base += 1.2; conta.push({ rot: "Cauda", val: "+ 1,2 m" }); }
+      if (m.largura < 1.45) { base = base * 1.25; conta.push({ rot: "Tecido estreito", val: "× 1,25" }); }
+      if (m.largura >= 2.8) { base = base * 0.82; conta.push({ rot: "Tecido largo", val: "× 0,82" }); }
+      if (m.margem) { base = base * 1.15; conta.push({ rot: "Margem de segurança", val: "+ 15%" }); }
+      const total = Math.ceil(base * 10) / 10;
+      vals.mtResultado = String(total).replace(".", ",") + " m";
+      vals.mtDetalhe = m.tipo + " · largura " + String(m.largura).replace(".", ",") + " m · " + VOL[m.volume].toLowerCase() + " volume";
+      vals.mtConta = conta.concat([{ rot: "Total arredondado", val: vals.mtResultado }]);
+    }
+
+    const selecao = st.sel.map((c, i) => ({
+      nome: c.nome, hex: c.hex, origem: c.origem,
+      copy: () => this.copiar(c.hex, c.hex + " copiado"),
+      remove: () => this.setState(s => { const n2 = s.sel.slice(); n2.splice(i, 1); return { sel: n2 }; }, () => this.salvar())
+    }));
+
+    if (vals.isSelecao) {
+      vals.selLista = selecao; vals.selVazio = st.sel.length === 0; vals.selTem = st.sel.length > 0;
+      const txt = "PALETA SELECIONADA — LUMIAR\n\n" + st.sel.map(c => c.hex + "   " + c.nome + "   ·   " + c.origem).join("\n");
+      vals.selCopiar = () => this.copiar(txt, "códigos copiados");
+      vals.selBaixar = () => {
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(new Blob([txt], { type: "text/plain" }));
+        a.download = "paleta-selecionada.txt"; a.click(); URL.revokeObjectURL(a.href);
+        this.flash("arquivo gerado");
+      };
+      vals.selIdent = () => this.ir("identidade");
+      vals.selLimpar = () => { this.setState({ sel: [] }, () => this.salvar()); this.flash("seleção limpa"); };
+    }
+
+    if (vals.isIdentidade) {
+      const papeis = ["Primária", "Secundária", "Destaque", "Fundo", "Texto", "Borda"];
+      const ordenada = st.sel.slice().sort((a, b) => {
+        const la = this.hsl(a.hex)[2], lb = this.hsl(b.hex)[2];
+        return la - lb;
+      });
+      const escolha = [];
+      if (ordenada.length) {
+        escolha.push(ordenada[0]);
+        if (ordenada.length > 1) escolha.push(ordenada[ordenada.length - 1]);
+        ordenada.slice(1, -1).forEach(c => escolha.push(c));
+      }
+      vals.idPapeis = escolha.slice(0, 6).map((c, i) => ({
+        papel: papeis[i], nome: c.nome, hex: c.hex,
+        rgb: "RGB " + this.rgb(c.hex).join(" / "),
+        cmyk: "CMYK " + this.cmyk(c.hex).join(" / "),
+        hsl: "HSL " + this.hsl(c.hex).join(" / ")
+      }));
+      vals.idVazio = st.sel.length === 0;
+      const chips = st.sel.map(c => c.hex);
+      vals.idAplicacoes = st.sel.length ? [
+        { nome: "Post de Instagram", chips: chips.slice(0, 4), uso: "Fundo na cor mais clara, texto na mais escura. Destaque só no selo de data." },
+        { nome: "Stories", chips: chips.slice(0, 3), uso: "Fundo sólido, foto em recorte, uma linha de texto na cor de destaque." },
+        { nome: "PDF e proposta", chips: chips.slice(0, 4), uso: "Página clara, títulos na cor primária, filete na cor de borda." },
+        { nome: "Impresso", chips: chips.slice(0, 4), uso: "Converter em CMYK antes de enviar. Tons claros perdem saturação no papel fosco." }
+      ] : [];
+      const txtId = "SISTEMA GRÁFICO — LUMIAR\n\n" + vals.idPapeis.map(p => p.papel.toUpperCase() + "\n" + p.nome + "\n" + p.hex + "\n" + p.rgb + "\n" + p.cmyk + "\n" + p.hsl).join("\n\n") + "\n\nSugestão conceitual. Não substitui a identidade oficial da Lumiar.";
+      vals.idCopiar = () => this.copiar(txtId, "sistema copiado");
+    }
+
+    if (vals.isImagem) {
+      const ex = st.extraidas || [];
+      const papeis2 = ["Dominante", "Secundária", "Apoio", "Contraste", "Destaque"];
+      vals.imgCores = ex.map((hex, i) => {
+        const ativo = st.sel.some(c => c.hex === hex && c.origem === "Referência");
+        return {
+          hex, papel: papeis2[i] || "Apoio", marca: ativo ? "✓" : "+",
+          borda: ativo ? "#E9A13C" : "#1C1916",
+          rgb: "RGB " + this.rgb(hex).join(" / "), cmyk: "CMYK " + this.cmyk(hex).join(" / "),
+          toggle: () => this.setState(s => {
+            const idx = s.sel.findIndex(c => c.hex === hex && c.origem === "Referência");
+            const n2 = s.sel.slice();
+            if (idx >= 0) n2.splice(idx, 1); else n2.push({ nome: papeis2[i] || "Apoio", hex, origem: "Referência" });
+            return { sel: n2 };
+          }, () => this.salvar())
+        };
+      });
+      vals.imgVazio = ex.length === 0; vals.imgTem = ex.length > 0;
+      vals.imgExtrair = () => this.extrair();
+    }
+
+    const titulos = {
+      inicio: ["Estúdio", "Bom dia. O que vamos criar?"],
+      criar: ["Criar", "O que você quer criar?"],
+      paletas: ["Biblioteca", "Paletas por nicho"],
+      acervo: ["Acervo Lumiar", "O que existe no estúdio"],
+      sessoes: ["Operação", "Sessões"],
+      clientes: ["Pessoas", "Clientes"],
+      compras: ["Reposição", "Lista de compras"],
+      tecidos: ["Técnico", "Catálogo de tecidos"],
+      metragem: ["Técnico", "Calculadora de metragem"],
+      identidade: ["Gráfico", "Identidade visual"],
+      imagem: ["Referência", "Paleta a partir de imagem"],
+      selecao: ["Trabalho", "Seleção de cores"]
+    };
+    if (q.length > 1) { vals.eyebrow = "Busca"; vals.title = "Resultados para " + st.busca; }
+    else if (st.tela === "nicho" && nA) { vals.eyebrow = "Nicho"; vals.title = nA.nome; }
+    else if (st.tela === "estilo" && eA) { vals.eyebrow = nA.nome; vals.title = eA.nome; }
+    else if (st.tela === "item" && vals.itTitulo) { vals.eyebrow = vals.itTipo; vals.title = vals.itTitulo; }
+    else if (st.tela === "form") { vals.eyebrow = "Acervo"; vals.title = (st.form && st.form.id) ? "Editar item" : "Cadastrar item"; }
+    else if (st.tela === "sessao" && vals.sesTitulo) { vals.eyebrow = vals.sesSub; vals.title = vals.sesTitulo; }
+    else if (st.tela === "modosessao" && vals.sesTitulo) { vals.eyebrow = "Modo sessão · no set"; vals.title = vals.sesTitulo; }
+    else { const t = titulos[st.tela] || ["Lumiar", "Engine"]; vals.eyebrow = t[0]; vals.title = t[1]; }
+
+    ["nichoDesc", "fundoTexto", "luz", "beleza", "acessorios", "cenario", "evitar"].forEach(k => { if (vals[k] == null) vals[k] = ""; });
+    ["estilos", "paleta", "pecas", "tecidosEstilo", "cruzamento"].forEach(k => { if (!vals[k]) vals[k] = []; });
+    ["nTenho", "nAdapt", "nFalta"].forEach(k => { if (vals[k] == null) vals[k] = 0; });
+    if (!vals.fundoHex) vals.fundoHex = "#1C1A19";
+    ["grupos", "filtrosTipo", "itCampos", "formCampos", "formNichos", "evBase"].forEach(k => { if (!vals[k]) vals[k] = []; });
+    ["novoItem", "itCopiar", "itEditar", "itExcluir", "formSalvar", "formCancelar"].forEach(k => { if (!vals[k]) vals[k] = () => {}; });
+    ["itHex", "evCor"].forEach(k => { if (!vals[k]) vals[k] = "#2A2521"; });
+    ["itSlot", "evNivel", "evCamada", "evTexto", "evAviso"].forEach(k => { if (vals[k] == null) vals[k] = ""; });
+    ["listaSessoes", "sesCampos", "sesEtapas", "sesPaleta", "sesSlots", "sesAcervo", "modoLinhas", "comprasGrupos", "listaClientes"].forEach(k => { if (!vals[k]) vals[k] = []; });
+    ["novaSessao", "sesModo", "sairModo", "sesExcluir", "sesExportar", "comprasCopiar", "comprasBaixar", "comprasImprimir", "novoCliente"].forEach(k => { if (!vals[k]) vals[k] = () => {}; });
+    if (!vals.sesPct) vals.sesPct = "0%";
+    ["listaTecidos", "mtTipos", "mtCampos", "mtLarguras", "mtToggles", "mtConta", "idPapeis", "idAplicacoes", "imgCores", "selLista"].forEach(k => { if (!vals[k]) vals[k] = []; });
+    ["imgExtrair", "idCopiar", "selCopiar", "selBaixar", "selIdent", "selLimpar"].forEach(k => { if (!vals[k]) vals[k] = () => {}; });
+    ["mtResultado", "mtDetalhe"].forEach(k => { if (vals[k] == null) vals[k] = ""; });
+    ["idVazio", "imgVazio", "imgTem", "selVazio", "selTem"].forEach(k => { if (vals[k] == null) vals[k] = false; });
+    ["semSessoes", "sesSemAcervo", "semCompras", "semClientes"].forEach(k => { if (vals[k] == null) vals[k] = false; });
+    ["selectAll", "gerarCompras", "usarNaSessao"].forEach(k => { if (!vals[k]) vals[k] = () => {}; });
+    if (vals.mostraEstoque == null) vals.mostraEstoque = false;
+
+    return vals;
+  }
+}
+
+</script>
+</body>
+</html>

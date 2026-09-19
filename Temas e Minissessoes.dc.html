@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=Montserrat:wght@300;400;500;600&display=swap" />
+<style>
+  html, body { margin:0; padding:0; background:#F7F5F1; }
+  * { box-sizing:border-box; }
+  a { color:#715549; text-decoration:none; }
+  a:hover { color:#352D27; }
+</style>
+</helmet>
+
+<div style="font-family:Montserrat, sans-serif; color:#352D27; background:#F7F5F1; overflow-x:hidden">
+
+  <header style="padding:52px 22px 40px; background:#352D27; color:#EDE4D6; display:flex; flex-direction:column; align-items:center; gap:18px; text-align:center">
+    <img src="assets/lumiar-logo.png" alt="Lumiar Retratos &amp; Estúdio" style="width:146px; height:auto; filter:invert(1) brightness(1.6)" />
+    <p style="font-size:10px; letter-spacing:0.24em; text-transform:uppercase; color:#C8BCAE; margin:0">Guia de estilos e figurinos</p>
+    <h1 style="font-family:'Cormorant Garamond', serif; font-weight:300; font-size:36px; line-height:1.1; margin:0">Temas e <em style="font-style:italic; color:#DBD3C9">minissessões</em></h1>
+    <p style="margin:0; max-width:440px; font-size:13px; line-height:1.75; color:#C8BCAE; font-weight:300">Seis datas do calendário, cada uma com <strong style="font-weight:500; color:#EDE4D6">duas paletas</strong>: uma adulta e uma infantil. A paleta é escolhida a cada ano — o método para trocar sem perder a identidade está no fim do caderno.</p>
+  </header>
+
+  <nav style="position:sticky; top:0; z-index:20; background:#F7F5F1; border-bottom:1px solid #DBD3C9; padding:11px 14px; display:flex; gap:7px; overflow-x:auto">
+    <a href="#natal" style="flex:0 0 auto; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; padding:8px 11px; border:1px solid #DBD3C9; background:#FFFFFF">Natal</a>
+    <a href="#pascoa" style="flex:0 0 auto; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; padding:8px 11px; border:1px solid #DBD3C9; background:#FFFFFF">Páscoa</a>
+    <a href="#maes" style="flex:0 0 auto; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; padding:8px 11px; border:1px solid #DBD3C9; background:#FFFFFF">Dia das Mães</a>
+    <a href="#pais" style="flex:0 0 auto; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; padding:8px 11px; border:1px solid #DBD3C9; background:#FFFFFF">Dia dos Pais</a>
+    <a href="#criancas" style="flex:0 0 auto; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; padding:8px 11px; border:1px solid #DBD3C9; background:#FFFFFF">Dia das Crianças</a>
+    <a href="#verao" style="flex:0 0 auto; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; padding:8px 11px; border:1px solid #DBD3C9; background:#FFFFFF">Verão</a>
+    <a href="#metodo" style="flex:0 0 auto; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; padding:8px 11px; border:1px solid #9A8A7B; background:#EDE4D6">Paleta do ano</a>
+    <a href="#acervo" style="flex:0 0 auto; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; padding:8px 11px; border:1px solid #352D27; background:#352D27; color:#EDE4D6">Acervo</a>
+  </nav>
+
+  <section style="padding:30px 22px; background:#FFFFFF; border-bottom:1px solid #EDE4D6">
+    <p style="font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:#715549; margin:0 0 12px">Como funciona este caderno</p>
+    <div style="display:grid; gap:12px; max-width:560px">
+      <p style="margin:0; font-size:12.5px; line-height:1.8; font-weight:300">Minissessão é <strong style="font-weight:600">sessão curta com cenário fixo</strong>: 20 a 30 minutos, um cenário, um a dois looks. O figurino precisa estar decidido antes do agendamento — não há tempo de resolver no dia.</p>
+      <p style="margin:0; font-size:12.5px; line-height:1.8; font-weight:300">Cada tema tem <strong style="font-weight:600">paleta adulta e paleta infantil</strong>. Elas conversam, mas não são iguais: a infantil é sempre mais lavada e mais clara, para a criança não desaparecer no cenário do adulto.</p>
+      <p style="margin:0; font-size:12.5px; line-height:1.8; font-weight:300">A paleta do tema <strong style="font-weight:600">troca a cada ano</strong> — é o que faz a cliente voltar. O cenário e o acervo de apoio se mantêm; muda a cor.</p>
+      <p style="margin:0; font-size:12.5px; line-height:1.8; font-weight:300">Regra fixa de todos os temas: <strong style="font-weight:600">o cenário entra na paleta do figurino</strong>. Nenhum objeto de cena numa cor que não esteja na prancha.</p>
+    </div>
+  </section>
+
+  <section id="natal" style="padding:40px 22px; background:#F7F5F1; border-bottom:1px solid #EDE4D6">
+    <p style="font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:#715549; margin:0">Tema 01</p>
+    <h2 style="font-family:'Cormorant Garamond', serif; font-weight:300; font-size:31px; margin:5px 0 8px">Natal</h2>
+    <p style="margin:0 0 20px; font-size:12.5px; line-height:1.75; font-weight:300; max-width:520px">O tema mais vendido e o mais fácil de errar: vermelho saturado com verde pinheiro datou. Abaixo, três paletas de Natal que podem ser alternadas ano a ano, todas com leitura de Natal sem a cor de embalagem.</p>
+
+    <div style="display:grid; gap:14px; margin-bottom:18px">
+      <div style="background:#FFFFFF; border:1px solid #E4DDD3; padding:16px">
+        <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 10px">Rota 1 · Natal vinho — adulto</p>
+        <div style="display:flex; gap:1px; background:#DBD3C9">
+          <div style="flex:1; height:48px; background:#6B2230; display:flex; align-items:flex-end; padding:5px"><span style="font-size:7.5px; color:#FFFFFF">VINHO · 6B2230</span></div>
+          <div style="flex:1; height:48px; background:#5F6644; display:flex; align-items:flex-end; padding:5px"><span style="font-size:7.5px; color:#FFFFFF">OLIVA · 5F6644</span></div>
+          <div style="flex:1; height:48px; background:#B18F4E; display:flex; align-items:flex-end; padding:5px"><span style="font-size:7.5px; color:#FFFFFF">DOURADO · B18F4E</span></div>
+          <div style="flex:1; height:48px; background:#EDE4D6; display:flex; align-items:flex-end; padding:5px"><span style="font-size:7.5px; color:#715549">CRU · EDE4D6</span></div>
+        </div>
+        <p style="margin:10px 0 0; font-size:11.5px; line-height:1.7; color:#715549">Combinação: <strong style="font-weight:600">vinho + cru</strong>, dourado só no acessório e no objeto de cena.</p>
+      </div>
+
+      <div style="background:#FFFFFF; border:1px solid #E4DDD3; padding:16px">
+        <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 10px">Rota 1 · Natal vinho — infantil</p>
+        <div style="display:flex; gap:1px; background:#DBD3C9">
+          <div style="flex:1; height:48px; background:#F7F2EC; display:flex; align-items:flex-end; padding:5px"><span style="font-size:7.5px; color:#715549">LEITE · F7F2EC</span></div>
+          <div style="flex:1; height:48px; background:#E4BFB6; display:flex; align-items:flex-end; padding:5px"><span style="font-size:7.5px; color:#6B453C">ROSA ANTIGO · E4BFB6</span></div>
+          <div style="flex:1; height:48px; background:#A9855F; display:flex; align-items:flex-end; padding:5px"><span style="font-size:7.5px; color:#FFFFFF">CAMEL · A9855F</span></div>
+          <div style="flex:1; height:48px; background:#6B6F4A; display:flex; align-items:flex-end; padding:5px"><span style="font-size:7.5px; color:#FFFFFF">MUSGO · 6B6F4A</span></div>
+        </div>
+        <p style="margin:10px 0 0; font-size:11.5px; line-height:1.7; color:#715549">A versão clara da paleta adulta: o vinho vira rosa antigo, o oliva vira musgo.</p>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(270px,1fr)); gap:14px">
+      <article style="background:#FFFFFF; border:1px solid #E4DDD3; padding:18px">
+        <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 2px">Prancha Natal · família</p>
+        <h3 style="font-family:'Cormorant Garamond', serif; font-weight:400; font-size:20px; margin:0 0 16px">Vinho + cru</h3>
+        <div style="display:flex; gap:16px; margin-bottom:16px">
+          <div style="flex:1">
+            <p style="font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:#715549; margin:0 0 8px">Mãe</p>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:3px">
+              <div style="width:80%; height:40px; background:#6B2230; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#FFFFFF">TRICÔ VINHO</span></div>
+              <div style="width:92%; height:86px; background:#EDE4D6; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#715549">SAIA LONGA CRU</span></div>
+              <div style="width:50%; height:14px; background:#4A342A; display:flex; align-items:center; justify-content:center"><span style="font-size:7px; letter-spacing:0.06em; color:#FFFFFF">BOTA CAFÉ</span></div>
+            </div>
+          </div>
+          <div style="flex:1">
+            <p style="font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:#C8BCAE; margin:0 0 8px">Criança</p>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:3px">
+              <div style="width:82%; height:38px; background:#F7F2EC; border:1px solid #DBD3C9; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#715549">CAMISA LEITE</span></div>
+              <div style="width:74%; height:48px; background:#6B6F4A; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#FFFFFF">SHORT MUSGO</span></div>
+              <div style="width:48%; height:14px; background:#A9855F; display:flex; align-items:center; justify-content:center"><span style="font-size:7px; letter-spacing:0.06em; color:#FFFFFF">SAPATO CAMEL</span></div>
+            </div>
+          </div>
+        </div>
+        <ul style="margin:0; padding-left:15px; font-size:12px; line-height:1.85; font-weight:300">
+          <li>Um só vinho no quadro — na mãe. Nos demais, vizinhos claros.</li>
+          <li>Pai: tricô cru e calça oliva ou marrom café.</li>
+          <li>Cena: árvore com luz âmbar, laço de tecido cru, nada metalizado prateado.</li>
+        </ul>
+        <p style="margin:12px 0 0; font-size:11px; line-height:1.7; color:#715549">Cenário: estúdio com árvore e poltrona, ou sala de casa.</p>
+      </article>
+
+      <article style="background:#FFFFFF; border:1px solid #E4DDD3; padding:18px">
+        <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 2px">Alternativas de ano</p>
+        <h3 style="font-family:'Cormorant Garamond', serif; font-weight:400; font-size:20px; margin:0 0 14px">Outras duas rotas de Natal</h3>
+        <div style="display:grid; gap:14px">
+          <div>
+            <p style="font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:#715549; margin:0 0 8px">Rota 2 · Natal claro</p>
+            <div style="display:flex; gap:1px; background:#DBD3C9">
+              <div style="flex:1; height:40px; background:#F7F2EC"></div>
+              <div style="flex:1; height:40px; background:#E4CFA8"></div>
+              <div style="flex:1; height:40px; background:#C4B9AB"></div>
+              <div style="flex:1; height:40px; background:#B18F4E"></div>
+            </div>
+            <p style="margin:8px 0 0; font-size:11.5px; line-height:1.7; color:#715549">Branco-leite, champanhe, areia e dourado velho. Infantil: leite + camel. Leitura de Natal pela luz, não pela cor.</p>
+          </div>
+          <div>
+            <p style="font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:#715549; margin:0 0 8px">Rota 3 · Natal marinho</p>
+            <div style="display:flex; gap:1px; background:#DBD3C9">
+              <div style="flex:1; height:40px; background:#1B2540"></div>
+              <div style="flex:1; height:40px; background:#6B6F4A"></div>
+              <div style="flex:1; height:40px; background:#EDE4D6"></div>
+              <div style="flex:1; height:40px; background:#B18F4E"></div>
+            </div>
+            <p style="margin:8px 0 0; font-size:11.5px; line-height:1.7; color:#715549">Marinho profundo, musgo, cru e dourado. Infantil: cru + azul claro. Boa rota quando o vinho foi usado no ano anterior.</p>
+          </div>
+        </div>
+        <p style="margin:14px 0 0; font-size:11px; line-height:1.7; color:#715549">Usar uma rota por ano e anotar qual foi — a cliente que volta quer foto diferente.</p>
+      </article>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(210px,1fr)); gap:1px; background:#DBD3C9; margin-top:16px">
+      <div style="background:#FFFFFF; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 7px">Tecidos</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300">Tricô, veludo liso, crepe, algodão. Textura de inverno mesmo no calor de dezembro.</p></div>
+      <div style="background:#FFFFFF; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#B0603E; margin:0 0 7px">Evitar</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300">Vermelho saturado, verde pinheiro, xadrez miúdo, pijama de Natal estampado, gorro de Papai Noel, prateado.</p></div>
+      <div style="background:#FFFFFF; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 7px">Cena</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300">Árvore de luz âmbar, caixas embaladas em papel kraft, laços de tecido da paleta.</p></div>
+      <div style="background:#FFFFFF; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 7px">Duração</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300">25 minutos por família, um look. Agenda em blocos no mesmo cenário.</p></div>
+      <div style="background:#FFFFFF; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 7px">Comunicação</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300">Enviar a prancha da rota do ano no agendamento. Sem isso, chega vermelho.</p></div>
+      <div style="background:#352D27; color:#EDE4D6; padding:16px"><p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#C8BCAE; margin:0 0 7px">Acervo usado</p><p style="margin:0; font-size:12px; line-height:1.8; font-weight:300">Tricôs vinho e cru, saia longa cru, camisas leite infantis. Árvore e apoios ficam de um ano para o outro.</p></div>
+    </div>
+  </section>
+
+
+  <section id="pascoa" style="padding:40px 22px; background:#FFFFFF; border-bottom:1px solid #EDE4D6">
+    <p style="font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:#715549; margin:0">Tema 02</p>
+    <h2 style="font-family:'Cormorant Garamond', serif; font-weight:300; font-size:31px; margin:5px 0 8px">Páscoa</h2>
+    <p style="margin:0 0 20px; font-size:12.5px; line-height:1.75; font-weight:300; max-width:520px">Tema de criança pequena. Fica delicado com <strong style="font-weight:600">tons empoados e palha</strong> — e vira festa infantil de supermercado com pastel saturado e orelha de plástico.</p>
+
+    <div style="display:grid; gap:14px; margin-bottom:18px">
+      <div style="background:#F7F5F1; border:1px solid #E4DDD3; padding:16px">
+        <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 10px">Paleta adulta</p>
+        <div style="display:flex; gap:1px; background:#DBD3C9">
+          <div style="flex:1; height:48px; background:#EDE4D6; display:flex; align-items:flex-end; padding:5px"><span style="font-size:7.5px; color:#715549">CRU · EDE4D6</span></div>
+          <div style="flex:1; height:48px; background:#D8B8A8; display:flex; align-items:flex-end; padding:5px"><span style="font-size:7.5px; color:#5A4038">NUDE · D8B8A8</span></div>
+          <div style="flex:1; height:48px; background:#C08B3E; display:flex; align-items:flex-end; padding:5px"><span style="font-size:7.5px; color:#FFFFFF">OCRE · C08B3E</span></div>
+          <div style="flex:1; height:48px; background:#9A8A7B; display:flex; align-items:flex-end; padding:5px"><span style="font-size:7.5px; color:#FFFFFF">TAUPE · 9A8A7B</span></div>
+        </div>
+        <p style="margin:10px 0 0; font-size:11.5px; line-height:1.7; color:#715549">Combinação: <strong style="font-weight:600">cru + ocre</strong>, com palha e madeira na cena.</p>
+      </div>
+      <div style="background:#F7F5F1; border:1px solid #E4DDD3; padding:16px">
+        <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 10px">Paleta infantil</p>
+        <div style="display:flex; gap:1px; background:#DBD3C9">
+          <div style="flex:1; height:48px; background:#F7F2EC; display:flex; align-items:flex-end; padding:5px"><span style="font-size:7.5px; color:#715549">LEITE · F7F2EC</span></div>
+          <div style="flex:1; height:48px; background:#E4BFB6; display:flex; align-items:flex-end; padding:5px"><span style="font-size:7.5px; color:#6B453C">ROSA ANTIGO · E4BFB6</span></div>
+          <div style="flex:1; height:48px; background:#B9A8BE; display:flex; align-items:flex-end; padding:5px"><span style="font-size:7.5px; color:#FFFFFF">LILÁS · B9A8BE</span></div>
+          <div style="flex:1; height:48px; background:#A8BDD1; display:flex; align-items:flex-end; padding:5px"><span style="font-size:7.5px; color:#2C3E4C">AZUL CLARO · A8BDD1</span></div>
+        </div>
+        <p style="margin:10px 0 0; font-size:11.5px; line-height:1.7; color:#715549">Um pastel por criança, nunca os quatro no mesmo quadro.</p>
+      </div>
+    </div>
+
+    <article style="background:#F7F5F1; border:1px solid #E4DDD3; padding:18px">
+      <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 2px">Prancha Páscoa</p>
+      <h3 style="font-family:'Cormorant Garamond', serif; font-weight:400; font-size:20px; margin:0 0 16px">Cru + rosa antigo</h3>
+      <div style="display:flex; gap:16px; margin-bottom:16px; max-width:420px">
+        <div style="flex:1">
+          <p style="font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:#715549; margin:0 0 8px">Criança</p>
+          <div style="display:flex; flex-direction:column; align-items:center; gap:3px">
+            <div style="width:52%; height:16px; background:#EDE4D6; display:flex; align-items:center; justify-content:center"><span style="font-size:7px; letter-spacing:0.06em; color:#715549">LAÇO DE TECIDO</span></div>
+            <div style="width:86%; height:78px; background:#E4BFB6; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#6B453C">VESTIDO ROSA ANTIGO</span></div>
+            <div style="width:62%; height:26px; background:#F7F2EC; border:1px solid #DBD3C9; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#715549">CARDIGÃ LEITE</span></div>
+            <div style="width:48%; height:14px; background:#EDE4D6; display:flex; align-items:center; justify-content:center"><span style="font-size:7px; letter-spacing:0.06em; color:#715549">DESCALÇA</span></div>
+          </div>
+        </div>
+        <div style="flex:1">
+          <p style="font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:#715549; margin:0 0 8px">Mãe no quadro</p>
+          <div style="display:flex; flex-direction:column; align-items:center; gap:3px">
+            <div style="width:94%; height:52px; background:#EDE4D6; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#715549">CAMISA CRU</span></div>
+            <div style="width:88%; height:74px; background:#C08B3E; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#FFFFFF">SAIA OCRE</span></div>
+            <div style="width:50%; height:14px; background:#7A5A44; display:flex; align-items:center; justify-content:center"><span style="font-size:7px; letter-spacing:0.06em; color:#FFFFFF">RASTEIRA DE COURO</span></div>
+          </div>
+        </div>
+      </div>
+      <ul style="margin:0; padding-left:15px; font-size:12px; line-height:1.85; font-weight:300">
+        <li>Cesta de palha, ovos de chocolate em papel kraft, flores secas. Sem plástico.</li>
+        <li>Orelha só se for de tecido da paleta — e em uma foto, não em todas.</li>
+        <li>Coelho de pelúcia cru em vez de fantasia: fica no colo, não na cabeça.</li>
+      </ul>
+      <p style="margin:12px 0 0; font-size:11px; line-height:1.7; color:#715549">Cenário: estúdio claro com palha e madeira, ou grama no fim de tarde. 20 minutos.</p>
+    </article>
+  </section>
+
+  <section id="maes" style="padding:40px 22px; background:#F7F5F1; border-bottom:1px solid #EDE4D6">
+    <p style="font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:#715549; margin:0">Tema 03</p>
+    <h2 style="font-family:'Cormorant Garamond', serif; font-weight:300; font-size:31px; margin:5px 0 8px">Dia das Mães</h2>
+    <p style="margin:0 0 20px; font-size:12.5px; line-height:1.75; font-weight:300; max-width:520px">O produto aqui é o <strong style="font-weight:600">vínculo</strong>, não a roupa. Por isso: mãe e filhos em tom sobre tom claro, nada que marque época, pele e toque em primeiro plano.</p>
+
+    <div style="display:grid; gap:14px; margin-bottom:18px">
+      <div style="background:#FFFFFF; border:1px solid #E4DDD3; padding:16px">
+        <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 10px">Paleta adulta</p>
+        <div style="display:flex; gap:1px; background:#DBD3C9">
+          <div style="flex:1; height:48px; background:#F4F1EC; display:flex; align-items:flex-end; padding:5px"><span style="font-size:7.5px; color:#715549">OFF-WHITE · F4F1EC</span></div>
+          <div style="flex:1; height:48px; background:#D9CDBC; display:flex; align-items:flex-end; padding:5px"><span style="font-size:7.5px; color:#6B5844">AVEIA · D9CDBC</span></div>
+          <div style="flex:1; height:48px; background:#D8B8A8; display:flex; align-items:flex-end; padding:5px"><span style="font-size:7.5px; color:#5A4038">NUDE · D8B8A8</span></div>
+          <div style="flex:1; height:48px; background:#9A8A7B; display:flex; align-items:flex-end; padding:5px"><span style="font-size:7.5px; color:#FFFFFF">TAUPE · 9A8A7B</span></div>
+        </div>
+        <p style="margin:10px 0 0; font-size:11.5px; line-height:1.7; color:#715549">Combinação: <strong style="font-weight:600">off-white + nude</strong> ou <strong style="font-weight:600">aveia + taupe</strong>.</p>
+      </div>
+      <div style="background:#FFFFFF; border:1px solid #E4DDD3; padding:16px">
+        <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 10px">Paleta infantil</p>
+        <div style="display:flex; gap:1px; background:#DBD3C9">
+          <div style="flex:1; height:48px; background:#F7F2EC; display:flex; align-items:flex-end; padding:5px"><span style="font-size:7.5px; color:#715549">LEITE · F7F2EC</span></div>
+          <div style="flex:1; height:48px; background:#EDE4D6; display:flex; align-items:flex-end; padding:5px"><span style="font-size:7.5px; color:#715549">CRU · EDE4D6</span></div>
+          <div style="flex:1; height:48px; background:#E4BFB6; display:flex; align-items:flex-end; padding:5px"><span style="font-size:7.5px; color:#6B453C">ROSA ANTIGO · E4BFB6</span></div>
+          <div style="flex:1; height:48px; background:#C4B9AB; display:flex; align-items:flex-end; padding:5px"><span style="font-size:7.5px; color:#4A3F35">AREIA · C4B9AB</span></div>
+        </div>
+        <p style="margin:10px 0 0; font-size:11.5px; line-height:1.7; color:#715549">Filhos um tom mais claro que a mãe — ela é a âncora escura do quadro.</p>
+      </div>
+    </div>
+
+    <article style="background:#FFFFFF; border:1px solid #E4DDD3; padding:18px">
+      <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 2px">Prancha Dia das Mães</p>
+      <h3 style="font-family:'Cormorant Garamond', serif; font-weight:400; font-size:20px; margin:0 0 16px">Off-white + nude</h3>
+      <div style="display:flex; gap:16px; margin-bottom:16px; max-width:420px">
+        <div style="flex:1">
+          <p style="font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:#715549; margin:0 0 8px">Mãe</p>
+          <div style="display:flex; flex-direction:column; align-items:center; gap:3px">
+            <div style="width:80%; height:38px; background:#D8B8A8; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#5A4038">TRICÔ NUDE</span></div>
+            <div style="width:92%; height:88px; background:#F4F1EC; border:1px solid #DBD3C9; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#715549">SAIA LONGA OFF-WHITE</span></div>
+            <div style="width:50%; height:14px; background:#EDE4D6; display:flex; align-items:center; justify-content:center"><span style="font-size:7px; letter-spacing:0.06em; color:#715549">DESCALÇA</span></div>
+          </div>
+        </div>
+        <div style="flex:1">
+          <p style="font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:#715549; margin:0 0 8px">Filha</p>
+          <div style="display:flex; flex-direction:column; align-items:center; gap:3px">
+            <div style="width:84%; height:76px; background:#F7F2EC; border:1px solid #DBD3C9; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#715549">VESTIDO LEITE</span></div>
+            <div style="width:62%; height:24px; background:#E4BFB6; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#6B453C">CARDIGÃ ROSA</span></div>
+            <div style="width:48%; height:14px; background:#EDE4D6; display:flex; align-items:center; justify-content:center"><span style="font-size:7px; letter-spacing:0.06em; color:#715549">DESCALÇA</span></div>
+          </div>
+        </div>
+      </div>
+      <ul style="margin:0; padding-left:15px; font-size:12px; line-height:1.85; font-weight:300">
+        <li>Sem sapato e sem acessório: mão, colo e testa encostada são o assunto.</li>
+        <li>Filho homem: camiseta cru e bermuda areia — mesma família, peça diferente.</li>
+        <li>Cena: manta de tricô cru, cadeira de madeira, flor de campo em tom da paleta.</li>
+      </ul>
+      <p style="margin:12px 0 0; font-size:11px; line-height:1.7; color:#715549">Cenário: estúdio claro com luz de janela, ou cama branca em casa. 25 minutos.</p>
+    </article>
+  </section>
+
+  <section id="pais" style="padding:40px 22px; background:#FFFFFF; border-bottom:1px solid #EDE4D6">
+    <p style="font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:#715549; margin:0">Tema 04</p>
+    <h2 style="font-family:'Cormorant Garamond', serif; font-weight:300; font-size:31px; margin:5px 0 8px">Dia dos Pais</h2>
+    <p style="margin:0 0 20px; font-size:12.5px; line-height:1.75; font-weight:300; max-width:520px">Homem em ensaio quase sempre está desconfortável — o figurino resolve metade disso. Roupa que ele já usa, cor terrosa, nada de pose de estúdio formal.</p>
+
+    <div style="display:grid; gap:14px; margin-bottom:18px">
+      <div style="background:#F7F5F1; border:1px solid #E4DDD3; padding:16px">
+        <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 10px">Paleta adulta</p>
+        <div style="display:flex; gap:1px; background:#DBD3C9">
+          <div style="flex:1; height:48px; background:#A8BDD1; display:flex; align-items:flex-end; padding:5px"><span style="font-size:7.5px; color:#2C3E4C">AZUL CLARO · A8BDD1</span></div>
+          <div style="flex:1; height:48px; background:#22304A; display:flex; align-items:flex-end; padding:5px"><span style="font-size:7.5px; color:#FFFFFF">MARINHO · 22304A</span></div>
+          <div style="flex:1; height:48px; background:#4A342A; display:flex; align-items:flex-end; padding:5px"><span style="font-size:7.5px; color:#FFFFFF">CAFÉ · 4A342A</span></div>
+          <div style="flex:1; height:48px; background:#EDE4D6; display:flex; align-items:flex-end; padding:5px"><span style="font-size:7.5px; color:#715549">CRU · EDE4D6</span></div>
+        </div>
+        <p style="margin:10px 0 0; font-size:11.5px; line-height:1.7; color:#715549">Combinação: <strong style="font-weight:600">marinho + marrom café</strong> ou <strong style="font-weight:600">azul claro + cru</strong>.</p>
+      </div>
+      <div style="background:#F7F5F1; border:1px solid #E4DDD3; padding:16px">
+        <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 10px">Paleta infantil</p>
+        <div style="display:flex; gap:1px; background:#DBD3C9">
+          <div style="flex:1; height:48px; background:#EDE4D6; display:flex; align-items:flex-end; padding:5px"><span style="font-size:7.5px; color:#715549">CRU · EDE4D6</span></div>
+          <div style="flex:1; height:48px; background:#A8BDD1; display:flex; align-items:flex-end; padding:5px"><span style="font-size:7.5px; color:#2C3E4C">AZUL CLARO · A8BDD1</span></div>
+          <div style="flex:1; height:48px; background:#C4B9AB; display:flex; align-items:flex-end; padding:5px"><span style="font-size:7.5px; color:#4A3F35">AREIA · C4B9AB</span></div>
+          <div style="flex:1; height:48px; background:#9A8A7B; display:flex; align-items:flex-end; padding:5px"><span style="font-size:7.5px; color:#FFFFFF">TAUPE · 9A8A7B</span></div>
+        </div>
+        <p style="margin:10px 0 0; font-size:11.5px; line-height:1.7; color:#715549">Filho na versão clara do look do pai — a repetição da cor é o assunto da foto.</p>
+      </div>
+    </div>
+
+    <article style="background:#F7F5F1; border:1px solid #E4DDD3; padding:18px">
+      <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 2px">Prancha Dia dos Pais</p>
+      <h3 style="font-family:'Cormorant Garamond', serif; font-weight:400; font-size:20px; margin:0 0 16px">Azul claro + cru</h3>
+      <div style="display:flex; gap:16px; margin-bottom:16px; max-width:420px">
+        <div style="flex:1">
+          <p style="font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:#715549; margin:0 0 8px">Pai</p>
+          <div style="display:flex; flex-direction:column; align-items:center; gap:3px">
+            <div style="width:94%; height:54px; background:#A8BDD1; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#2C3E4C">CAMISA AZUL CLARO</span></div>
+            <div style="width:88%; height:74px; background:#4A342A; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#FFFFFF">CALÇA CAFÉ</span></div>
+            <div style="width:50%; height:14px; background:#7A5A44; display:flex; align-items:center; justify-content:center"><span style="font-size:7px; letter-spacing:0.06em; color:#FFFFFF">BOTA DE COURO</span></div>
+          </div>
+        </div>
+        <div style="flex:1">
+          <p style="font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:#C8BCAE; margin:0 0 8px">Filho</p>
+          <div style="display:flex; flex-direction:column; align-items:center; gap:3px">
+            <div style="width:88%; height:48px; background:#EDE4D6; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#715549">CAMISA CRU</span></div>
+            <div style="width:76%; height:46px; background:#A8BDD1; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#2C3E4C">BERMUDA AZUL CLARO</span></div>
+            <div style="width:48%; height:14px; background:#7A5A44; display:flex; align-items:center; justify-content:center"><span style="font-size:7px; letter-spacing:0.06em; color:#FFFFFF">SAPATO DE COURO</span></div>
+          </div>
+        </div>
+      </div>
+      <ul style="margin:0; padding-left:15px; font-size:12px; line-height:1.85; font-weight:300">
+        <li>Manga dobrada até o cotovelo e camisa por dentro: resolve a postura dele.</li>
+        <li>Nada de gravata nem terno — não é retrato corporativo.</li>
+        <li>Cena de ação: ele levantando a criança, ombro, mão dada. Foto parada não funciona aqui.</li>
+      </ul>
+      <p style="margin:12px 0 0; font-size:11px; line-height:1.7; color:#715549">Cenário: externa de fim de tarde ou estúdio neutro escuro. 20 minutos.</p>
+    </article>
+  </section>
+
+  <section id="criancas" style="padding:40px 22px; background:#F7F5F1; border-bottom:1px solid #EDE4D6">
+    <p style="font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:#715549; margin:0">Tema 05</p>
+    <h2 style="font-family:'Cormorant Garamond', serif; font-weight:300; font-size:31px; margin:5px 0 8px">Dia das Crianças</h2>
+    <p style="margin:0 0 20px; font-size:12.5px; line-height:1.75; font-weight:300; max-width:520px">Único tema do caderno onde cabe <strong style="font-weight:600">uma cor mais viva</strong> — mas ainda lavada, e só uma. O resto do quadro é neutro para a cor não dominar.</p>
+
+    <div style="display:grid; gap:14px; margin-bottom:18px">
+      <div style="background:#FFFFFF; border:1px solid #E4DDD3; padding:16px">
+        <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 10px">Paleta infantil (principal)</p>
+        <div style="display:flex; gap:1px; background:#DBD3C9">
+          <div style="flex:1; height:48px; background:#C08B3E; display:flex; align-items:flex-end; padding:5px"><span style="font-size:7.5px; color:#FFFFFF">OCRE · C08B3E</span></div>
+          <div style="flex:1; height:48px; background:#B0603E; display:flex; align-items:flex-end; padding:5px"><span style="font-size:7.5px; color:#FFFFFF">TERRACOTA · B0603E</span></div>
+          <div style="flex:1; height:48px; background:#6B6F4A; display:flex; align-items:flex-end; padding:5px"><span style="font-size:7.5px; color:#FFFFFF">MUSGO · 6B6F4A</span></div>
+          <div style="flex:1; height:48px; background:#F4F1EC; display:flex; align-items:flex-end; padding:5px"><span style="font-size:7.5px; color:#715549">OFF-WHITE · F4F1EC</span></div>
+        </div>
+        <p style="margin:10px 0 0; font-size:11.5px; line-height:1.7; color:#715549">Uma cor viva por criança: ocre <strong style="font-weight:600">ou</strong> terracota <strong style="font-weight:600">ou</strong> musgo — nunca duas.</p>
+      </div>
+      <div style="background:#FFFFFF; border:1px solid #E4DDD3; padding:16px">
+        <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 10px">Paleta dos adultos no quadro</p>
+        <div style="display:flex; gap:1px; background:#DBD3C9">
+          <div style="flex:1; height:48px; background:#EDE4D6; display:flex; align-items:flex-end; padding:5px"><span style="font-size:7.5px; color:#715549">CRU · EDE4D6</span></div>
+          <div style="flex:1; height:48px; background:#9A8A7B; display:flex; align-items:flex-end; padding:5px"><span style="font-size:7.5px; color:#FFFFFF">TAUPE · 9A8A7B</span></div>
+          <div style="flex:1; height:48px; background:#4A342A; display:flex; align-items:flex-end; padding:5px"><span style="font-size:7.5px; color:#FFFFFF">CAFÉ · 4A342A</span></div>
+          <div style="flex:1; height:48px; background:#6E6F71; display:flex; align-items:flex-end; padding:5px"><span style="font-size:7.5px; color:#FFFFFF">CHUMBO · 6E6F71</span></div>
+        </div>
+        <p style="margin:10px 0 0; font-size:11.5px; line-height:1.7; color:#715549">Adulto sempre neutro e mais escuro: a criança é o ponto de cor.</p>
+      </div>
+    </div>
+
+    <article style="background:#FFFFFF; border:1px solid #E4DDD3; padding:18px">
+      <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 2px">Prancha Dia das Crianças</p>
+      <h3 style="font-family:'Cormorant Garamond', serif; font-weight:400; font-size:20px; margin:0 0 16px">Ocre + off-white</h3>
+      <div style="display:flex; gap:16px; margin-bottom:16px; max-width:420px">
+        <div style="flex:1">
+          <p style="font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:#715549; margin:0 0 8px">Criança</p>
+          <div style="display:flex; flex-direction:column; align-items:center; gap:3px">
+            <div style="width:90%; height:52px; background:#C08B3E; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#FFFFFF">CAMISETA OCRE</span></div>
+            <div style="width:78%; height:50px; background:#F4F1EC; border:1px solid #DBD3C9; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#715549">BERMUDA OFF-WHITE</span></div>
+            <div style="width:48%; height:14px; background:#F4F1EC; border:1px solid #DBD3C9; display:flex; align-items:center; justify-content:center"><span style="font-size:7px; letter-spacing:0.06em; color:#715549">TÊNIS LISO</span></div>
+          </div>
+        </div>
+        <div style="flex:1">
+          <p style="font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:#715549; margin:0 0 8px">Irmão</p>
+          <div style="display:flex; flex-direction:column; align-items:center; gap:3px">
+            <div style="width:90%; height:52px; background:#F4F1EC; border:1px solid #DBD3C9; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#715549">CAMISETA OFF-WHITE</span></div>
+            <div style="width:78%; height:50px; background:#6B6F4A; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#FFFFFF">BERMUDA MUSGO</span></div>
+            <div style="width:48%; height:14px; background:#F4F1EC; border:1px solid #DBD3C9; display:flex; align-items:center; justify-content:center"><span style="font-size:7px; letter-spacing:0.06em; color:#715549">TÊNIS LISO</span></div>
+          </div>
+        </div>
+      </div>
+      <ul style="margin:0; padding-left:15px; font-size:12px; line-height:1.85; font-weight:300">
+        <li>Irmãos com a cor trocada de lugar: um a tem em cima, o outro embaixo.</li>
+        <li>Brinquedo de madeira, bola de couro, pipa de papel kraft — nada de plástico colorido.</li>
+        <li>Sessão de movimento: correr e pular. Roupa larga o suficiente para isso.</li>
+      </ul>
+      <p style="margin:12px 0 0; font-size:11px; line-height:1.7; color:#715549">Cenário: parque, quintal ou estúdio com fundo cru. 20 minutos.</p>
+    </article>
+  </section>
+
+  <section id="verao" style="padding:40px 22px; background:#FFFFFF; border-bottom:1px solid #EDE4D6">
+    <p style="font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:#715549; margin:0">Tema 06</p>
+    <h2 style="font-family:'Cormorant Garamond', serif; font-weight:300; font-size:31px; margin:5px 0 8px">Verão</h2>
+    <p style="margin:0 0 20px; font-size:12.5px; line-height:1.75; font-weight:300; max-width:520px">Sessão de luz forte: a roupa tem que ser clara para refletir luz no rosto. Linho, algodão, palha. Vale para família, casal e criança.</p>
+
+    <div style="display:grid; gap:14px; margin-bottom:18px">
+      <div style="background:#F7F5F1; border:1px solid #E4DDD3; padding:16px">
+        <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 10px">Paleta adulta</p>
+        <div style="display:flex; gap:1px; background:#DBD3C9">
+          <div style="flex:1; height:48px; background:#F7F2EC; display:flex; align-items:flex-end; padding:5px"><span style="font-size:7.5px; color:#715549">LEITE · F7F2EC</span></div>
+          <div style="flex:1; height:48px; background:#EDE4D6; display:flex; align-items:flex-end; padding:5px"><span style="font-size:7.5px; color:#715549">CRU · EDE4D6</span></div>
+          <div style="flex:1; height:48px; background:#C4B9AB; display:flex; align-items:flex-end; padding:5px"><span style="font-size:7.5px; color:#4A3F35">AREIA · C4B9AB</span></div>
+          <div style="flex:1; height:48px; background:#A8BDD1; display:flex; align-items:flex-end; padding:5px"><span style="font-size:7.5px; color:#2C3E4C">AZUL CLARO · A8BDD1</span></div>
+        </div>
+        <p style="margin:10px 0 0; font-size:11.5px; line-height:1.7; color:#715549">Combinação: <strong style="font-weight:600">cru + areia</strong> ou <strong style="font-weight:600">leite + azul claro</strong>.</p>
+      </div>
+      <div style="background:#F7F5F1; border:1px solid #E4DDD3; padding:16px">
+        <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 10px">Paleta infantil</p>
+        <div style="display:flex; gap:1px; background:#DBD3C9">
+          <div style="flex:1; height:48px; background:#F7F2EC; display:flex; align-items:flex-end; padding:5px"><span style="font-size:7.5px; color:#715549">LEITE · F7F2EC</span></div>
+          <div style="flex:1; height:48px; background:#A8BDD1; display:flex; align-items:flex-end; padding:5px"><span style="font-size:7.5px; color:#2C3E4C">AZUL CLARO · A8BDD1</span></div>
+          <div style="flex:1; height:48px; background:#D8B8A8; display:flex; align-items:flex-end; padding:5px"><span style="font-size:7.5px; color:#5A4038">NUDE · D8B8A8</span></div>
+          <div style="flex:1; height:48px; background:#C08B3E; display:flex; align-items:flex-end; padding:5px"><span style="font-size:7.5px; color:#FFFFFF">OCRE · C08B3E</span></div>
+        </div>
+        <p style="margin:10px 0 0; font-size:11.5px; line-height:1.7; color:#715549">Ocre entra só como acento — chapéu, short ou laço.</p>
+      </div>
+    </div>
+
+    <article style="background:#F7F5F1; border:1px solid #E4DDD3; padding:18px">
+      <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0 0 2px">Prancha Verão</p>
+      <h3 style="font-family:'Cormorant Garamond', serif; font-weight:400; font-size:20px; margin:0 0 16px">Cru + areia</h3>
+      <div style="display:flex; gap:16px; margin-bottom:16px; max-width:420px">
+        <div style="flex:1">
+          <p style="font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:#715549; margin:0 0 8px">Mãe</p>
+          <div style="display:flex; flex-direction:column; align-items:center; gap:3px">
+            <div style="width:60%; height:18px; background:#C08B3E; display:flex; align-items:center; justify-content:center"><span style="font-size:7px; letter-spacing:0.06em; color:#FFFFFF">CHAPÉU DE PALHA</span></div>
+            <div style="width:90%; height:100px; background:#EDE4D6; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#715549">VESTIDO DE LINHO CRU</span></div>
+            <div style="width:50%; height:14px; background:#EDE4D6; display:flex; align-items:center; justify-content:center"><span style="font-size:7px; letter-spacing:0.06em; color:#715549">DESCALÇA</span></div>
+          </div>
+        </div>
+        <div style="flex:1">
+          <p style="font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:#715549; margin:0 0 8px">Criança</p>
+          <div style="display:flex; flex-direction:column; align-items:center; gap:3px">
+            <div style="width:86%; height:46px; background:#F7F2EC; border:1px solid #DBD3C9; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#715549">CAMISETA LEITE</span></div>
+            <div style="width:74%; height:44px; background:#C4B9AB; display:flex; align-items:center; justify-content:center"><span style="font-size:7.5px; letter-spacing:0.08em; color:#4A3F35">SHORT AREIA</span></div>
+            <div style="width:48%; height:14px; background:#EDE4D6; display:flex; align-items:center; justify-content:center"><span style="font-size:7px; letter-spacing:0.06em; color:#715549">DESCALÇA</span></div>
+          </div>
+        </div>
+      </div>
+      <ul style="margin:0; padding-left:15px; font-size:12px; line-height:1.85; font-weight:300">
+        <li>Sem estampa tropical: folhagem e fruta estampada datam a foto na hora.</li>
+        <li>Linho amassa — fotografar nos primeiros 20 minutos do look.</li>
+        <li>Horário: primeira hora da manhã ou última da tarde. Meio-dia queima a pele.</li>
+      </ul>
+      <p style="margin:12px 0 0; font-size:11px; line-height:1.7; color:#715549">Cenário: praia, piscina, quintal com árvore. 25 minutos.</p>
+    </article>
+  </section>
+
+  <section id="metodo" style="padding:40px 22px; background:#EDE4D6; border-bottom:1px solid #DBD3C9">
+    <p style="font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:#715549; margin:0">Módulo técnico</p>
+    <h2 style="font-family:'Cormorant Garamond', serif; font-weight:300; font-size:31px; margin:5px 0 8px">Montar a paleta do ano</h2>
+    <p style="margin:0 0 22px; font-size:12.5px; line-height:1.75; font-weight:300; max-width:520px">A cor muda, o método não. Seis passos para fechar a paleta de um tema sem inventar do zero e sem repetir o ano anterior.</p>
+
+    <div style="display:grid; gap:12px">
+      <div style="background:#F7F5F1; padding:16px; display:flex; gap:14px; align-items:flex-start">
+        <span style="font-family:'Cormorant Garamond', serif; font-size:28px; line-height:0.9; color:#C4B9AB">1</span>
+        <p style="margin:0; font-size:12.5px; line-height:1.8; font-weight:300"><strong style="font-weight:600">Escolher a cor-âncora</strong> dentro da família do tema: Natal em vinho, marinho ou champanhe; Páscoa em ocre ou nude; verão em cru. Uma só, e nunca a do ano passado.</p>
+      </div>
+      <div style="background:#F7F5F1; padding:16px; display:flex; gap:14px; align-items:flex-start">
+        <span style="font-family:'Cormorant Garamond', serif; font-size:28px; line-height:0.9; color:#C4B9AB">2</span>
+        <p style="margin:0; font-size:12.5px; line-height:1.8; font-weight:300"><strong style="font-weight:600">Achar o neutro de apoio</strong> na mesma temperatura: cru e areia para âncora quente; off-white e cinza-pérola para âncora fria. É a cor que veste a maior parte das pessoas do quadro.</p>
+      </div>
+      <div style="background:#F7F5F1; padding:16px; display:flex; gap:14px; align-items:flex-start">
+        <span style="font-family:'Cormorant Garamond', serif; font-size:28px; line-height:0.9; color:#C4B9AB">3</span>
+        <p style="margin:0; font-size:12.5px; line-height:1.8; font-weight:300"><strong style="font-weight:600">Definir um acento em dose pequena</strong> — dourado velho, camel, couro. Entra em sapato, cinto ou objeto de cena. Nunca em peça grande.</p>
+      </div>
+      <div style="background:#F7F5F1; padding:16px; display:flex; gap:14px; align-items:flex-start">
+        <span style="font-family:'Cormorant Garamond', serif; font-size:28px; line-height:0.9; color:#C4B9AB">4</span>
+        <p style="margin:0; font-size:12.5px; line-height:1.8; font-weight:300"><strong style="font-weight:600">Derivar a paleta infantil</strong>: a âncora vira sua versão lavada (vinho → rosa antigo, marinho → azul claro, café → camel), o neutro continua o mesmo. Nunca vestir criança na âncora escura.</p>
+      </div>
+      <div style="background:#F7F5F1; padding:16px; display:flex; gap:14px; align-items:flex-start">
+        <span style="font-family:'Cormorant Garamond', serif; font-size:28px; line-height:0.9; color:#C4B9AB">5</span>
+        <p style="margin:0; font-size:12.5px; line-height:1.8; font-weight:300"><strong style="font-weight:600">Passar o cenário para a paleta</strong>: laço, papel, flor, bolo e fundo em uma das quatro cores. Qualquer objeto fora dela sai do set.</p>
+      </div>
+      <div style="background:#F7F5F1; padding:16px; display:flex; gap:14px; align-items:flex-start">
+        <span style="font-family:'Cormorant Garamond', serif; font-size:28px; line-height:0.9; color:#C4B9AB">6</span>
+        <p style="margin:0; font-size:12.5px; line-height:1.8; font-weight:300"><strong style="font-weight:600">Registrar o ano</strong> — tema, rota usada, os quatro códigos de cor e as peças de acervo. É o que impede repetir a mesma paleta para a mesma cliente.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:14px; background:#352D27; color:#EDE4D6; padding:18px">
+      <p style="font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:#C8BCAE; margin:0 0 8px">Registro por ano</p>
+      <p style="margin:0; font-size:12.5px; line-height:1.85; font-weight:300">Uma linha por minissessão: <strong style="font-weight:600">tema · ano · cor-âncora · neutro · acento · paleta infantil · peças usadas</strong>. Guardado, esse registro vira o histórico do estúdio — e responde na hora o que já foi feito com cada família.</p>
+    </div>
+  </section>
+
+  <section id="acervo" style="padding:40px 22px; background:#FFFFFF; border-bottom:1px solid #EDE4D6">
+    <p style="font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:#715549; margin:0">Módulo de compra</p>
+    <h2 style="font-family:'Cormorant Garamond', serif; font-weight:300; font-size:31px; margin:5px 0 8px">Acervo de minissessões</h2>
+    <p style="margin:0 0 22px; font-size:12.5px; line-height:1.75; font-weight:300; max-width:520px">Nas minissessões a cliente costuma vestir o próprio guarda-roupa — o estúdio entra com <strong style="font-weight:600">cenário e peças de apoio</strong>. É aqui que o dinheiro deve ir.</p>
+
+    <div style="display:grid; gap:12px">
+      <div style="border:1px solid #E4DDD3; padding:18px">
+        <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:12px">
+          <span style="font-family:'Cormorant Garamond', serif; font-size:30px; line-height:0.9; color:#DBD3C9">1</span>
+          <div>
+            <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0">Cenário permanente</p>
+            <p style="margin:2px 0 0; font-size:12px; line-height:1.6; color:#715549">Compra uma vez, serve todos os anos: só a cor dos têxteis muda.</p>
+          </div>
+        </div>
+        <ul style="margin:0; padding-left:16px; font-size:12.5px; line-height:1.95; font-weight:300">
+          <li>Árvore de Natal neutra + cordão de luz âmbar.</li>
+          <li>Cadeira e banqueta de madeira crua, mesa baixa, tapete cru.</li>
+          <li>Cestos de vime e palha em dois tamanhos.</li>
+          <li>Fundos de tecido: <strong style="font-weight:600">cru</strong>, <strong style="font-weight:600">areia</strong> e <strong style="font-weight:600">chumbo</strong>.</li>
+        </ul>
+      </div>
+
+      <div style="border:1px solid #E4DDD3; padding:18px">
+        <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:12px">
+          <span style="font-family:'Cormorant Garamond', serif; font-size:30px; line-height:0.9; color:#DBD3C9">2</span>
+          <div>
+            <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0">Têxteis da paleta do ano</p>
+            <p style="margin:2px 0 0; font-size:12px; line-height:1.6; color:#715549">A única compra recorrente. Baixo custo, alto efeito.</p>
+          </div>
+        </div>
+        <ul style="margin:0; padding-left:16px; font-size:12.5px; line-height:1.95; font-weight:300">
+          <li>Laços e fitas de tecido na cor-âncora e no neutro do ano.</li>
+          <li>Mantas de tricô e xales na paleta infantil do ano.</li>
+          <li>Papel kraft, caixas e embalagens sem estampa.</li>
+          <li>Flores secas e ramos na cor do ano.</li>
+        </ul>
+      </div>
+
+      <div style="border:1px solid #E4DDD3; padding:18px">
+        <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:12px">
+          <span style="font-family:'Cormorant Garamond', serif; font-size:30px; line-height:0.9; color:#DBD3C9">3</span>
+          <div>
+            <p style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:#715549; margin:0">Peças de figurino de apoio</p>
+            <p style="margin:2px 0 0; font-size:12px; line-height:1.6; color:#715549">Para quando a cliente chega fora da paleta — e sempre chega alguém.</p>
+          </div>
+        </div>
+        <ul style="margin:0; padding-left:16px; font-size:12.5px; line-height:1.95; font-weight:300">
+          <li>Tricôs lisos <strong style="font-weight:600">cru</strong>, <strong style="font-weight:600">vinho</strong> e <strong style="font-weight:600">marinho</strong>, P ao GG, feminino e masculino.</li>
+          <li>Camisas de linho misto <strong style="font-weight:600">cru</strong> e <strong style="font-weight:600">azul claro</strong>, adulto e infantil.</li>
+          <li>Cardigãs infantis <strong style="font-weight:600">off-white</strong> nas cinco faixas de tamanho.</li>
+          <li>Chapéu de palha adulto e infantil, laços finos de tecido.</li>
+        </ul>
+      </div>
+
+      <div style="background:#EDE4D6; padding:18px; border-left:2px solid #9A8A7B">
+        <p style="font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:#715549; margin:0 0 8px">Aproveitamento entre nichos</p>
+        <p style="margin:0; font-size:12.5px; line-height:1.85; font-weight:300">Tricôs, camisas de linho e cardigãs infantis vêm dos cadernos <strong style="font-weight:600">família</strong> e <strong style="font-weight:600">infantil</strong>. Mantas, cestos e brinquedos de madeira são os mesmos do <strong style="font-weight:600">newborn</strong>. A saia de tule rosa antigo serve Páscoa, smash the cake e o romântico do <strong style="font-weight:600">gestante</strong>. Só os têxteis da cor do ano são compra nova.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer style="padding:40px 22px 48px; background:#352D27; color:#C8BCAE; text-align:center; display:flex; flex-direction:column; align-items:center; gap:14px">
+    <a href="Guia Lumiar.dc.html" style="font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:#EDE4D6; border:1px solid #715549; padding:10px 16px">← Voltar ao mapa de nichos</a>
+    <p style="margin:0; max-width:420px; font-size:12.5px; line-height:1.8; font-weight:300">Caderno de Temas e minissessões — Natal, Páscoa, Dia das Mães, Dia dos Pais, Dia das Crianças e verão.</p>
+    <p style="margin:0; font-family:'Cormorant Garamond', serif; font-size:19px; font-style:italic; color:#EDE4D6">Lumiar Retratos &amp; Estúdio</p>
+  </footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    const HEX = /(?:^|[\s·#(])([0-9A-Fa-f]{6})(?![0-9A-Za-z])/;
+    const root = document.querySelector('x-dc') || document.body;
+    root.querySelectorAll('span, p, div, li, strong').forEach(el => {
+      let own = '';
+      el.childNodes.forEach(n => { if (n.nodeType === 3) own += n.nodeValue; });
+      const m = own.match(HEX);
+      if (!m) return;
+      const hex = '#' + m[1].toUpperCase();
+      el.setAttribute('data-hex', hex);
+      el.style.cursor = 'pointer';
+      el.title = 'Clique para copiar ' + hex;
+    });
+    this._onClick = (e) => {
+      const el = e.target.closest('[data-hex]');
+      if (!el) return;
+      const hex = el.getAttribute('data-hex');
+      const done = () => this.toast(hex + ' copiado');
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(hex).then(done, () => this.fallback(hex, done));
+      } else this.fallback(hex, done);
+    };
+    root.addEventListener('click', this._onClick);
+  }
+  componentWillUnmount() {
+    const root = document.querySelector('x-dc') || document.body;
+    if (this._onClick) root.removeEventListener('click', this._onClick);
+    if (this._toastEl) this._toastEl.remove();
+  }
+  fallback(hex, done) {
+    const ta = document.createElement('textarea');
+    ta.value = hex; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); } catch (err) {}
+    ta.remove(); done();
+  }
+  toast(msg) {
+    if (!this._toastEl) {
+      const t = document.createElement('div');
+      t.style.cssText = 'position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#352D27;color:#F7F2EC;font:500 11px/1 Montserrat,sans-serif;letter-spacing:0.14em;text-transform:uppercase;padding:12px 18px;z-index:9999;opacity:0;transition:opacity .18s;pointer-events:none';
+      document.body.appendChild(t);
+      this._toastEl = t;
+    }
+    this._toastEl.textContent = msg;
+    this._toastEl.style.opacity = '1';
+    clearTimeout(this._toastTimer);
+    this._toastTimer = setTimeout(() => { this._toastEl.style.opacity = '0'; }, 1400);
+  }
+}
+</script>
+</body>
+</html>
